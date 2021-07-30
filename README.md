@@ -14,4 +14,12 @@
 
 <br>
 
+# *Credits:-*
+>| Developer: [Sancho Godinho](https://github.com/sancho1952007)  
+>| Cursor/Icon: [icons8](https://icons8.com)
+>| Background Images: [unsplash](https://unsplash.com/)
+>| Alerts: [SweetAlert](https://sweetalert.js.org/)
+
+<br>
+
 # *Thank You :)*
