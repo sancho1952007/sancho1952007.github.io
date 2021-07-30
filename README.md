@@ -15,10 +15,11 @@
 <br>
 
 # *Credits:-*
->| Developer: [Sancho Godinho](https://github.com/sancho1952007)  
->| Cursor/Icon: [icons8](https://icons8.com)  
->| Background Images: [unsplash](https://unsplash.com/)  
->| Alerts: [SweetAlert](https://sweetalert.js.org/)
+>| Developer:         [Sancho Godinho](https://github.com/sancho1952007).  
+>| Cursor and Icon:   [icons8](https://icons8.com).  
+>| Background Images: [unsplash](https://unsplash.com/).  
+>| Welcome GIF:       [tenor](https://tenor.com/).  
+>| Alerts:            [SweetAlert](https://sweetalert.js.org/).  
 
 <br>
 
