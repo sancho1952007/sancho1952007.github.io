@@ -1,245 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="shortcut icon" href="images/profile.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Sancho Godinho</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="https://www.gravatar.com/avatar/847f8b56766426779ae8864f47a29359?size=200"
+        type="image/x-icon">
 </head>
-<body onselectstart="return false" onmousedown="return false">
-    <center><img src='images/profile.png' id='me' draggable="false"></center>
-    <center><h1 id='name'>Sancho Godinho</h1></center>
-    <center><button id='follow' onclick='follow()'></button></center>
-    <br><br><br>
-    <center>
-        <h2 style="color: white;">About Me</h2>
-        <div id='projects' style="cursor: url('images/cursor.png'), default;">
-            <div id='eye-apple'>
-                <p id='about'>I Am A Boy From India Who Likes Coding.<br><br>I Make Awesome Projects Too!<br><br>I Own A <a target='_blank' href='https://www.youtube.com/channel/UCA_3t4pPc9GRIFiP86kRD2Q'>Youtube Channel</a>,<br>A <a target='_blank' href='https://github.com/sancho1952007'>Github Account</a>,<br>A <a target='_blank' href='https://www.sololearn.com/profile/19684449'>Sololearn Account</a>,<br>and A <a target='_blank' href='https://scratch.mit.edu/users/scratch1952007/'>Scratch Account</a>.<br>You Can Follow or Subscribe Me On These Sites!</p>
-            </div>
-        </div>
-        <br><br><br><br><br>
-        <h2 style="color: white;">My Top Projects</h2>
 
-        <div id="projects">
-            <div class="open" onclick="window.open('https://github.com/sancho1952007/iPhone-11-Clone', '_blank')">
-                <img id="top" src="https://i.ibb.co/fxRWxzq/i-Phone-Preview.png" width="99%">
-                <h3 class="link">iPhone 11 Clone In Pure CSS</h3>
-            </div>
-        </div>
+<body>
+    <img src="https://www.gravatar.com/avatar/847f8b56766426779ae8864f47a29359?size=200" class="profile-pic">
+    <h1 class="name">Sancho Godinho</h1>
+    <div class="section-title">About Me</div>
+    <p class="text">Hi, I'm Sancho, A Full Stack Developer & An Ethical Hacker From Mumbai, India!
+        <br>
+        I Excel At Languages Like HTML, CSS, JavaScript, NodeJS and Python!
+        <br>
+        I Work As A <a target="_blank" href="https://www.fiverr.com/sanchogodinho">Freelancer</a> And As An Ethical
+        Hacker!
+        <br>
+    </p>
+    <div class="section-title">Some Of My Past Projects</div>
+    <a class="project" target="_blank" href="https://countrys.glitch.me/">
+        <img src="https://i.ibb.co/LSKt73S/countrys-app.png" alt="">
+        <p class="proj-name">Country Data App</p>
+        <div class="proj-desc">A free website to learn and dicover about different countries!</div>
+    </a>
 
-        <div id="projects">
-            <div class="open" onclick="window.open('https://github.com/sancho1952007/AOS-Web', '_blank')">
-                <img id="top" src='https://i.ibb.co/1G4Qwpp/AOS-Web.png' width="99%">
-                    <h3 id="link">AOS<sup> Web</sup></h3>
-                </img>
-            </div>
-        </div>
+    <a class="project" target="_blank" href="https://github.com/sancho1952007/Encli">
+        <img src="https://i.ibb.co/rb53gx6/encli.png" alt="">
+        <p class="proj-name">Encli</p>
+        <div class="proj-desc">A free cross platform file encryption/decryption tool!</div>
+    </a>
 
-        <div id="projects">
-            <div class="open" onclick="window.open('https://github.com/sancho1952007/PyNodeJS', '_blank')">
-                <img id="top" src='https://i.ibb.co/zSX7MWB/PyNodeJS.png' width="99%">
-                    <h3 id="link">PyNodeJS</h3>
-                </img>
-            </div>
-        </div>
+    <a class="project" target="_blank" href="https://github.com/sancho1952007/iPhone-11-Clone">
+        <img src="https://i.ibb.co/fxRWxzq/i-Phone-Preview.png" alt="">
+        <p class="proj-name">iPhone 11 Pro Clone Using Pure CSS</p>
+        <div class="proj-desc">An iPhone 11 Pro Only Made Using HTML & CSS without any images!</div>
+    </a>
 
-        <div id="projects">
-            <div class="open" onclick="window.open('https://sancho1952007.github.io/Awesome-Calculator/', '_blank')">
-                <img id='top' src="https://i.ibb.co/zrC8Yt5/preview-1.png" width="99%">
-                <h3 class="link">Awesome Calculator</h3>
-            </div>
-        </div>
+    <a class="project" target="_blank" href="https://github.com/sancho1952007/AOS-Web">
+        <img src="https://i.ibb.co/1G4Qwpp/AOS-Web.png" alt="">
+        <p class="proj-name">AOS<sup>web</sup></p>
+        <div class="proj-desc">An OS like system made only web technology!</div>
+    </a>
 
-        <div id="projects">
-            <div class="open" onclick="window.open('https://sancho1952007.github.io/Auto-Code-Compiler/', '_blank');">
-                <img id='top' src="https://img.youtube.com/vi/ecjyX29yNII/maxresdefault.jpg" width="99%">
-                <h3 id='link'>Auto Code Compiler</h3>
-            </div>
-        </div>
+    <a class="project" target="_blank" href="https://sancho1952007.github.io/Auto-Code-Compiler">
+        <img src="https://img.youtube.com/vi/ecjyX29yNII/maxresdefault.jpg" alt="">
+        <p class="proj-name">Auto Code Compiler</p>
+        <div class="proj-desc">Auto compile your code in real time while coding in the browser using this website!</div>
+    </a>
 
-        <div id='projects'>        
-            <div class='open' onclick="window.open('https://github.com/sancho1952007/Modern-GUI-v3.0', '_blank')">
-                <img id='top' src='https://i.ibb.co/s65b76z/Preview-Image.png' width="99%">
-                <h3 id='link'>Modern GUI v3.0 For Tkinter(Python) Apps</h3>
-            </div>
-        </div>
+    <a class="project" target="_blank" href="https://github.com/sancho1952007/Modern-GUI-v3.0">
+        <img src="https://i.ibb.co/s65b76z/Preview-Image.png" alt="">
+        <p class="proj-name">Modern GUI v3.0</p>
+        <div class="proj-desc">A beautiful window replacement for Tkinter (Python) Apps to replace the boring window
+            frames of operating systems!</div>
+    </a>
 
-        <div id='projects'>        
-            <div class='open' onclick="window.open('https://github.com/sancho1952007/SG-Calculator', '_blank')">
-                <img id='top' src='https://i.ibb.co/jGqsM5z/Preview.png' width="99%">
-                <h3 id='link'>SG Calculator</h3>
-            </div>
-        </div>
+    <a class="project" target="_blank" href="https://sancho1952007.github.io/Clokie">
+        <img src="https://i.ibb.co/DzWMry8/Capture.png" alt="">
+        <p class="proj-name">Clokie</p>
+        <div class="proj-desc">An amazing customizable clock to be kept on display!</div>
+    </a>
 
-        <div id='projects'>      
-            <div class='open' onclick="window.open('https://sancho1952007.github.io/Virtual-os', '_blank')">
-                <img id='top' src='https://img.youtube.com/vi/iACtG9-zWyQ/maxresdefault.jpg' width="99%">
-                <h3 id='link'>Virtual OS (Mobile Device Recomended)</h3>
-            </div>
-        </div>
-
-
-        <div id='projects'>
-            <div class='open' onclick="window.open('https://sancho1952007.github.io/Eye-Apple', '_blank')">
-                <img id='top' src='https://img.youtube.com/vi/5GPUr5lnsHM/hqdefault.jpg' width="99%">
-                <h3 id='link'>Eye Apple</h3>
-            </div>
-        </div>
-
-
-        <div id='projects'>
-            <div class='open' onclick="window.open('https://sancho1952007.github.io/Nature-Trail', '_blank')">
-                <img id='top' src='https://sancho1952007.github.io/images/Nature-Trail.png' width="99%">
-                <h3 id='link'>Nature Trail</h3>
-            </div>
-        </div>
-
-
-        <div id='projects'>
-            <div class='open' onclick="window.open('https://sancho1952007.github.io/Clokie', '_blank')">
-                <img id='top' src='https://i.ibb.co/DzWMry8/Capture.png' width="99%">
-                <h3 id='link'>Clokie - An Awesome Clock</h3>
-            </div>
-        </div>
-
-
-        <div id='projects'>
-            <div class='open' onclick="window.open('https://sancho1952007.github.io/Text_View', '_blank')">
-                <img id='top' src='https://i.ibb.co/1KFPCh6/preview.png' width="99%">
-                <h3 id='link'>Text View [Ended]</h3>
-            </div>
-        </div>
-    </center>
-    <center><h2 style="text-align: center; color: white;">Thank You For Visiting, Follow Me For More Updates!</h2></center>
+    <a target="_blank" href="https://www.sololearn.com/profile/19684449" class="check-all">
+        Check All Projects
+    </a>
+    <div class="text" style="margin-top:5px;">&copy; 2023 Sancho Godinho</div>
+    <div class="blank"></div>
 </body>
-<style>
-    html{
-        cursor: url('images/cursor.png'), default;
-    }
-    body{
-        background: url('images/bg.jpg') no-repeat center center fixed; 
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        height: 100vh;
-    }
-    h1{
-        font-family: 'Courier New', Courier, monospace;
-    }
-    img{
-        pointer-events: none;
-    }
-    button{
-        cursor: url('images/hand.png'), default;
-    }
-    h2{
-        font-family: 'Poppins', sans-serif;
-        font-weight: bold;
-    }
-    h3{
-        font-family: 'Poppins', sans-serif;
-    }
-    #about{
-        text-align: left;
-        font-family: 'Poppins', sans-serif;
-        font-weight: bold;
-        margin-left: 10px;
-    }
-    a:link{
-        color: rgb(0, 81, 255);
-        cursor: url('images/hand.png'), default;
-    }
-    a:visited{
-        color: rgb(0, 81, 255);
-    }
-    a{
-        color: navy;
-    }
-    #me{
-        border-radius: 50%;
-    }
-    #name{
-        color: white;
-    }
-    #follow::after{
-        content: "   Follow Me   ";
-    }
-    #follow{
-        border: 2px solid #39FF14;
-        font-size: 25px;
-        font-family: 'Courier New', Courier, monospace;
-        background-color: #39FF14;
-        transition: all 0.50s linear;
-        border-radius: 50px;
-        outline: none;
-    }
-    #follow:hover{
-        background-color: lightgreen;
-        border-color: lightgreen;
-    }
-    #follow:hover::after{
-        display: block;
-        white-space: pre;
-        content: "Follow Me On Github →";
-    }
-    #projects{
-        margin-top: 10px;
-        background-color: rgb(0, 255, 0);
-        border-radius: 17px;
-        width: 70%;
-        transition: all 0.50s linear;
-        border: 2px solid white;
-        max-width: 700px;
-    }
-    #projects:hover{
-        background-color: lightgreen;
-        border-color: rgb(0, 217, 255);
-    }
-    #top{
-        margin-top: 10px;
-        border-radius: 10px;
-    }
-    #link{
-        cursor: url('images/hand.png'), default;
-    }
 
-
-    .open{
-        cursor: url("images/hand.png"), default;
-    }
-    .swal-title, .swal-text{
-        font-family: 'Courier New', Courier, monospace;
-    }
-    .swal-button{
-        cursor: url('images/hand.png'), default;
-    }
-
-    ::-webkit-scrollbar{
-        border-radius: 50px;
-    }
-    ::-webkit-scrollbar-thumb{
-        background: lightgrey;
-        border-radius: 50px;
-    }
-    ::-webkit-scrollbar-thumb:hover{
-        background: grey;
-    }
-</style>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-    function follow(){
-        window.open('https://github.com/sancho1952007', '_blank');
-        swal("Thank You!", "Thank You For Clicking This Button, You Give Me Hope To Do More With Each Click!", "images/smile.png");
-    }
-    document.addEventListener('contextmenu', function(prevent){
-        prevent.preventDefault();
-    });
-
-    swal('', "Welcome To This Portofolio! This is Sancho Godinho's Portofolio", 'https://media.tenor.com/images/2298a521b9dc7a9a809d18c9eb5725a3/tenor.gif')
-</script>
 </html>
