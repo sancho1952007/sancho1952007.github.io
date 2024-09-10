@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     cursor: default;
-    background-image: url('https://wsrv.nl/?url=sancho1952007.github.io/images/bg.png?maxage=3d');
+    background-image: url('https://wsrv.nl/?url=sancho1952007.github.io%2Fimages%2Fbg.png?maxage=3d');
 }
 
 .container {
