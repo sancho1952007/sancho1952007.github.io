@@ -31,10 +31,12 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="backdrop-filter:url(#blur-effect-e)">
         <img class="avatar" src="https://www.gravatar.com/avatar/847f8b56766426779ae8864f47a29359?size=200" alt="">
         <div class="text-large">Hi, I'm Sancho Godinho 👋</div>
-        <div class="text-normal">I'm A Programmer, Cyber Security Researcher & A Tech Enthusiast</div>
+        <div class="text-normal" style="text-align:center;">I'm A Programmer, Cyber Security Researcher, Investor & A
+            Tech
+            Enthusiast</div>
         <div class="section-text">Technologies</div>
         <div class="techs">
             <a href="https://nodejs.org/" class="tech" target="_blank">
@@ -194,14 +196,14 @@
     }];
 
 
-    document.querySelector('body').style.height = (window.innerHeight - 40) + 'px';
+    document.querySelector('body').style.height = (window.innerHeight - 30) + 'px';
     window.onresize = () => {
-        document.querySelector('body').style.height = (window.innerHeight - 40) + 'px';
+        document.querySelector('body').style.height = (window.innerHeight - 30) + 'px';
     }
 
     document.querySelector('.open-projects-btn').onclick = () => {
         document.querySelector('.projects-popup').style.display = 'flex';
-        document.querySelector('.projects-popup').style.animation = 'comeIn 0.3s linear';
+        document.querySelector('.projects-popup').style.animation = 'comeIn 0.2s linear';
     }
 
     projects.forEach(project => {
@@ -215,10 +217,10 @@
     document.querySelector('.projects-popup').innerHTML += '<a class="explore-more-btn" href="https://www.sololearn.com/en/profile/19684449" target="_blank">Explore More!</a>'
 
     document.querySelector('.close-projects-btn').onclick = () => {
-        document.querySelector('.projects-popup').style.animation = 'comeOut 0.3s linear';
+        document.querySelector('.projects-popup').style.animation = 'comeOut 0.2s linear';
         setTimeout(() => {
             document.querySelector('.projects-popup').style.display = 'none';
-        }, 280);
+        }, 180);
     }
 
     window.onkeydown = (key) => {

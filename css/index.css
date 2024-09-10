@@ -1,18 +1,16 @@
-/* Background Image Credit: https: //wallpapers.com/wallpapers/code-programming-symbols-letters-texture-8nlsi3q9gcjh6m98.html */
+/* Background Image Credit: https://wallpapers.com/wallpapers/code-programming-symbols-letters-texture-8nlsi3q9gcjh6m98.html */
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap');
 
 body {
-    width: calc(100% - 20px);
-    padding: 10px;
+    width: 100%;
     margin: 0;
     overflow: hidden;
     user-select: none;
     display: flex;
     justify-content: center;
     cursor: default;
-    background-image: url('https://i.ibb.co/5W3bq4V/code-programming-symbols-letters-texture-8nlsi3q9gcjh6m98.webp');
-    backdrop-filter: blur(5px);
+    background-image: url('https://wsrv.nl/?url=sancho1952007.github.io/images/bg.png?maxage=3d');
 }
 
 .container {
@@ -23,14 +21,9 @@ body {
     align-items: center;
     justify-content: center safe;
     flex-direction: column;
-    border-top-left-radius: 255px 15px;
-    border-top-right-radius: 15px 225px;
-    border-bottom-right-radius: 225px 15px;
-    border-bottom-left-radius: 15px 255px;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     background-color: rgb(255, 255, 255, 0.8);
-    backdrop-filter: blur(5px);
 }
 
 .avatar {
@@ -204,7 +197,6 @@ img {
     left: 50%;
     translate: -50%;
     background-color: white;
-    /* display: flex; */
     display: none;
     align-items: center;
     justify-content: center safe;
