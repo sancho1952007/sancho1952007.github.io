@@ -246,6 +246,11 @@
             }, 280);
         }
     }
+
+    document.body.style.height = window.innerHeight + 'px';
+    window.onresize = () => {
+        document.body.style.height = window.innerHeight + 'px';
+    }
 </script>
 
 </html>
