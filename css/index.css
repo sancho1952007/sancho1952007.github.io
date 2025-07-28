@@ -40,7 +40,7 @@ body {
 
 .socials {
     width: calc(100% - 20px);
-    max-width: 700px;
+    max-width: 800px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -66,6 +66,12 @@ body {
     border-radius: 5px;
     margin-top: 5px;
 }
+
+.username.ln {
+    background-color: rgb(0, 4, 255);
+    color: white;
+}
+
 
 .username.x,
 .username.gh {
@@ -254,7 +260,7 @@ img {
 
     top: 0;
     background-color: rgb(255, 255, 255, 0.6);
-    box-shadow: 0px 0px 10px 1px black;
+    box-shadow: 0px 0px 20px 1px black;
 }
 
 .projects-header h1 {
