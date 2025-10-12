@@ -2,8 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Playfair_Display } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import { Toaster } from "@/components/ui/toaster"
 import { Suspense } from "react"
 import Script from "next/script"
 import "./globals.css"
@@ -75,11 +73,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`font-sans ${geistSans.variable} ${geistMono.variable} ${playfair.variable}`}>
-        <Suspense fallback={null}>
-          {children}
-          <Toaster />
-        </Suspense>
-        <Analytics />
+        <Suspense fallback={null}>{children}</Suspense>
         <Script src="https://rybbit.sg-app.com/api/script.js" data-site-id="1" strategy="afterInteractive" />
       </body>
     </html>
