@@ -115,7 +115,7 @@ export function Contact() {
                       </div>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      I typically respond within 24-48 hours. In rare cases, there may be a small delay.
+                      I typically respond within 6-24 hours. In rare cases, there may be a small delay.
                     </p>
                   </div>
                 </CardContent>
