@@ -5,6 +5,7 @@ import { Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Toaster } from "@/components/ui/toaster"
 import { Suspense } from "react"
+import Script from "next/script"
 import "./globals.css"
 
 const geistSans = Geist({
@@ -26,8 +27,36 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Sancho Godinho - Developer & Security Researcher",
-  description: "Portfolio of Sancho Godinho - A Programmer, Cyber Security Researcher, Investor & Tech Enthusiast",
+  title: "Sancho Godinho",
+  description: "Sancho Godinho's official website. Visit the website to learn more about my projects & offerings!",
+  keywords: ["sancho godinho", "sancho", "programmer", "cyber security researcher", "investor", "tech enthusiast"],
+  authors: [{ name: "Sancho Godinho" }],
+  creator: "Sancho Godinho",
+  metadataBase: new URL("https://sancho1952007.github.io"),
+  openGraph: {
+    type: "website",
+    url: "https://sancho1952007.github.io/",
+    title: "Sancho Godinho",
+    description: "Sancho Godinho's official website. Visit the website to learn more about my projects & offerings!",
+    images: [
+      {
+        url: "https://i.ibb.co/hKd0TkP/Screenshot-2024-06-06-165918.png",
+        width: 1200,
+        height: 630,
+        alt: "Sancho Godinho Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sancho Godinho",
+    description: "Sancho Godinho's official website. Visit the website to learn more about my projects & offerings!",
+    images: ["https://i.ibb.co/hKd0TkP/Screenshot-2024-06-06-165918.png"],
+  },
+  icons: {
+    icon: "https://www.gravatar.com/avatar/847f8b56766426779ae8864f47a29359?size=100",
+    shortcut: "https://www.gravatar.com/avatar/847f8b56766426779ae8864f47a29359?size=100",
+  },
   generator: "v0.app",
 }
 
@@ -38,12 +67,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="icon"
+          href="https://www.gravatar.com/avatar/847f8b56766426779ae8864f47a29359?size=100"
+          type="image/x-icon"
+        />
+      </head>
       <body className={`font-sans ${geistSans.variable} ${geistMono.variable} ${playfair.variable}`}>
         <Suspense fallback={null}>
           {children}
           <Toaster />
         </Suspense>
         <Analytics />
+        <Script src="https://rybbit.sg-app.com/api/script.js" data-site-id="1" strategy="afterInteractive" />
       </body>
     </html>
   )
