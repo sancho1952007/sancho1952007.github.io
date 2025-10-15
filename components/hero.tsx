@@ -12,7 +12,7 @@ export function Hero() {
           <div className="relative">
             <div className="absolute inset-0 bg-accent/20 rounded-full blur-2xl" />
             <Image
-              src="https://www.gravatar.com/avatar/847f8b56766426779ae8864f47a29359?size=200"
+              src="https://gravatar.com/avatar/42705d079b3abfd6235c083eba8d532dd7149add0c83d146f0bbed08417888ce?size=200"
               alt="Sancho Godinho"
               width={160}
               height={160}

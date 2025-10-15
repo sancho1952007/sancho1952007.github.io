@@ -52,8 +52,8 @@ export const metadata: Metadata = {
     images: ["https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png%3Fv%3D1?maxage=15d"],
   },
   icons: {
-    icon: "https://www.gravatar.com/avatar/847f8b56766426779ae8864f47a29359?size=100",
-    shortcut: "https://www.gravatar.com/avatar/847f8b56766426779ae8864f47a29359?size=100",
+    icon: "https://gravatar.com/avatar/42705d079b3abfd6235c083eba8d532dd7149add0c83d146f0bbed08417888ce?size=100",
+    shortcut: "https://gravatar.com/avatar/42705d079b3abfd6235c083eba8d532dd7149add0c83d146f0bbed08417888ce?size=100",
   },
   generator: "v0.app",
 }
@@ -68,7 +68,7 @@ export default function RootLayout({
       <head>
         <link
           rel="icon"
-          href="https://www.gravatar.com/avatar/847f8b56766426779ae8864f47a29359?size=100"
+          href="https://gravatar.com/avatar/42705d079b3abfd6235c083eba8d532dd7149add0c83d146f0bbed08417888ce?size=100"
           type="image/x-icon"
         />
       </head>
