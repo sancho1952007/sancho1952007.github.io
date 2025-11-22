@@ -108,7 +108,7 @@ export function Projects() {
               asChild
               className="rounded-full bg-accent hover:bg-accent/80 text-white hover:text-white"
             >
-              <a href="https://github.com/sancho1952007" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/sancho1952007" target="_blank" rel="noreferrer">
                 <Github className="h-5 w-5 mr-2" />
                 Check out my GitHub
               </a>
