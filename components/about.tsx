@@ -60,7 +60,7 @@ export function About() {
               <a
                 href="https://github.com/sancho1952007"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-secondary hover:bg-muted transition-colors rounded-full font-medium"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

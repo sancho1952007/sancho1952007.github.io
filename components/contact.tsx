@@ -91,7 +91,7 @@ export function Contact() {
                       key={link.name}
                       href={link.url}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener"
                       className="flex items-center gap-4 p-4 rounded-lg border-2 hover:border-primary transition-colors group"
                     >
                       <link.icon className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -135,7 +135,7 @@ export function Contact() {
                 <a
                   href="https://v0.dev"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="text-foreground hover:text-primary transition-colors underline underline-offset-4"
                 >
                   v0

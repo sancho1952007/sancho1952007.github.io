@@ -79,7 +79,6 @@ export function Projects() {
                 href={project.url}
                 target="_blank"
                 className="group block space-y-3 hover:scale-[1.02] transition-transform duration-300"
-                rel="noreferrer"
               >
                 <div className="relative aspect-video overflow-hidden rounded-lg bg-muted">
                   <Image
@@ -108,7 +107,7 @@ export function Projects() {
               asChild
               className="rounded-full bg-accent hover:bg-accent/80 text-white hover:text-white"
             >
-              <a href="https://github.com/sancho1952007" target="_blank" rel="noreferrer">
+              <a href="https://github.com/sancho1952007" target="_blank">
                 <Github className="h-5 w-5 mr-2" />
                 Check out my GitHub
               </a>

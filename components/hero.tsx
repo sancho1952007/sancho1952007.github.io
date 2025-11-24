@@ -60,7 +60,7 @@ export function Hero() {
               <a
                 href="https://github.com/sancho1952007"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary hover:bg-muted transition-colors text-sm font-medium"
                 aria-label="GitHub"
               >
@@ -70,7 +70,7 @@ export function Hero() {
               <a
                 href="https://x.com/sanchogodinho"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary hover:bg-muted transition-colors text-sm font-medium"
                 aria-label="Twitter"
               >
@@ -80,7 +80,7 @@ export function Hero() {
               <a
                 href="https://discord.com/users/1053386709737414739"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary hover:bg-muted transition-colors text-sm font-medium"
                 aria-label="Discord"
               >
@@ -92,7 +92,6 @@ export function Hero() {
             <a
               href="https://postily.social/"
               target="_blank"
-              rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 border transition-colors text-sm font-medium w-full max-w-[400px]"
               aria-label="Check out Postily"
             >
