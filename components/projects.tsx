@@ -47,7 +47,7 @@ export function Projects() {
       url: "https://sancho1952007.github.io/AOS-Web/",
     },
     {
-      image: "https://i.ibb.co/s65b76z/Preview-Image.png",
+      image: "https://i.ibb.co/DzWMry8/Capture.png",
       name: "Modern GUI",
       desc: "A beautiful window replacement for Tkinter (Python) Apps to replace the boring window frames of operating systems!",
       url: "https://github.com/sancho1952007/Modern-GUI-v3.0",
@@ -78,8 +78,8 @@ export function Projects() {
                 key={index}
                 href={project.url}
                 target="_blank"
-                rel="noopener noreferrer"
                 className="group block space-y-3 hover:scale-[1.02] transition-transform duration-300"
+                rel="noreferrer"
               >
                 <div className="relative aspect-video overflow-hidden rounded-lg bg-muted">
                   <Image
