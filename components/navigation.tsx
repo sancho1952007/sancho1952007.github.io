@@ -50,7 +50,7 @@ export function Navigation() {
     <>
       {/* Desktop Navigation */}
       <nav
-        className="hidden md:flex fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl z-50"
+        className="hidden md:flex fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50"
       >
         <LiquidGlass
           borderRadius={150}
@@ -59,10 +59,10 @@ export function Navigation() {
           brightness={1.05}
           saturation={1.1}
         >
-          <div className="flex items-center justify-between px-8 w-full py-2 bg-background/30 backdrop-blur-md border border-white/20 shadow-lg">
+          <div className="flex items-center justify-between px-8 w-full py-2 bg-background/30 backdrop-blur-md border border-white/20 shadow-lg h-20">
             <button
               onClick={() => scrollToSection("hero")}
-              className={`text-xl font-sans font-bold transition-colors text-foreground`}
+              className={`text-xl font-mono font-bold transition-colors text-foreground`}
             >
               Sancho Godinho
             </button>
@@ -103,8 +103,8 @@ export function Navigation() {
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
                   className={`group rounded-full flex items-center justify-center transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] ${isActive
-                      ? "bg-foreground/10 text-foreground px-4 py-2"
-                      : "text-muted-foreground hover:text-foreground p-2 hover:bg-foreground/5"
+                    ? "bg-foreground/10 text-foreground px-4 py-2"
+                    : "text-muted-foreground hover:text-foreground p-2 hover:bg-foreground/5"
                     }`}
                   aria-label={link.label}
                 >
