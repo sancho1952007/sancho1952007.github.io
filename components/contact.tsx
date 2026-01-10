@@ -129,26 +129,6 @@ export function Contact() {
         <div className="container mx-auto max-w-6xl px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-muted-foreground">
             <p>© {new Date().getFullYear()} Sancho Godinho. All rights reserved.</p>
-            {showCredits ? (
-              <p>
-                Built with Next.js & Tailwind CSS using{" "}
-                <a
-                  href="https://v0.dev"
-                  target="_blank"
-                  rel="noopener"
-                  className="text-foreground hover:text-primary transition-colors underline underline-offset-4"
-                >
-                  v0
-                </a>
-              </p>
-            ) : (
-              <button
-                onClick={() => setShowCredits(true)}
-                className="text-foreground hover:text-primary transition-colors underline underline-offset-4"
-              >
-                View Credits
-              </button>
-            )}
           </div>
         </div>
       </footer>
