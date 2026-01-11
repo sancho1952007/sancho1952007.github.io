@@ -8,34 +8,40 @@ export function Navigation() {
   const [activeSection, setActiveSection] = useState("")
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
+    const handleScroll = () => {
+      const sections = ["contact", "projects", "skills", "about", "hero"]
+      const threshold = 200 // Adjust this value based on your navbar height/preference
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          // If the top of the section is near or above the top of the viewport,
+          // it means this section (or one above it) is currently being viewed/stacked.
+          if (rect.top <= threshold) {
+            setActiveSection(sectionId)
+            break
           }
-        })
-      },
-      { threshold: 0, rootMargin: "-45% 0px -45% 0px" }
-    )
-
-    navLinks.forEach((link) => {
-      const element = document.getElementById(link.id)
-      if (element) observer.observe(element)
-    })
-
-    const heroElement = document.getElementById("hero")
-    if (heroElement) observer.observe(heroElement)
-
-    return () => {
-      observer.disconnect()
+        }
+      }
     }
+
+    // Initial check
+    handleScroll()
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      // For floating stack, we need to scroll to the top position of the sticky container
+      // Using offsetTop ensures we scroll to the correct position in the flow
+      window.scrollTo({
+        top: element.offsetTop,
+        behavior: "smooth"
+      })
     }
   }
 

@@ -1,8 +1,24 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
+import useEmblaCarousel from "embla-carousel-react"
+import AutoScroll from "embla-carousel-auto-scroll"
 
 export function Projects() {
+  const [emblaRef] = useEmblaCarousel(
+    { loop: true, dragFree: true },
+    [
+      AutoScroll({
+        playOnInit: true,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+        speed: 1
+      })
+    ]
+  )
+
   const projects = [
     {
       image: "https://wsrv.nl/?url=https://postily.sg-app.com/og-image.png?maxage=15d",
@@ -61,10 +77,10 @@ export function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto max-w-5xl">
+    <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-background">
+      <div className="container mx-auto max-w-7xl">
         <div className="space-y-12">
-          <div className="space-y-4">
+          <div className="space-y-4 px-4">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-balance">Things I've built</h2>
             <div className="w-16 h-1 bg-accent rounded-full" />
             <p className="text-base sm:text-lg text-muted-foreground max-w-3xl text-pretty">
@@ -72,31 +88,41 @@ export function Projects() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
-              <a
-                key={index}
-                href={project.url}
-                target="_blank"
-                className="group block space-y-3 hover:scale-[1.02] transition-transform duration-300"
-              >
-                <div className="relative aspect-video overflow-hidden rounded-lg bg-muted">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="space-y-1">
-                  <h3 className="text-lg font-semibold group-hover:text-accent transition-colors flex items-center gap-2">
-                    {project.name}
-                    <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed text-pretty">{project.desc}</p>
-                </div>
-              </a>
-            ))}
+          <div className="relative">
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex touch-pan-y">
+                {projects.map((project, index) => (
+                  <div key={index} className="flex-[0_0_auto] min-w-0 pl-4 sm:pl-6 first:pl-4">
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      className="group block space-y-3 hover:scale-[1.02] transition-transform duration-300 w-[300px] sm:w-[400px]"
+                    >
+                      <div className="relative aspect-video overflow-hidden rounded-lg bg-muted border border-border">
+                        <Image
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.name}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <h3 className="text-lg font-semibold group-hover:text-accent transition-colors flex items-center gap-2">
+                          {project.name}
+                          <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed text-pretty line-clamp-2">
+                          {project.desc}
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="text-center pt-8">

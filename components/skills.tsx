@@ -19,7 +19,7 @@ export function Skills() {
   }
 
   return (
-    <section id="skills" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-secondary/30">
+    <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="container mx-auto max-w-4xl">
         <div className="space-y-12">
           <div className="space-y-4">

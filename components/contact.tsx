@@ -33,7 +33,7 @@ export function Contact() {
   ]
 
   return (
-    <section id="contact" className="md:py-0 px-4 sm:px-6 lg:px-8">
+    <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="space-y-12">
           <div className="space-y-4 text-center">
@@ -125,7 +125,7 @@ export function Contact() {
         </div>
       </div>
 
-      <footer className="mt-12 pt-6 pb-30 border-t border-border">
+      <footer className="mt-12 pt-6 border-t border-border">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-muted-foreground">
             <p>© {new Date().getFullYear()} Sancho Godinho. All rights reserved.</p>
