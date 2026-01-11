@@ -50,11 +50,12 @@ export function Navigation() {
     <>
       {/* Desktop Navigation */}
       <nav
-        className="hidden md:flex fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50"
+        // className="hidden md:flex fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50"
+        className="hidden md:flex fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50"
       >
         <LiquidGlass
           borderRadius={150}
-          blur={1}
+          blur={0.1}
           contrast={1.2}
           brightness={1.05}
           saturation={1.1}
@@ -89,7 +90,7 @@ export function Navigation() {
       <nav className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-xs">
         <LiquidGlass
           borderRadius={150}
-          blur={1}
+          blur={0.1}
           contrast={1.2}
           brightness={1.05}
           saturation={1.1}
