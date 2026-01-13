@@ -9,8 +9,6 @@ import { Github, Twitter, MessageCircle, Mail } from "lucide-react"
 import { useState } from "react"
 
 export function Contact() {
-  const [showCredits, setShowCredits] = useState(false)
-
   const socialLinks = [
     {
       name: "GitHub",

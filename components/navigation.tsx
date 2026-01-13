@@ -33,13 +33,34 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const getTargetScrollPosition = (element: HTMLElement) => {
+    // For sticky stack layouts, offsetTop can sometimes be misleading or affect smooth scroll behavior
+    // We calculate the position by summing the heights of previous siblings to get the precise flow position
+    let offset = 0
+    let prev = element.previousElementSibling as HTMLElement
+    while (prev) {
+      offset += prev.offsetHeight
+      prev = prev.previousElementSibling as HTMLElement
+    }
+    return offset
+  }
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
-      // For floating stack, we need to scroll to the top position of the sticky container
-      // Using offsetTop ensures we scroll to the correct position in the flow
+      const targetTop = getTargetScrollPosition(element)
+
+      console.log(`Scrolling to ${id}`, {
+        targetTop,
+        currentScroll: window.scrollY,
+        offsets: {
+          natural: element.offsetTop,
+          calculated: targetTop
+        }
+      })
+
       window.scrollTo({
-        top: element.offsetTop,
+        top: targetTop,
         behavior: "smooth"
       })
     }
