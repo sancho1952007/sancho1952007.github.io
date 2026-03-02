@@ -83,6 +83,7 @@ export default function RootLayout({
               trackScreenViews: true,
               trackOutgoingLinks: true,
               trackAttributes: true,
+              apiUrl: 'https://openpanel.sg-app.com/api'
             });
           `}
         </Script>
