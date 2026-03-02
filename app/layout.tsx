@@ -75,7 +75,7 @@ export default function RootLayout({
       <body className={`font-sans ${geistSans.variable} ${geistMono.variable} ${playfair.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Script src="https://rybbit.sg-app.com/api/script.js" data-site-id="1" strategy="afterInteractive" />
-        <Script id="openpanel-init" strategy="afterInteractive">
+        <Script>
           {`
             window.op=window.op||function(){var n=[];return new Proxy(function(){arguments.length&&n.push([].slice.call(arguments))},{get:function(t,r){return"q"===r?n:function(){n.push([r].concat([].slice.call(arguments)))}} ,has:function(t,r){return"q"===r}}) }();
             window.op('init', {
@@ -86,7 +86,7 @@ export default function RootLayout({
             });
           `}
         </Script>
-        <Script src="https://openpanel.dev/op1.js" defer async strategy="afterInteractive" />
+        <Script src="https://openpanel.dev/op1.js" defer async/>
       </body>
     </html>
   )
