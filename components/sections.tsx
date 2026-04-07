@@ -233,11 +233,11 @@ const PROJECTS: Project[] = [
     name: 'Postily',
     description: 'The Next Gen Social Media Site (Under Development)',
     url: 'https://postily.social',
-    image: 'https://wsrv.nl/?url=https://postily.sg-app.com/og-image.png?maxage=15d',
+    image: 'https://wsrv.nl/?url=https://postily.social/og-image.png?maxage=15d',
   },
   {
     name: 'Smart Notes',
-    description: 'Free cloud notepad with live-collaborative editing and rich text support.',
+    description: 'Free cloud notepad with live-collaborative editing and rich text support (It has been shut down now).',
     url: 'https://smart-notes.sg-app.com',
     image: 'https://i.ibb.co/307TKL1/Screenshot-2024-06-06-163943.png',
   },
@@ -279,7 +279,7 @@ const PROJECTS: Project[] = [
   },
   {
     name: 'iPhone 11 Clone',
-    description: 'An iPhone 11 Pro made using only HTML & CSS — no images.',
+    description: 'An iPhone 11 Pro made using only HTML & CSS.',
     url: 'https://sancho1952007.github.io/iPhone-11-Clone/',
     image: 'https://i.ibb.co/fxRWxzq/i-Phone-Preview.png',
   },
@@ -294,7 +294,6 @@ function ProjectCard({ project }: { project: Project }) {
       <a
         href={project.url}
         target="_blank"
-        rel="noopener noreferrer"
         className="group hidden md:block relative overflow-hidden"
         style={{
           borderRadius: '8px',
@@ -602,7 +601,7 @@ export function Contact() {
         <div className="flex flex-col gap-6 lg:w-56 shrink-0">
           <div>
             <p style={{ ...labelStyle, marginBottom: '14px' }}>Or find me on</p>
-            <ul className="flex flex-col gap-1" role="list">
+            <ul className="flex flex-col gap-0" role="list">
               {[
                 { label: 'GitHub', handle: '@sancho1952007', href: 'https://github.com/sancho1952007' },
                 { label: 'Twitter', handle: '@sanchogodinho', href: 'https://x.com/sanchogodinho' },
@@ -613,8 +612,8 @@ export function Contact() {
                   <a
                     href={link.href}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 py-2 font-light transition-opacity duration-200 hover:opacity-60"
+                    rel="noopener"
+                    className="group inline-flex items-center gap-1 py-2 font-light transition-opacity duration-200 hover:opacity-60"
                     style={{ fontSize: '15px', color: 'var(--foreground)', textDecoration: 'none', minHeight: '44px' }}
                   >
                     <span>{link.label}</span>
