@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import HCaptcha from '@hcaptcha/react-hcaptcha'
 
 const SECTION_LABEL_STYLE: React.CSSProperties = {
   fontSize: '11px',
@@ -457,32 +458,38 @@ export function Projects() {
   )
 }
 
-// ─── Contact ────────────────────────────────────────────────────────────────
+// ─── Contact ─────────────────────────────��──────────────────────────────────
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 
 export function Contact() {
   const [formState, setFormState] = React.useState<FormState>('idle')
   const [formData, setFormData] = React.useState({ name: '', email: '', message: '' })
+  const captchaRef = React.useRef<HCaptcha>(null)
+  const formRef = React.useRef<HTMLFormElement>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  // Step 1: intercept submit and trigger invisible hCaptcha
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setFormState('loading')
+    captchaRef.current?.execute()
+  }
 
+  // Step 2: hCaptcha verified — submit to Web3Forms with the captcha token
+  const handleVerify = async (token: string) => {
+    setFormState('loading')
     try {
+      const fd = new FormData(formRef.current!)
+      fd.delete('h-captcha-response')
+      fd.append('h-captcha-response', token)
+
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: 'c8c6b430-aff8-49ab-b354-920b54a50063',
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+        headers: { Accept: 'application/json' },
+        body: fd,
       })
       const json = await res.json()
       if (json.success) {
@@ -493,7 +500,18 @@ export function Contact() {
       }
     } catch {
       setFormState('error')
+    } finally {
+      captchaRef.current?.resetCaptcha()
     }
+  }
+
+  const handleCaptchaError = () => {
+    setFormState('error')
+    captchaRef.current?.resetCaptcha()
+  }
+
+  const handleCaptchaExpire = () => {
+    captchaRef.current?.resetCaptcha()
   }
 
   const inputStyle: React.CSSProperties = {
@@ -523,8 +541,9 @@ export function Contact() {
     <SectionShell id="contact" label="Contact">
       <div className="flex flex-col lg:flex-row gap-12">
         {/* Form */}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5 flex-1">
-          <div>
+        <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-5 flex-1">
+          {/* Web3Forms access key — required for FormData submission */}
+          <input type="hidden" name="access_key" value="c8c6b430-aff8-49ab-b354-920b54a50063" />
             <label htmlFor="contact-name" style={labelStyle}>Name</label>
             <input
               id="contact-name"
@@ -598,6 +617,17 @@ export function Contact() {
           >
             {formState === 'loading' ? 'Sending…' : formState === 'success' ? 'Sent!' : 'Send Message'}
           </button>
+
+          {/* Invisible hCaptcha — fires on execute(), calls handleVerify on success */}
+          <HCaptcha
+            ref={captchaRef}
+            sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+            size="invisible"
+            reCaptchaCompat={false}
+            onVerify={handleVerify}
+            onError={handleCaptchaError}
+            onExpire={handleCaptchaExpire}
+          />
         </form>
 
         {/* Social sidebar */}
