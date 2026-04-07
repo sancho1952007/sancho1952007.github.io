@@ -225,226 +225,164 @@ interface Project {
   name: string
   description: string
   year: string
-  url?: string
-  previewUrl?: string
-  placeholder?: boolean
+  url: string
+  image: string
 }
 
 const PROJECTS: Project[] = [
   {
     name: 'Postily',
-    description: 'Next-gen social media platform (under development)',
+    description: 'The Next Gen Social Media Site (Under Development)',
     year: '2024',
-    url: 'https://postily.app',
-    previewUrl: 'https://postily.app',
+    url: 'https://postily.social',
+    image: 'https://wsrv.nl/?url=https://postily.sg-app.com/og-image.png?maxage=15d',
   },
   {
     name: 'Smart Notes',
-    description: 'Free cloud notepad with live-collaborative editing and rich text',
+    description: 'Free cloud notepad with live-collaborative editing and rich text support.',
     year: '2023',
-    url: 'https://sancho1952007.github.io/smart-notes/',
-    previewUrl: 'https://sancho1952007.github.io/smart-notes/',
+    url: 'https://smart-notes.sg-app.com',
+    image: 'https://i.ibb.co/307TKL1/Screenshot-2024-06-06-163943.png',
   },
   {
     name: 'SG Apps',
-    description: 'App studio — building tools for everyone',
+    description: 'At SG Apps, We Aim To Build Apps For The Best!',
     year: '2023',
-    url: 'https://sg-apps.netlify.app',
-    previewUrl: 'https://sg-apps.netlify.app',
+    url: 'https://sg-app.com',
+    image: 'https://i.ibb.co/6gp6Sqt/Smart-Select-20240219-211006-Chrome.jpg',
   },
   {
     name: 'Tiles Game',
-    description: 'Simple and fun tile-based browser game',
+    description: 'A simple yet fun game to play in your free time!',
     year: '2023',
-    url: 'https://sancho1952007.github.io/tiles-game/',
-    previewUrl: 'https://sancho1952007.github.io/tiles-game/',
+    url: 'https://sg-app.com/Tiles-Game/',
+    image: 'https://i.ibb.co/GW0J8P5/Screenshot-2024-06-06-164126.png',
   },
   {
     name: 'Encli',
-    description: 'Free cross-platform file encryption / decryption CLI tool',
+    description: 'A free cross platform file encryption/decryption tool.',
     year: '2022',
-    url: 'https://github.com/sancho1952007/encli',
-    previewUrl: 'https://github.com/sancho1952007/encli',
+    url: 'https://github.com/sancho1952007/Encli',
+    image: 'https://i.ibb.co/rb53gx6/encli.png',
   },
   {
     name: 'Clokie',
-    description: 'Customizable always-on-display clock app',
+    description: 'An amazing customizable clock to be kept on display.',
     year: '2022',
-    url: 'https://github.com/sancho1952007/clokie',
-    previewUrl: 'https://github.com/sancho1952007/clokie',
+    url: 'https://sancho1952007.github.io/Clokie/',
+    image: 'https://i.ibb.co/DzWMry8/Capture.png',
   },
   {
     name: 'AOS Web',
-    description: 'OS-like system built entirely with web technology',
+    description: 'An OS-like system made only with web technology.',
     year: '2022',
     url: 'https://sancho1952007.github.io/AOS-Web/',
-    previewUrl: 'https://sancho1952007.github.io/AOS-Web/',
+    image: 'https://i.ibb.co/1G4Qwpp/AOS-Web.png',
   },
   {
     name: 'Modern GUI',
-    description: 'Beautiful Tkinter window replacement for Python apps',
+    description: 'A beautiful window replacement for Tkinter (Python) apps.',
     year: '2021',
-    url: 'https://github.com/sancho1952007/Modern-GUI',
-    previewUrl: 'https://github.com/sancho1952007/Modern-GUI',
+    url: 'https://github.com/sancho1952007/Modern-GUI-v3.0',
+    image: 'https://i.ibb.co/DzWMry8/Capture.png',
   },
   {
     name: 'iPhone 11 Clone',
-    description: 'iPhone 11 Pro replica in pure HTML & CSS — no images',
+    description: 'An iPhone 11 Pro made using only HTML & CSS — no images.',
     year: '2021',
-    url: 'https://sancho1952007.github.io/iPhone-11-Pro/',
-    previewUrl: 'https://sancho1952007.github.io/iPhone-11-Pro/',
+    url: 'https://sancho1952007.github.io/iPhone-11-Clone/',
+    image: 'https://i.ibb.co/fxRWxzq/i-Phone-Preview.png',
   },
 ]
 
-function ProjectRow({ project, isFirst }: { project: Project; isFirst: boolean }) {
-  const [hovered, setHovered] = React.useState(false)
-  const [imgPos, setImgPos] = React.useState({ x: 0, y: 0 })
-  const rowRef = React.useRef<HTMLAnchorElement>(null)
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = rowRef.current?.getBoundingClientRect()
-    if (!rect) return
-    setImgPos({
-      x: e.clientX - rect.left + 16,
-      y: e.clientY - rect.top - 80,
-    })
-  }
-
-  const previewSrc = project.previewUrl
-    ? `https://api.microlink.io/?url=${encodeURIComponent(project.previewUrl)}&screenshot=true&meta=false&embed=screenshot.url`
-    : null
+function ProjectCard({ project }: { project: Project }) {
+  const [imgError, setImgError] = React.useState(false)
 
   return (
-    <li className="relative">
-      <a
-        ref={rowRef}
-        href={project.placeholder ? undefined : (project.url ?? '#')}
-        role={project.placeholder ? 'presentation' : undefined}
-        tabIndex={project.placeholder ? -1 : undefined}
-        target={project.placeholder ? undefined : '_blank'}
-        rel={project.placeholder ? undefined : 'noopener noreferrer'}
-        className="group flex items-baseline gap-4 py-4 transition-colors duration-150"
-        style={{
-          borderBottom: '1px solid var(--border-rule)',
-          borderTop: isFirst ? '1px solid var(--border-rule)' : undefined,
-          cursor: project.placeholder ? 'default' : 'pointer',
-          textDecoration: 'none',
-          backgroundColor: hovered && !project.placeholder ? 'var(--row-hover)' : '',
-        }}
-        onMouseEnter={() => !project.placeholder && setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        onMouseMove={handleMouseMove}
-        aria-label={project.placeholder ? undefined : `${project.name} — ${project.description}`}
+    <a
+      href={project.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex flex-col overflow-hidden transition-all duration-200"
+      style={{
+        borderRadius: '8px',
+        border: '1px solid var(--border-rule)',
+        backgroundColor: 'var(--row-hover)',
+        textDecoration: 'none',
+      }}
+      aria-label={`${project.name} — ${project.description}`}
+    >
+      {/* Image */}
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ aspectRatio: '16 / 9', backgroundColor: 'var(--border-rule)' }}
       >
-        {/* Name */}
-        <span
-          className="shrink-0 font-light"
-          style={{
-            fontSize: '15px',
-            color: project.placeholder ? 'var(--muted-text)' : 'var(--foreground)',
-            width: '140px',
-            minWidth: '100px',
-          }}
-        >
-          {project.name}
-        </span>
+        {!imgError ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={project.image}
+            alt={`${project.name} preview`}
+            onError={() => setImgError(true)}
+            className="w-full h-full transition-transform duration-300 group-hover:scale-105"
+            style={{ objectFit: 'cover', objectPosition: 'top', display: 'block' }}
+          />
+        ) : (
+          <div
+            className="w-full h-full flex items-center justify-center"
+            style={{ backgroundColor: 'var(--row-hover)' }}
+          >
+            <span
+              className="font-mono"
+              style={{ fontSize: '11px', color: 'var(--muted-text)', letterSpacing: '0.08em' }}
+            >
+              {project.url.replace(/^https?:\/\//, '')}
+            </span>
+          </div>
+        )}
+      </div>
 
-        {/* Description */}
-        <span
-          className="flex-1 font-light hidden sm:block"
-          style={{ fontSize: '14px', color: 'var(--muted-text)' }}
+      {/* Body */}
+      <div className="flex flex-col gap-1 p-4">
+        <div className="flex items-start justify-between gap-2">
+          <span
+            className="font-light"
+            style={{ fontSize: '15px', color: 'var(--foreground)', lineHeight: 1.4 }}
+          >
+            {project.name}
+          </span>
+          <span
+            className="shrink-0 font-light transition-opacity duration-150"
+            style={{ fontSize: '13px', color: 'var(--muted-text)', fontVariantNumeric: 'tabular-nums' }}
+          >
+            {project.year}
+          </span>
+        </div>
+        <p
+          className="font-light"
+          style={{ fontSize: '13px', color: 'var(--muted-text)', lineHeight: 1.55 }}
         >
           {project.description}
-        </span>
-
-        {/* Year */}
+        </p>
         <span
-          className="shrink-0 font-light"
-          style={{
-            fontSize: '13px',
-            color: 'var(--muted-text)',
-            fontVariantNumeric: 'tabular-nums',
-            width: '40px',
-            textAlign: 'right',
-          }}
+          className="mt-2 inline-flex items-center gap-1 font-light transition-opacity duration-200 group-hover:opacity-60"
+          style={{ fontSize: '12px', color: 'var(--accent)' }}
+          aria-hidden="true"
         >
-          {project.year}
+          {project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')} ↗
         </span>
-
-        {/* Arrow */}
-        {!project.placeholder && (
-          <span
-            className="shrink-0 ml-2 transition-opacity duration-150"
-            style={{ fontSize: '14px', color: 'var(--accent)', opacity: 0.7 }}
-            aria-hidden="true"
-          >
-            ↗
-          </span>
-        )}
-
-        {/* Hover preview */}
-        {hovered && previewSrc && (
-          <span
-            className="pointer-events-none absolute z-50 rounded overflow-hidden shadow-xl"
-            style={{
-              left: imgPos.x,
-              top: imgPos.y,
-              width: '260px',
-              height: '160px',
-              border: '1px solid var(--border-rule)',
-              backgroundColor: 'var(--row-hover)',
-              display: 'block',
-            }}
-            aria-hidden="true"
-          >
-            {/* Browser chrome bar */}
-            <span
-              className="flex items-center gap-1.5 px-3"
-              style={{
-                height: '28px',
-                backgroundColor: 'var(--background)',
-                borderBottom: '1px solid var(--border-rule)',
-                display: 'flex',
-              }}
-            >
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--border-rule)', display: 'inline-block' }} />
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--border-rule)', display: 'inline-block' }} />
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--border-rule)', display: 'inline-block' }} />
-              <span
-                className="flex-1 ml-2 font-mono"
-                style={{
-                  fontSize: '10px',
-                  color: 'var(--muted-text)',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {project.url?.replace(/^https?:\/\//, '')}
-              </span>
-            </span>
-            {/* Screenshot */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={previewSrc}
-              alt={`Preview of ${project.name}`}
-              style={{ width: '100%', height: '132px', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
-            />
-          </span>
-        )}
-      </a>
-    </li>
+      </div>
+    </a>
   )
 }
 
 export function Projects() {
   return (
     <SectionShell id="projects" label="Projects">
-      <ul className="w-full" role="list">
-        {PROJECTS.map((project, i) => (
-          <ProjectRow key={project.name} project={project} isFirst={i === 0} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {PROJECTS.map((project) => (
+          <ProjectCard key={project.name} project={project} />
         ))}
-      </ul>
+      </div>
       <div className="mt-8">
         <a
           href="https://github.com/sancho1952007"
