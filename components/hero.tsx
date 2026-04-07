@@ -67,7 +67,7 @@ export default function Hero() {
                 See My Work ↓
               </a>
               <a
-                href="#connect"
+                href="#contact"
                 className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
                 style={{ color: 'var(--accent)', fontSize: '14px', minHeight: '44px', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-geist-pixel-square)' }}
               >
