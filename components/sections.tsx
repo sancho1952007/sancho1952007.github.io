@@ -4,12 +4,12 @@ import React from 'react'
 
 const SECTION_LABEL_STYLE: React.CSSProperties = {
   fontSize: '11px',
-  fontFamily: 'var(--font-mono, monospace)',
   textTransform: 'uppercase',
   letterSpacing: '0.12em',
   color: 'var(--muted-text)',
   lineHeight: 1.4,
   paddingTop: '2px',
+  fontFamily: 'var(--font-mono, monospace)',
 }
 
 const RULE_STYLE: React.CSSProperties = {
@@ -69,6 +69,7 @@ export function About() {
             lineHeight: 1.8,
             color: 'var(--foreground)',
             maxWidth: '56ch',
+            fontFamily: 'var(--font-geist-pixel-square)',
           }}
         >
           I&apos;m a developer passionate about making new projects and constantly learning.
@@ -95,7 +96,7 @@ export function About() {
               <li
                 key={item}
                 className="flex items-start gap-3 font-light"
-                style={{ fontSize: '15px', color: 'var(--foreground)', lineHeight: 1.6 }}
+                style={{ fontSize: '15px', color: 'var(--foreground)', lineHeight: 1.6, fontFamily: 'var(--font-geist-pixel-square)' }}
               >
                 <span style={{ color: 'var(--accent)', marginTop: '2px' }} aria-hidden="true">→</span>
                 {item}
@@ -103,7 +104,7 @@ export function About() {
             ))}
           </ul>
         </div>
-        <p style={{ fontSize: '14px', color: 'var(--muted-text)', lineHeight: 1.6 }}>
+        <p style={{ fontSize: '14px', color: 'var(--muted-text)', lineHeight: 1.6, fontFamily: 'var(--font-geist-pixel-square)' }}>
           Active open-source contributor to{' '}
           <a
             href="https://github.com/sancho1952007"
@@ -173,6 +174,7 @@ export function Skills() {
                     padding: '3px 10px',
                     lineHeight: 1.6,
                     whiteSpace: 'nowrap',
+                    fontFamily: 'var(--font-geist-pixel-square)',
                   }}
                 >
                   {item}
@@ -207,6 +209,7 @@ export function Skills() {
                   padding: '3px 10px',
                   lineHeight: 1.6,
                   whiteSpace: 'nowrap',
+                  fontFamily: 'var(--font-geist-pixel-square)',
                 }}
               >
                 {item}
@@ -508,7 +511,7 @@ export function Contact() {
 
   const labelStyle: React.CSSProperties = {
     fontSize: '11px',
-    fontFamily: 'var(--font-mono, monospace)',
+    fontFamily: 'var(--font-geist-pixel-square)',
     textTransform: 'uppercase',
     letterSpacing: '0.1em',
     color: 'var(--muted-text)',
@@ -568,12 +571,12 @@ export function Contact() {
 
           {formState === 'success' && (
             <p style={{ fontSize: '14px', color: 'var(--accent)' }}>
-              Message sent! I&apos;ll get back to you within 6–24 hours.
+              Message sent! I&apos;ll get back to you within 6-24 hours.
             </p>
           )}
           {formState === 'error' && (
             <p style={{ fontSize: '14px', color: '#e07070' }}>
-              Something went wrong. Please try again or reach out directly.
+              Something went wrong. Please try again or reach out using another source.
             </p>
           )}
 
@@ -614,7 +617,7 @@ export function Contact() {
                     target="_blank"
                     rel="noopener"
                     className="group inline-flex items-center gap-1 py-2 font-light transition-opacity duration-200 hover:opacity-60"
-                    style={{ fontSize: '15px', color: 'var(--foreground)', textDecoration: 'none', minHeight: '44px' }}
+                    style={{ fontSize: '15px', color: 'var(--foreground)', textDecoration: 'none', minHeight: '44px', fontFamily: 'var(--font-geist-pixel-square)' }}
                   >
                     <span>{link.label}</span>
                     <span style={{ color: 'var(--muted-text)', fontSize: '13px' }}>{link.handle}</span>
@@ -628,8 +631,8 @@ export function Contact() {
               ))}
             </ul>
           </div>
-          <p style={{ fontSize: '13px', color: 'var(--muted-text)', lineHeight: 1.6 }}>
-            I typically respond within 6–24 hours. In rare cases there may be a small delay.
+          <p style={{ fontSize: '13px', color: 'var(--muted-text)', lineHeight: 1.6, fontFamily: 'var(--font-geist-pixel-square)' }}>
+            I typically respond within 6-24 hours. In rare cases there may be a small delay.
           </p>
         </div>
       </div>

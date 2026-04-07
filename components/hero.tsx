@@ -38,7 +38,7 @@ export default function Hero() {
 
           {/* Text */}
           <div className="flex flex-col">
-            <p className="italic text-muted-text hidden lg:block">Hi, I'm</p>
+            <p className="text-muted-text hidden lg:block">Hi, I'm</p>
             <h1
               className="text-balance leading-none mb-5"
               style={{
@@ -62,14 +62,14 @@ export default function Hero() {
               <a
                 href="#projects"
                 className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
-                style={{ color: 'var(--accent)', fontSize: '14px', minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
+                style={{ color: 'var(--accent)', fontSize: '14px', minHeight: '44px', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-geist-pixel-square)' }}
               >
                 See My Work ↓
               </a>
               <a
                 href="#connect"
                 className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
-                style={{ color: 'var(--accent)', fontSize: '14px', minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
+                style={{ color: 'var(--accent)', fontSize: '14px', minHeight: '44px', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-geist-pixel-square)' }}
               >
                 {"Let's Connect →"}
               </a>
