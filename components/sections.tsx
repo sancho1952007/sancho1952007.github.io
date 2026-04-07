@@ -380,6 +380,188 @@ export function Projects() {
   )
 }
 
+// ─── Contact ────────────────────────────────────────────────────────────────
+
+type FormState = 'idle' | 'loading' | 'success' | 'error'
+
+export function Contact() {
+  const [formState, setFormState] = React.useState<FormState>('idle')
+  const [formData, setFormData] = React.useState({ name: '', email: '', message: '' })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setFormState('loading')
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? '',
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      })
+      const json = await res.json()
+      if (json.success) {
+        setFormState('success')
+        setFormData({ name: '', email: '', message: '' })
+      } else {
+        setFormState('error')
+      }
+    } catch {
+      setFormState('error')
+    }
+  }
+
+  const inputStyle: React.CSSProperties = {
+    width: '100%',
+    backgroundColor: 'var(--row-hover)',
+    border: '1px solid var(--border-rule)',
+    borderRadius: '6px',
+    padding: '10px 14px',
+    fontSize: '14px',
+    color: 'var(--foreground)',
+    outline: 'none',
+    fontFamily: 'inherit',
+    lineHeight: 1.6,
+  }
+
+  const labelStyle: React.CSSProperties = {
+    fontSize: '11px',
+    fontFamily: 'var(--font-mono, monospace)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.1em',
+    color: 'var(--muted-text)',
+    display: 'block',
+    marginBottom: '6px',
+  }
+
+  return (
+    <SectionShell id="contact" label="Contact">
+      <div className="flex flex-col lg:flex-row gap-12">
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5 flex-1">
+          <div>
+            <label htmlFor="contact-name" style={labelStyle}>Name</label>
+            <input
+              id="contact-name"
+              name="name"
+              type="text"
+              required
+              placeholder="Your name"
+              value={formData.name}
+              onChange={handleChange}
+              style={inputStyle}
+              disabled={formState === 'loading' || formState === 'success'}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="contact-email" style={labelStyle}>Email</label>
+            <input
+              id="contact-email"
+              name="email"
+              type="email"
+              required
+              placeholder="your@email.com"
+              value={formData.email}
+              onChange={handleChange}
+              style={inputStyle}
+              disabled={formState === 'loading' || formState === 'success'}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="contact-message" style={labelStyle}>Message</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              required
+              placeholder="What would you like to say?"
+              rows={5}
+              value={formData.message}
+              onChange={handleChange}
+              style={{ ...inputStyle, resize: 'vertical', minHeight: '120px' }}
+              disabled={formState === 'loading' || formState === 'success'}
+            />
+          </div>
+
+          {formState === 'success' && (
+            <p style={{ fontSize: '14px', color: 'var(--accent)' }}>
+              Message sent! I&apos;ll get back to you within 6–24 hours.
+            </p>
+          )}
+          {formState === 'error' && (
+            <p style={{ fontSize: '14px', color: '#e07070' }}>
+              Something went wrong. Please try again or reach out directly.
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={formState === 'loading' || formState === 'success'}
+            className="self-start font-light transition-opacity duration-200 hover:opacity-70 disabled:opacity-40"
+            style={{
+              fontSize: '14px',
+              color: 'var(--background)',
+              backgroundColor: 'var(--accent)',
+              border: 'none',
+              borderRadius: '6px',
+              padding: '10px 24px',
+              cursor: formState === 'loading' || formState === 'success' ? 'not-allowed' : 'pointer',
+              fontFamily: 'inherit',
+              minHeight: '44px',
+            }}
+          >
+            {formState === 'loading' ? 'Sending…' : formState === 'success' ? 'Sent!' : 'Send Message'}
+          </button>
+        </form>
+
+        {/* Social sidebar */}
+        <div className="flex flex-col gap-6 lg:w-56 shrink-0">
+          <div>
+            <p style={{ ...labelStyle, marginBottom: '14px' }}>Or find me on</p>
+            <ul className="flex flex-col gap-1" role="list">
+              {[
+                { label: 'GitHub', handle: '@sancho1952007', href: 'https://github.com/sancho1952007' },
+                { label: 'Twitter', handle: '@sanchogodinho', href: 'https://x.com/sanchogodinho' },
+                { label: 'Discord', handle: 'sanchogodinho', href: 'https://discord.com/users/1053386709737414739' },
+              ].map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 py-2 font-light transition-opacity duration-200 hover:opacity-60"
+                    style={{ fontSize: '15px', color: 'var(--foreground)', textDecoration: 'none', minHeight: '44px' }}
+                  >
+                    <span>{link.label}</span>
+                    <span style={{ color: 'var(--muted-text)', fontSize: '13px' }}>{link.handle}</span>
+                    <span
+                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                      style={{ color: 'var(--accent)', fontSize: '13px' }}
+                      aria-hidden="true"
+                    >→</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p style={{ fontSize: '13px', color: 'var(--muted-text)', lineHeight: 1.6 }}>
+            I typically respond within 6–24 hours. In rare cases there may be a small delay.
+          </p>
+        </div>
+      </div>
+    </SectionShell>
+  )
+}
+
 // ─── Connect ────────────────────────────────────────────────────────────────
 
 const SOCIAL_LINKS = [
