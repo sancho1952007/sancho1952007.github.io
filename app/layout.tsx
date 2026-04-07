@@ -53,19 +53,20 @@ export const metadata: Metadata = {
       'Sancho Godinho is a full-stack developer and founder of Postily. Explore his projects, open-source work, and technical writing.',
     images: [
       {
-        url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image-compressed.png?maxage=15d',
+        url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png?maxage=15d&w=1200&h=630',
         width: 1200,
         height: 630,
         alt: 'Sancho Godinho - Full-Stack Developer Portfolio',
       },
     ],
   },
+  // Use full res image on X
   twitter: {
     card: 'summary_large_image',
     title: 'Sancho Godinho - Full-Stack Developer & Startup Founder',
     description:
       'Sancho Godinho is a full-stack developer and founder of Postily. Explore his projects, open-source work, and technical writing.',
-    images: ['https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image-compressed.png?maxage=15d'],
+    images: ['https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png?maxage=15d'],
   },
   icons: {
     icon: 'https://gravatar.com/userimage/206490397/3148feef79a3656c62949155a11b8c2f.jpeg?size=100',
