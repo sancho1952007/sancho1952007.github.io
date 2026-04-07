@@ -9,16 +9,13 @@ type Theme = 'dark' | 'light'
 
 function getSystemTheme(): Theme {
   if (typeof window === 'undefined') return 'dark'
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  // Read the class already stamped by the blocking inline script in layout.tsx
+  // so React's initial state matches the DOM and avoids a second re-render flash.
+  return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
 }
 
 export default function Home() {
-  const [theme, setTheme] = useState<Theme>('dark')
-
-  // Initialise from system preference on mount
-  useEffect(() => {
-    setTheme(getSystemTheme())
-  }, [])
+  const [theme, setTheme] = useState<Theme>(getSystemTheme)
 
   // Apply theme class to <html>
   useEffect(() => {
