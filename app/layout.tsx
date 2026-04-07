@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import localFont from 'next/font/local'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { GeistPixelSquare } from 'geist/font/pixel'
 import { Instrument_Serif } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
@@ -14,6 +14,12 @@ const geist = Geist({
 const geistMono = Geist_Mono({
   subsets: ['latin'],
   variable: '--font-geist-mono',
+})
+
+const geistPixelSquare = localFont({
+  src: '../node_modules/geist/dist/fonts/geist-pixel/GeistPixel-Square.woff2',
+  variable: '--font-geist-pixel-square',
+  display: 'swap',
 })
 
 const instrumentSerif = Instrument_Serif({
@@ -85,7 +91,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geist.variable} ${geistMono.variable} ${GeistPixelSquare.variable} ${instrumentSerif.variable} font-sans antialiased`}
+        className={`${geist.variable} ${geistMono.variable} ${geistPixelSquare.variable} ${instrumentSerif.variable} font-sans antialiased`}
       >
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

@@ -40,8 +40,9 @@ export default function Hero() {
           <div className="flex flex-col">
             <p className="italic text-muted-text hidden lg:block">Hi, I'm</p>
             <h1
-              className="font-serif italic text-balance leading-none mb-5"
+              className="text-balance leading-none mb-5"
               style={{
+                fontFamily: 'var(--font-geist-pixel-square)',
                 fontSize: 'clamp(48px, 8vw, 80px)',
                 color: 'var(--foreground)',
                 letterSpacing: '-0.01em',
