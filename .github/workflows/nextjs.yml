@@ -1,10 +1,13 @@
-# Workflow for building and deploying a Next.js site to GitHub Pages using pnpm
 name: Deploy Next.js site to Pages
 
 on:
   push:
     branches: ["main"]
   workflow_dispatch:
+
+# Force all actions (including those without Node 24 releases) to run on Node 24
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 permissions:
   contents: read
@@ -20,27 +23,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5          # Node 24 ✅
 
-      # pnpm MUST be set up before setup-node so cache: 'pnpm' works
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
+        uses: pnpm/action-setup@v4         # Covered by FORCE env var
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6        # Node 24 ✅
         with:
-          node-version: '22'   # matches @types/node: ^22 in package.json
-          cache: 'pnpm'        # replaces the manual store path + cache steps
+          node-version: '22'
+          cache: 'pnpm'
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v5   # Covered by FORCE env var
         with:
           static_site_generator: next
 
       - name: Cache Next.js build
-        uses: actions/cache@v4
+        uses: actions/cache@v5             # Node 24 ✅
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '!node_modules/**') }}
@@ -58,7 +58,7 @@ jobs:
           NEXT_TELEMETRY_DISABLED: 1
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3  # Covered by FORCE env var
         with:
           path: ./out
 
@@ -71,4 +71,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4      # Covered by FORCE env var
