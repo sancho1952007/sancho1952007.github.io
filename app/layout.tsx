@@ -73,8 +73,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-  return (
-    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Truly blocking inline script injected before any CSS or React renders.
             Next.js <Script strategy="beforeInteractive"> does NOT block the first
