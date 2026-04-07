@@ -125,11 +125,11 @@ export function About() {
 const STACK: { level: string; items: string[] }[] = [
   {
     level: 'Expert',
-    items: ['Bun', 'Node.js', 'Socket.io', 'HTML', 'CSS', 'JavaScript'],
+    items: ['Bun', 'Node.js', 'Socket.io', 'HTML', 'CSS', 'JavaScript', 'Tailscale', 'Server Management', 'Infrastructure Optimization'],
   },
   {
     level: 'Proficient',
-    items: ['React', 'Expo', 'Python', 'Bash'],
+    items: ['React', 'Expo', 'Python', 'Bash', 'Cyber Security', 'Docker'],
   },
 ]
 
@@ -305,7 +305,7 @@ function ProjectCard({ project }: { project: Project }) {
       {/* Image */}
       <div
         className="relative w-full overflow-hidden"
-        style={{ aspectRatio: '4 / 3', backgroundColor: 'var(--border-rule)' }}
+        style={{ aspectRatio: '16 / 9', backgroundColor: 'var(--border-rule)' }}
       >
         {!imgError ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -360,7 +360,7 @@ function ProjectCard({ project }: { project: Project }) {
 export function Projects() {
   return (
     <SectionShell id="projects" label="Projects">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
         {PROJECTS.map((project) => (
           <ProjectCard key={project.name} project={project} />
         ))}
@@ -386,6 +386,7 @@ const SOCIAL_LINKS = [
   { label: 'GitHub', handle: '@sancho1952007', href: 'https://github.com/sancho1952007' },
   { label: 'Twitter', handle: '@sanchogodinho', href: 'https://twitter.com/sanchogodinho' },
   { label: 'Discord', handle: 'sanchogodinho', href: 'https://discord.com/users/sanchogodinho' },
+  { label: 'Email', handle: 'sancho@sg-app.com', href: 'mailto:sancho@sg-app.com' },
 ]
 
 export function Connect() {
@@ -443,7 +444,7 @@ export function Footer() {
           className="font-light"
           style={{ fontSize: '12px', color: 'var(--muted-text)' }}
         >
-          Sancho Godinho · 2026
+          &copy; Sancho Godinho · {new Date().getFullYear()}
         </p>
       </div>
     </footer>
