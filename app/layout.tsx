@@ -3,7 +3,6 @@ import Script from 'next/script'
 import localFont from 'next/font/local'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Instrument_Serif } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const geist = Geist({
@@ -36,10 +35,10 @@ export const metadata: Metadata = {
   keywords: ['sancho godinho', 'sancho'],
   authors: [{ name: 'Sancho Godinho' }],
   creator: 'Sancho Godinho',
-  metadataBase: new URL('https://sancho1952007.vercel.app'),
+  metadataBase: new URL('https://sancho1952007.github.io/'),
   openGraph: {
     type: 'website',
-    url: 'https://sancho1952007.vercel.app/',
+    url: 'https://sancho1952007.github.io/',
     title: 'Sancho Godinho',
     description:
       "Sancho Godinho's official website. Visit the website to learn more about me & my projects!",
