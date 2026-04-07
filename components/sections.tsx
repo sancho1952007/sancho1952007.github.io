@@ -458,7 +458,7 @@ export function Projects() {
   )
 }
 
-// ─── Contact ─────────────────────────────��──────────────────────────────────
+// ─── Contact ─────────────���───────────────��──────────────────────────────────
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 
@@ -544,6 +544,8 @@ export function Contact() {
         <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-5 flex-1">
           {/* Web3Forms access key — required for FormData submission */}
           <input type="hidden" name="access_key" value="c8c6b430-aff8-49ab-b354-920b54a50063" />
+          
+          <div>
             <label htmlFor="contact-name" style={labelStyle}>Name</label>
             <input
               id="contact-name"
