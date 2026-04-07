@@ -8,21 +8,32 @@ export default function Hero() {
         {/* Layout: stacked on mobile (image top), side-by-side on large screens */}
         <div className="flex flex-col lg:flex-row-reverse lg:items-center lg:justify-between gap-8 lg:gap-12">
 
-          {/* Avatar */}
+          {/* Avatar with textured background */}
           <div className="flex justify-start lg:justify-end shrink-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/pfp.png"
-              alt="Pixel art portrait of Sancho Godinho"
-              width={250}
-              height={250}
-              className=""
+            <div
+              className="avatar-background"
               style={{
                 width: 'clamp(250px, 14vw, 180px)',
                 height: 'clamp(250px, 14vw, 180px)',
-                objectFit: 'cover'
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '1px solid var(--border-rule)',
               }}
-            />
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/pfp.png"
+                alt="Pixel art portrait of Sancho Godinho"
+                width={250}
+                height={250}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block',
+                }}
+              />
+            </div>
           </div>
 
           {/* Text */}

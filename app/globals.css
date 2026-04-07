@@ -40,7 +40,53 @@
   --radius-lg: calc(var(--radius) + 4px);
 }
 
-@layer base {
+@layer components {
+  .avatar-background {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Grainy texture overlay using CSS noise effect */
+  .avatar-background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" seed="2" /></filter><rect width="200" height="200" fill="%23e8e6e0" filter="url(%23noise)" opacity="0.15"/></svg>');
+    background-size: 200px 200px;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Dark mode grain texture */
+  .dark .avatar-background::before {
+    background-image: 
+      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" seed="2" /></filter><rect width="200" height="200" fill="%23ffffff" filter="url(%23noise)" opacity="0.08"/></svg>');
+  }
+
+  /* Subtle radial gradient backdrop */
+  .avatar-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.03) 100%);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .dark .avatar-background::after {
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.2) 100%);
+  }
+
+  /* Avatar image container */
+  .avatar-background img {
+    position: relative;
+    z-index: 0;
+    display: block;
+  }
+}
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 72px;
