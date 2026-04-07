@@ -610,14 +610,15 @@ export function Contact() {
                 { label: 'Twitter', handle: '@sanchogodinho', href: 'https://x.com/sanchogodinho' },
                 { label: 'Discord', handle: 'sanchogodinho', href: 'https://discord.com/users/1053386709737414739' },
                 { label: 'Email', handle: 'sancho@sg-app.com', href: 'mailto:sancho@sg-app.com' },
+                { label: 'LinkedIn', handle: 'sancho-godinho', href: 'https://www.linkedin.com/in/sancho-godinho/' },
               ].map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     target="_blank"
                     rel="noopener"
-                    className="group inline-flex items-center gap-1 py-2 font-light transition-opacity duration-200 hover:opacity-60"
-                    style={{ fontSize: '15px', color: 'var(--foreground)', textDecoration: 'none', minHeight: '44px', fontFamily: 'var(--font-geist-pixel-square)' }}
+                    className="group inline-flex items-center gap-1 py-0 font-light transition-opacity duration-200 hover:opacity-60"
+                    style={{ fontSize: '15px', color: 'var(--foreground)', textDecoration: 'none', minHeight: '30px', fontFamily: 'var(--font-geist-pixel-square)' }}
                   >
                     <span>{link.label}</span>
                     <span style={{ color: 'var(--muted-text)', fontSize: '13px' }}>{link.handle}</span>
