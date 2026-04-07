@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { GeistPixelSquare } from 'geist/font/pixel'
 import { Instrument_Serif } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
@@ -84,7 +85,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geist.variable} ${geistMono.variable} ${instrumentSerif.variable} font-sans antialiased`}
+        className={`${geist.variable} ${geistMono.variable} ${GeistPixelSquare.variable} ${instrumentSerif.variable} font-sans antialiased`}
       >
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

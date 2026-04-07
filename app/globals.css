@@ -29,6 +29,7 @@
   --font-sans: var(--font-geist), 'Geist', sans-serif;
   --font-serif: var(--font-instrument-serif), 'Instrument Serif', serif;
   --font-mono: var(--font-geist-mono), 'Geist Mono', monospace;
+  --font-pixel: var(--font-geist-pixel-square), monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted-text: var(--muted-text);
