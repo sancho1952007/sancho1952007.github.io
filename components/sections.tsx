@@ -125,11 +125,11 @@ export function About() {
 const STACK: { level: string; items: string[] }[] = [
   {
     level: 'Expert',
-    items: ['Bun', 'Node.js', 'Socket.io', 'HTML', 'CSS', 'JavaScript', 'Tailscale', 'Server Management', 'Infrastructure Optimization'],
+    items: ['Bun', 'Node.js', 'Socket.io', 'HTML', 'CSS', 'JavaScript', 'Tailscale', 'Server Management', 'Infrastructure Optimization', 'Server Security'],
   },
   {
     level: 'Proficient',
-    items: ['React', 'Expo', 'Python', 'Bash', 'Cyber Security', 'Docker'],
+    items: ['React', 'Expo', 'Python', 'Bash', 'MongoDB', 'Cyber Security', 'Docker', 'UFW'],
   },
 ]
 
