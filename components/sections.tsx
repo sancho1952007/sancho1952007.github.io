@@ -315,7 +315,7 @@ function ProjectCard({ project }: { project: Project }) {
       {/* Image */}
       <div
         className="relative w-full overflow-hidden"
-        style={{ aspectRatio: '16 / 9', backgroundColor: 'var(--border-rule)' }}
+        style={{ aspectRatio: '4 / 3', backgroundColor: 'var(--border-rule)' }}
       >
         {!imgError ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -343,20 +343,12 @@ function ProjectCard({ project }: { project: Project }) {
 
       {/* Body */}
       <div className="flex flex-col gap-1 p-4">
-        <div className="flex items-start justify-between gap-2">
-          <span
-            className="font-light"
-            style={{ fontSize: '15px', color: 'var(--foreground)', lineHeight: 1.4 }}
-          >
-            {project.name}
-          </span>
-          <span
-            className="shrink-0 font-light transition-opacity duration-150"
-            style={{ fontSize: '13px', color: 'var(--muted-text)', fontVariantNumeric: 'tabular-nums' }}
-          >
-            {project.year}
-          </span>
-        </div>
+        <span
+          className="font-light"
+          style={{ fontSize: '15px', color: 'var(--foreground)', lineHeight: 1.4 }}
+        >
+          {project.name}
+        </span>
         <p
           className="font-light"
           style={{ fontSize: '13px', color: 'var(--muted-text)', lineHeight: 1.55 }}
