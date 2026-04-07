@@ -301,7 +301,6 @@ function ProjectCard({ project }: { project: Project }) {
           breakInside: 'avoid',
           marginBottom: '16px',
           textDecoration: 'none',
-          display: 'none',
         }}
         aria-label={`${project.name} — ${project.description}`}
       >
