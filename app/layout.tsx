@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Geist } from 'next/font/google'
 import { Instrument_Serif } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
@@ -17,15 +18,40 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: 'Sancho Godinho — Programmer & Security Researcher',
+  title: 'Sancho Godinho',
   description:
-    'Programmer, Security Researcher, and Tech Enthusiast who loves building things for the web and exploring the intersection of code and security.',
+    "Sancho Godinho's official website. Visit the website to learn more about my projects & offerings!",
+  keywords: ['sancho godinho', 'sancho', 'programmer', 'cyber security researcher', 'tech enthusiast'],
+  authors: [{ name: 'Sancho Godinho' }],
+  creator: 'Sancho Godinho',
+  metadataBase: new URL('https://sancho1952007.vercel.app'),
   openGraph: {
-    title: 'Sancho Godinho — Programmer & Security Researcher',
-    description:
-      'Programmer, Security Researcher, and Tech Enthusiast who loves building things for the web and exploring the intersection of code and security.',
     type: 'website',
+    url: 'https://sancho1952007.vercel.app/',
+    title: 'Sancho Godinho',
+    description:
+      "Sancho Godinho's official website. Visit the website to learn more about my projects & offerings!",
+    images: [
+      {
+        url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png%3Fv%3D1?maxage=15d',
+        width: 1200,
+        height: 630,
+        alt: 'Sancho Godinho Portfolio',
+      },
+    ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sancho Godinho',
+    description:
+      "Sancho Godinho's official website. Visit the website to learn more about my projects & offerings!",
+    images: ['https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png%3Fv%3D1?maxage=15d'],
+  },
+  icons: {
+    icon: 'https://gravatar.com/avatar/42705d079b3abfd6235c083eba8d532dd7149add0c83d146f0bbed08417888ce?size=100',
+    shortcut: 'https://gravatar.com/avatar/42705d079b3abfd6235c083eba8d532dd7149add0c83d146f0bbed08417888ce?size=100',
+  },
+  generator: 'v0.app',
 }
 
 export default function RootLayout({
@@ -38,10 +64,18 @@ export default function RootLayout({
       <head>
         {/* Blocking script — runs before first paint to stamp .dark on <html>,
             preventing any flash of the wrong theme. */}
-        <script
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var m=window.matchMedia('(prefers-color-scheme: dark)').matches;if(m)document.documentElement.classList.add('dark');}catch(e){}})();`,
           }}
+        />
+        {/* Rybbit Analytics */}
+        <Script
+          src="https://cdn.rybbit.io/script.js"
+          data-token="sancho1952007"
+          strategy="afterInteractive"
         />
       </head>
       <body
