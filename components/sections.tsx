@@ -311,6 +311,7 @@ function ProjectCard({ project }: { project: Project }) {
             src={project.image}
             alt={`${project.name} preview`}
             onError={() => setImgError(true)}
+            className="transition-transform duration-300 group-hover:scale-[1.02]"
             style={{ width: '100%', height: 'auto', display: 'block' }}
           />
         ) : (
@@ -330,26 +331,35 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
         )}
 
-        {/* Hover overlay */}
+        {/* Hover overlay with fading blur */}
         <div
-          className="absolute inset-0 transition-opacity duration-200 opacity-0 group-hover:opacity-100"
-          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%)' }}
+          className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+          style={{
+            backdropFilter: 'blur(6px)',
+            WebkitBackdropFilter: 'blur(6px)',
+            maskImage: 'linear-gradient(to top, black 0%, black 40%, transparent 75%)',
+            WebkitMaskImage: 'linear-gradient(to top, black 0%, black 40%, transparent 75%)',
+          }}
           aria-hidden="true"
-        >
-          {/* Blurred bottom strip */}
-          <div
-            className="absolute bottom-0 left-0 right-0"
-            style={{ height: '40%', backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}
-          />
-          {/* Text */}
-          <div className="absolute bottom-0 left-0 right-0 p-4" style={{ zIndex: 1 }}>
-            <p style={{ fontSize: '15px', color: '#fff', fontWeight: 400, lineHeight: 1.4, marginBottom: '2px' }}>
-              {project.name}
-            </p>
-            <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.7)', lineHeight: 1.4 }}>
-              {project.description}
-            </p>
-          </div>
+        />
+
+        {/* Dark tint overlay with fading gradient */}
+        <div
+          className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+          style={{
+            background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 40%, transparent 70%)',
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Text */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 transition-opacity duration-300 opacity-0 group-hover:opacity-100" style={{ zIndex: 1 }}>
+          <p style={{ fontSize: '15px', color: '#fff', fontWeight: 400, lineHeight: 1.4, marginBottom: '2px' }}>
+            {project.name}
+          </p>
+          <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.7)', lineHeight: 1.4 }}>
+            {project.description}
+          </p>
         </div>
       </a>
 
