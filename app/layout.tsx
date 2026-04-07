@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: 'Sancho Godinho',
   description:
     "Sancho Godinho's official website. Visit the website to learn more about me & my projects!",
-  keywords: ['sancho godinho', 'sancho', 'programmer', 'cyber security researcher', 'tech enthusiast'],
+  keywords: ['sancho godinho', 'sancho'],
   authors: [{ name: 'Sancho Godinho' }],
   creator: 'Sancho Godinho',
   metadataBase: new URL('https://sancho1952007.vercel.app'),
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
     images: ['https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png%3Fv%3D1?maxage=15d'],
   },
   icons: {
-    icon: 'https://gravatar.com/avatar/42705d079b3abfd6235c083eba8d532dd7149add0c83d146f0bbed08417888ce?size=100',
-    shortcut: 'https://gravatar.com/avatar/42705d079b3abfd6235c083eba8d532dd7149add0c83d146f0bbed08417888ce?size=100',
+    icon: 'https://gravatar.com/userimage/206490397/3148feef79a3656c62949155a11b8c2f.jpeg?size=100',
+    shortcut: 'https://gravatar.com/userimage/206490397/3148feef79a3656c62949155a11b8c2f.jpeg?size=100',
   },
   generator: 'v0.app',
 }
@@ -73,8 +73,8 @@ export default function RootLayout({
         />
         {/* Rybbit Analytics */}
         <Script
-          src="https://cdn.rybbit.io/script.js"
-          data-token="sancho1952007"
+          src="https://rybbit.sg-app.com/api/script.js"
+          data-site-id="1"
           strategy="afterInteractive"
         />
       </head>
