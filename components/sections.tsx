@@ -641,8 +641,8 @@ export function Contact() {
                 { label: 'GitHub', handle: '@sancho1952007', href: 'https://github.com/sancho1952007' },
                 { label: 'Twitter', handle: '@sanchogodinho', href: 'https://x.com/sanchogodinho' },
                 { label: 'Discord', handle: 'sanchogodinho', href: 'https://discord.com/users/1053386709737414739' },
-                { label: 'Email', handle: 'sancho@sg-app.com', href: 'mailto:sancho@sg-app.com' },
                 { label: 'LinkedIn', handle: 'sancho-godinho', href: 'https://www.linkedin.com/in/sancho-godinho/' },
+                { label: 'Email', handle: 'sancho@sg-app.com', href: 'mailto:sancho@sg-app.com' },
               ].map((link) => (
                 <li key={link.label}>
                   <a
