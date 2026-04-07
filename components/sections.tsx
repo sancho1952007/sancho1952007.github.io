@@ -120,9 +120,9 @@ export function About() {
   )
 }
 
-// ─── Stack ──────────────────────────────────────────────────────────────────
+// ─── Skills ─────────────────────────────────────────────────────────────────
 
-const STACK: { level: string; items: string[] }[] = [
+const SKILLS: { level: string; items: string[] }[] = [
   {
     level: 'Expert',
     items: ['Bun', 'Node.js', 'Socket.io', 'HTML', 'CSS', 'JavaScript', 'Tailscale', 'Server Management', 'Infrastructure Optimization', 'Server Security'],
@@ -142,11 +142,11 @@ const PRACTICES = [
   'Performance Optimization',
 ]
 
-export function Stack() {
+export function Skills() {
   return (
-    <SectionShell id="stack" label="Stack">
+    <SectionShell id="skills" label="Skills">
       <div className="flex flex-col gap-8">
-        {STACK.map((group) => (
+        {SKILLS.map((group) => (
           <div key={group.level}>
             <p
               style={{

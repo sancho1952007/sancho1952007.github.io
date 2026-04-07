@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Navbar from '@/components/navbar'
 import Hero from '@/components/hero'
-import { About, Stack, Projects, Contact, Footer } from '@/components/sections'
+import { About, Skills, Projects, Contact, Footer } from '@/components/sections'
 
 type Theme = 'dark' | 'light'
 
@@ -37,7 +37,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <Stack />
+        <Skills />
         <Projects />
         <Contact />
       </main>
