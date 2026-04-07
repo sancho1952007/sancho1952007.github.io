@@ -73,14 +73,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+  return (
+    <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Blocking script — runs before first paint to stamp .dark on <html>,
-            preventing any flash of the wrong theme. */}
-        <Script
-          id="theme-init"
-          strategy="beforeInteractive"
+        {/* Truly blocking inline script injected before any CSS or React renders.
+            Next.js <Script strategy="beforeInteractive"> does NOT block the first
+            paint — it only runs before hydration. A raw dangerouslySetInnerHTML
+            on <head> is the only way to guarantee zero flash. */}
+        <script
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var m=window.matchMedia('(prefers-color-scheme: dark)').matches;if(m)document.documentElement.classList.add('dark');}catch(e){}})();`,
+            __html: `(function(){try{if(!window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}}catch(e){}})();`,
           }}
         />
         {/* Rybbit Analytics */}

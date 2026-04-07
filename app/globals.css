@@ -3,8 +3,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ─── Light mode (warm white) ─────────────────────────── */
+/* ─── Default to dark (prevents flash on SSR before JS runs) ──────────── */
 :root {
+  --background: #0f0f0e;
+  --foreground: #f0ede8;
+  --muted-text: #888580;
+  --border-rule: #2a2a28;
+  --row-hover: #1a1a18;
+  --accent: #7fa688;
+  --radius: 0.375rem;
+}
+
+/* ─── Light mode ───────────────────────────────────────── */
+:root:not(.dark) {
   --background: #f5f4f0;
   --foreground: #1a1a18;
   --muted-text: #6b6860;
@@ -14,7 +25,7 @@
   --radius: 0.375rem;
 }
 
-/* ─── Dark mode (near-black warm) ─────────────────────── */
+/* ─── Dark mode (explicit, same as :root default) ─────── */
 .dark {
   --background: #0f0f0e;
   --foreground: #f0ede8;
