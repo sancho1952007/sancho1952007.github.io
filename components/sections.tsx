@@ -224,7 +224,6 @@ export function Stack() {
 interface Project {
   name: string
   description: string
-  year: string
   url: string
   image: string
 }
@@ -233,63 +232,54 @@ const PROJECTS: Project[] = [
   {
     name: 'Postily',
     description: 'The Next Gen Social Media Site (Under Development)',
-    year: '2024',
     url: 'https://postily.social',
     image: 'https://wsrv.nl/?url=https://postily.sg-app.com/og-image.png?maxage=15d',
   },
   {
     name: 'Smart Notes',
     description: 'Free cloud notepad with live-collaborative editing and rich text support.',
-    year: '2023',
     url: 'https://smart-notes.sg-app.com',
     image: 'https://i.ibb.co/307TKL1/Screenshot-2024-06-06-163943.png',
   },
   {
     name: 'SG Apps',
     description: 'At SG Apps, We Aim To Build Apps For The Best!',
-    year: '2023',
     url: 'https://sg-app.com',
     image: 'https://i.ibb.co/6gp6Sqt/Smart-Select-20240219-211006-Chrome.jpg',
   },
   {
     name: 'Tiles Game',
     description: 'A simple yet fun game to play in your free time!',
-    year: '2023',
     url: 'https://sg-app.com/Tiles-Game/',
     image: 'https://i.ibb.co/GW0J8P5/Screenshot-2024-06-06-164126.png',
   },
   {
     name: 'Encli',
     description: 'A free cross platform file encryption/decryption tool.',
-    year: '2022',
     url: 'https://github.com/sancho1952007/Encli',
     image: 'https://i.ibb.co/rb53gx6/encli.png',
   },
   {
     name: 'Clokie',
     description: 'An amazing customizable clock to be kept on display.',
-    year: '2022',
     url: 'https://sancho1952007.github.io/Clokie/',
     image: 'https://i.ibb.co/DzWMry8/Capture.png',
   },
   {
     name: 'AOS Web',
     description: 'An OS-like system made only with web technology.',
-    year: '2022',
     url: 'https://sancho1952007.github.io/AOS-Web/',
     image: 'https://i.ibb.co/1G4Qwpp/AOS-Web.png',
   },
   {
     name: 'Modern GUI',
     description: 'A beautiful window replacement for Tkinter (Python) apps.',
-    year: '2021',
     url: 'https://github.com/sancho1952007/Modern-GUI-v3.0',
     image: 'https://i.ibb.co/DzWMry8/Capture.png',
   },
   {
     name: 'iPhone 11 Clone',
     description: 'An iPhone 11 Pro made using only HTML & CSS — no images.',
-    year: '2021',
     url: 'https://sancho1952007.github.io/iPhone-11-Clone/',
     image: 'https://i.ibb.co/fxRWxzq/i-Phone-Preview.png',
   },
