@@ -289,82 +289,148 @@ function ProjectCard({ project }: { project: Project }) {
   const [imgError, setImgError] = React.useState(false)
 
   return (
-    <a
-      href={project.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex flex-col overflow-hidden transition-all duration-200"
-      style={{
-        borderRadius: '8px',
-        border: '1px solid var(--border-rule)',
-        backgroundColor: 'var(--row-hover)',
-        textDecoration: 'none',
-      }}
-      aria-label={`${project.name} — ${project.description}`}
-    >
-      {/* Image */}
-      <div
-        className="relative w-full overflow-hidden"
-        style={{ aspectRatio: '16 / 9', backgroundColor: 'var(--border-rule)' }}
+    <>
+      {/* ── Desktop tile (md+): image-only with hover overlay ── */}
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group hidden md:block relative overflow-hidden"
+        style={{
+          borderRadius: '8px',
+          breakInside: 'avoid',
+          marginBottom: '16px',
+          textDecoration: 'none',
+          display: 'none',
+        }}
+        aria-label={`${project.name} — ${project.description}`}
       >
+        {/* Image */}
         {!imgError ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={project.image}
             alt={`${project.name} preview`}
             onError={() => setImgError(true)}
-            className="w-full h-full transition-transform duration-300 group-hover:scale-105"
-            style={{ objectFit: 'cover', objectPosition: 'top', display: 'block' }}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
           />
         ) : (
           <div
-            className="w-full h-full flex items-center justify-center"
-            style={{ backgroundColor: 'var(--row-hover)' }}
+            style={{
+              width: '100%',
+              aspectRatio: '4/3',
+              backgroundColor: 'var(--row-hover)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
           >
-            <span
-              className="font-mono"
-              style={{ fontSize: '11px', color: 'var(--muted-text)', letterSpacing: '0.08em' }}
-            >
+            <span className="font-mono" style={{ fontSize: '11px', color: 'var(--muted-text)', letterSpacing: '0.08em' }}>
               {project.url.replace(/^https?:\/\//, '')}
             </span>
           </div>
         )}
-      </div>
 
-      {/* Body */}
-      <div className="flex flex-col gap-1 p-4">
-        <span
-          className="font-light"
-          style={{ fontSize: '15px', color: 'var(--foreground)', lineHeight: 1.4 }}
-        >
-          {project.name}
-        </span>
-        <p
-          className="font-light"
-          style={{ fontSize: '13px', color: 'var(--muted-text)', lineHeight: 1.55 }}
-        >
-          {project.description}
-        </p>
-        <span
-          className="mt-2 inline-flex items-center gap-1 font-light transition-opacity duration-200 group-hover:opacity-60"
-          style={{ fontSize: '12px', color: 'var(--accent)' }}
+        {/* Hover overlay */}
+        <div
+          className="absolute inset-0 transition-opacity duration-200 opacity-0 group-hover:opacity-100"
+          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%)' }}
           aria-hidden="true"
         >
-          {project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')} ↗
-        </span>
-      </div>
-    </a>
+          {/* Blurred bottom strip */}
+          <div
+            className="absolute bottom-0 left-0 right-0"
+            style={{ height: '40%', backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }}
+          />
+          {/* Text */}
+          <div className="absolute bottom-0 left-0 right-0 p-4" style={{ zIndex: 1 }}>
+            <p style={{ fontSize: '15px', color: '#fff', fontWeight: 400, lineHeight: 1.4, marginBottom: '2px' }}>
+              {project.name}
+            </p>
+            <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.7)', lineHeight: 1.4 }}>
+              {project.description}
+            </p>
+          </div>
+        </div>
+      </a>
+
+      {/* ── Mobile card (below md): image + body ── */}
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex md:hidden flex-col overflow-hidden transition-all duration-200"
+        style={{
+          borderRadius: '8px',
+          border: '1px solid var(--border-rule)',
+          backgroundColor: 'var(--row-hover)',
+          textDecoration: 'none',
+        }}
+        aria-label={`${project.name} — ${project.description}`}
+      >
+        {/* Image — natural height, no fixed aspect ratio */}
+        <div className="relative w-full overflow-hidden" style={{ backgroundColor: 'var(--border-rule)' }}>
+          {!imgError ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={project.image}
+              alt={`${project.name} preview`}
+              onError={() => setImgError(true)}
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+            />
+          ) : (
+            <div
+              className="w-full flex items-center justify-center"
+              style={{ aspectRatio: '4/3', backgroundColor: 'var(--row-hover)' }}
+            >
+              <span className="font-mono" style={{ fontSize: '11px', color: 'var(--muted-text)', letterSpacing: '0.08em' }}>
+                {project.url.replace(/^https?:\/\//, '')}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Body */}
+        <div className="flex flex-col gap-1 p-4">
+          <span className="font-light" style={{ fontSize: '15px', color: 'var(--foreground)', lineHeight: 1.4 }}>
+            {project.name}
+          </span>
+          <p className="font-light" style={{ fontSize: '13px', color: 'var(--muted-text)', lineHeight: 1.55 }}>
+            {project.description}
+          </p>
+          <span
+            className="mt-2 inline-flex items-center gap-1 font-light transition-opacity duration-200 group-hover:opacity-60"
+            style={{ fontSize: '12px', color: 'var(--accent)' }}
+            aria-hidden="true"
+          >
+            {project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')} ↗
+          </span>
+        </div>
+      </a>
+    </>
   )
 }
 
 export function Projects() {
   return (
     <SectionShell id="projects" label="Projects">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+      {/* Desktop: CSS columns masonry */}
+      <div
+        className="hidden md:block"
+        style={{ columns: 2, columnGap: '16px' }}
+      >
         {PROJECTS.map((project) => (
           <ProjectCard key={project.name} project={project} />
         ))}
       </div>
+
+      {/* Mobile: single-column stacked cards */}
+      <div className="flex flex-col gap-4 md:hidden">
+        {PROJECTS.map((project) => (
+          <ProjectCard key={project.name} project={project} />
+        ))}
+      </div>
+
       <div className="mt-8">
         <a
           href="https://github.com/sancho1952007"
