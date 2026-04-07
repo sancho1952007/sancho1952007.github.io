@@ -76,7 +76,7 @@ export function About() {
           I&apos;m a developer passionate about making new projects and constantly learning.
           Whether it&apos;s building practical tools like QR code generators and cloud notepads,
           or creating fun experiments, I love bringing ideas to life through code. My work spans
-          web development, cybersecurity research, and open-source contributions — always
+          web development, cybersecurity research, and open-source contributions, always
           focusing on tools that are useful and accessible.
         </p>
         <div>
@@ -305,7 +305,7 @@ function ProjectCard({ project }: { project: Project }) {
           marginBottom: '16px',
           textDecoration: 'none',
         }}
-        aria-label={`${project.name} — ${project.description}`}
+        aria-label={`${project.name} - ${project.description}`}
       >
         {/* Image */}
         {!imgError ? (
@@ -378,7 +378,7 @@ function ProjectCard({ project }: { project: Project }) {
           backgroundColor: 'var(--row-hover)',
           textDecoration: 'none',
         }}
-        aria-label={`${project.name} — ${project.description}`}
+        aria-label={`${project.name} - ${project.description}`}
       >
         {/* Image — natural height, no fixed aspect ratio */}
         <div className="relative w-full overflow-hidden" style={{ backgroundColor: 'var(--border-rule)' }}>

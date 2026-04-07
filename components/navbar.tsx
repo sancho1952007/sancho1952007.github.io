@@ -76,7 +76,7 @@ export default function Navbar({ theme, onThemeToggle }: NavbarProps) {
               alignItems: 'center',
               fontFamily: 'var(--font-geist-pixel-square)',
             }}
-            aria-label="Sancho Godinho — home"
+            aria-label="Sancho Godinho"
           >
             SG
           </a>
@@ -174,7 +174,7 @@ export default function Navbar({ theme, onThemeToggle }: NavbarProps) {
               href={link.href}
               onClick={handleNavClick}
               className="text-base font-light tracking-wide py-3 transition-opacity duration-200 hover:opacity-60"
-              style={{ color: 'var(--muted-text)', minHeight: '44px', display: 'flex', alignItems: 'center',fontFamily: 'var(--font-geist-pixel-square)' }}
+              style={{ color: 'var(--muted-text)', minHeight: '44px', display: 'flex', alignItems: 'center', fontFamily: 'var(--font-geist-pixel-square)' }}
             >
               {link.label}
             </a>
