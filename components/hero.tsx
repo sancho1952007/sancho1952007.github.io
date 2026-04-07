@@ -5,39 +5,65 @@ export default function Hero() {
       aria-label="Hero"
     >
       <div className="max-w-5xl mx-auto w-full">
-        <h1
-          className="font-serif italic text-balance leading-none mb-5"
-          style={{
-            fontSize: 'clamp(48px, 8vw, 80px)',
-            color: 'var(--foreground)',
-            letterSpacing: '-0.01em',
-          }}
-        >
-          Sancho Godinho
-        </h1>
+        {/* Layout: stacked on mobile (image top), side-by-side on large screens */}
+        <div className="flex flex-col lg:flex-row-reverse lg:items-center lg:justify-between gap-8 lg:gap-12">
 
-        <p
-          className="font-sans font-light tracking-wide mb-10"
-          style={{ fontSize: '15px', color: 'var(--muted-text)', letterSpacing: '0.02em' }}
-        >
-          Programmer&nbsp;&nbsp;·&nbsp;&nbsp;Security Researcher&nbsp;&nbsp;·&nbsp;&nbsp;Tech Enthusiast
-        </p>
+          {/* Avatar */}
+          <div className="flex justify-start lg:justify-end shrink-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-NWtnFQLwKPCZvoWHPPhFLcPDjV1bsV.png"
+              alt="Pixel art portrait of Sancho Godinho"
+              width={160}
+              height={160}
+              className="rounded-full"
+              style={{
+                width: 'clamp(120px, 14vw, 180px)',
+                height: 'clamp(120px, 14vw, 180px)',
+                objectFit: 'cover',
+                border: '1px solid var(--border-rule)',
+              }}
+            />
+          </div>
 
-        <div className="flex items-center gap-8">
-          <a
-            href="#projects"
-            className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
-            style={{ color: 'var(--accent)', fontSize: '14px', minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
-          >
-            See My Work ↓
-          </a>
-          <a
-            href="#connect"
-            className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
-            style={{ color: 'var(--accent)', fontSize: '14px', minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
-          >
-            {"Let's Connect →"}
-          </a>
+          {/* Text */}
+          <div className="flex flex-col">
+            <h1
+              className="font-serif italic text-balance leading-none mb-5"
+              style={{
+                fontSize: 'clamp(48px, 8vw, 80px)',
+                color: 'var(--foreground)',
+                letterSpacing: '-0.01em',
+              }}
+            >
+              Sancho Godinho
+            </h1>
+
+            <p
+              className="font-sans font-light tracking-wide mb-10"
+              style={{ fontSize: '15px', color: 'var(--muted-text)', letterSpacing: '0.02em' }}
+            >
+              Programmer&nbsp;&nbsp;·&nbsp;&nbsp;Security Researcher&nbsp;&nbsp;·&nbsp;&nbsp;Tech Enthusiast
+            </p>
+
+            <div className="flex items-center gap-8">
+              <a
+                href="#projects"
+                className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
+                style={{ color: 'var(--accent)', fontSize: '14px', minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
+              >
+                See My Work ↓
+              </a>
+              <a
+                href="#connect"
+                className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
+                style={{ color: 'var(--accent)', fontSize: '14px', minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
+              >
+                {"Let's Connect →"}
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
