@@ -20,7 +20,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   title: 'Sancho Godinho',
   description:
-    "Sancho Godinho's official website. Visit the website to learn more about my projects & offerings!",
+    "Sancho Godinho's official website. Visit the website to learn more about me & my projects!",
   keywords: ['sancho godinho', 'sancho', 'programmer', 'cyber security researcher', 'tech enthusiast'],
   authors: [{ name: 'Sancho Godinho' }],
   creator: 'Sancho Godinho',
@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     url: 'https://sancho1952007.vercel.app/',
     title: 'Sancho Godinho',
     description:
-      "Sancho Godinho's official website. Visit the website to learn more about my projects & offerings!",
+      "Sancho Godinho's official website. Visit the website to learn more about me & my projects!",
     images: [
       {
         url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png%3Fv%3D1?maxage=15d',
         width: 1200,
         height: 630,
-        alt: 'Sancho Godinho Portfolio',
+        alt: 'Sancho Godinho\'s Portfolio',
       },
     ],
   },
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sancho Godinho',
     description:
-      "Sancho Godinho's official website. Visit the website to learn more about my projects & offerings!",
+      "Sancho Godinho's official website. Visit the website to learn more about me & my projects!",
     images: ['https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png%3Fv%3D1?maxage=15d'],
   },
   icons: {
