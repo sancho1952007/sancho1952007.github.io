@@ -532,6 +532,7 @@ export function Contact() {
                 { label: 'GitHub', handle: '@sancho1952007', href: 'https://github.com/sancho1952007' },
                 { label: 'Twitter', handle: '@sanchogodinho', href: 'https://x.com/sanchogodinho' },
                 { label: 'Discord', handle: 'sanchogodinho', href: 'https://discord.com/users/1053386709737414739' },
+                { label: 'Email', handle: 'sancho@sg-app.com', href: 'mailto:sancho@sg-app.com' },
               ].map((link) => (
                 <li key={link.label}>
                   <a
@@ -558,56 +559,6 @@ export function Contact() {
           </p>
         </div>
       </div>
-    </SectionShell>
-  )
-}
-
-// ─── Connect ────────────────────────────────────────────────────────────────
-
-const SOCIAL_LINKS = [
-  { label: 'GitHub', handle: '@sancho1952007', href: 'https://github.com/sancho1952007' },
-  { label: 'Twitter', handle: '@sanchogodinho', href: 'https://twitter.com/sanchogodinho' },
-  { label: 'Discord', handle: 'sanchogodinho', href: 'https://discord.com/users/sanchogodinho' },
-  { label: 'Email', handle: 'sancho@sg-app.com', href: 'mailto:sancho@sg-app.com' },
-]
-
-export function Connect() {
-  return (
-    <SectionShell id="connect" label="Connect">
-      <ul className="flex flex-col" role="list">
-        {SOCIAL_LINKS.map((link) => (
-          <li key={link.label}>
-            <a
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 py-2 font-light transition-opacity duration-200 hover:opacity-60"
-              style={{
-                fontSize: '16px',
-                color: 'var(--foreground)',
-                textDecoration: 'none',
-                minHeight: '44px',
-              }}
-            >
-              <span>{link.label}</span>
-              <span style={{ color: 'var(--muted-text)', fontSize: '14px' }}>{link.handle}</span>
-              <span
-                className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                style={{ color: 'var(--accent)', fontSize: '14px' }}
-                aria-hidden="true"
-              >
-                →
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
-      <p
-        className="mt-8 font-light"
-        style={{ fontSize: '14px', color: 'var(--muted-text)' }}
-      >
-        I typically respond within 6-24 hours. Open to collaborations and new projects.
-      </p>
     </SectionShell>
   )
 }

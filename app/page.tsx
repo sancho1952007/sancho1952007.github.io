@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Navbar from '@/components/navbar'
 import Hero from '@/components/hero'
-import { About, Stack, Projects, Contact, Connect, Footer } from '@/components/sections'
+import { About, Stack, Projects, Contact, Footer } from '@/components/sections'
 
 type Theme = 'dark' | 'light'
 
@@ -40,7 +40,6 @@ export default function Home() {
         <Stack />
         <Projects />
         <Contact />
-        <Connect />
       </main>
       <Footer />
     </div>
