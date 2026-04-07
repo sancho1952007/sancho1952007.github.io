@@ -1,3 +1,7 @@
+'use client'
+
+import React from 'react'
+
 const SECTION_LABEL_STYLE: React.CSSProperties = {
   fontSize: '11px',
   fontFamily: 'var(--font-mono, monospace)',
