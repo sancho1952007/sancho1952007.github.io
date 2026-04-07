@@ -12,22 +12,22 @@ export default function Hero() {
           <div className="flex justify-start lg:justify-end shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-NWtnFQLwKPCZvoWHPPhFLcPDjV1bsV.png"
+              src="/pfp.png"
               alt="Pixel art portrait of Sancho Godinho"
-              width={160}
-              height={160}
-              className="rounded-full"
+              width={250}
+              height={250}
+              className=""
               style={{
-                width: 'clamp(120px, 14vw, 180px)',
-                height: 'clamp(120px, 14vw, 180px)',
-                objectFit: 'cover',
-                border: '1px solid var(--border-rule)',
+                width: 'clamp(250px, 14vw, 180px)',
+                height: 'clamp(250px, 14vw, 180px)',
+                objectFit: 'cover'
               }}
             />
           </div>
 
           {/* Text */}
           <div className="flex flex-col">
+            <p className="italic text-muted-text hidden lg:block">Hi, I'm</p>
             <h1
               className="font-serif italic text-balance leading-none mb-5"
               style={{

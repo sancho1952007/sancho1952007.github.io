@@ -424,7 +424,7 @@ export function Connect() {
         className="mt-8 font-light"
         style={{ fontSize: '14px', color: 'var(--muted-text)' }}
       >
-        I typically respond within 6–24 hours. Open to collaborations, open-source contributions, and new projects.
+        I typically respond within 6-24 hours. Open to collaborations and new projects.
       </p>
     </SectionShell>
   )
