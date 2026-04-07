@@ -1,4 +1,4 @@
-# Sample workflow for building and deploying a Next.js site to GitHub Pages using Bun
+# Workflow for building and deploying a Next.js site to GitHub Pages using pnpm
 #
 # To get started with Next.js see: https://nextjs.org/docs/getting-started
 #
@@ -31,55 +31,56 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          bun-version: latest
-          
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
           static_site_generator: next
-          
-      - name: Cache Bun dependencies
-        uses: actions/cache@v4
-        id: bun-cache
-        with:
-          path: |
-            ~/.bun/install/cache
-            node_modules
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
-          restore-keys: |
-            ${{ runner.os }}-bun-
-            
+
       - name: Cache Next.js build
         uses: actions/cache@v4
         id: nextjs-cache
         with:
           path: |
             .next/cache
-            .next/static
-            .next/server
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/bun.lockb') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '!node_modules/**') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '!node_modules/**') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/bun.lockb') }}-
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
             ${{ runner.os }}-nextjs-
-            
-      - name: Cache status
-        run: |
-          echo "Bun cache hit: ${{ steps.bun-cache.outputs.cache-hit }}"
-          echo "Next.js cache hit: ${{ steps.nextjs-cache.outputs.cache-hit }}"
-          
+
       - name: Install dependencies
-        run: bun install --frozen-lockfile
-        
+        run: pnpm install --frozen-lockfile
+
       - name: Build with Next.js
-        run: bun run build
+        run: pnpm run build
         env:
           NODE_ENV: production
           NEXT_TELEMETRY_DISABLED: 1
-          
+          NEXT_PUBLIC_WEB3FORMS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_KEY }}
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
