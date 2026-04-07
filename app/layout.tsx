@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Geist } from 'next/font/google'
 import { Instrument_Serif } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
@@ -38,7 +39,9 @@ export default function RootLayout({
       <head>
         {/* Blocking script — runs before first paint to stamp .dark on <html>,
             preventing any flash of the wrong theme. */}
-        <script
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var m=window.matchMedia('(prefers-color-scheme: dark)').matches;if(m)document.documentElement.classList.add('dark');}catch(e){}})();`,
           }}
