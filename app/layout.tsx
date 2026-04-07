@@ -29,40 +29,48 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: 'Sancho Godinho',
+  title: 'Sancho Godinho - Full-Stack Developer & Startup Founder',
   description:
-    "Sancho Godinho's official website. Visit the website to learn more about me & my projects!",
-  keywords: ['sancho godinho', 'sancho'],
+    'Sancho Godinho is a full-stack developer and founder of Postily. Explore his projects, open-source work, and technical writing.',
+  keywords: [
+    'Sancho Godinho',
+    'full-stack developer',
+    'software engineer',
+    'Postily',
+    'TypeScript developer',
+    'React developer',
+    'open source',
+    'portfolio',
+  ],
   authors: [{ name: 'Sancho Godinho' }],
   creator: 'Sancho Godinho',
   metadataBase: new URL('https://sancho1952007.github.io/'),
   openGraph: {
     type: 'website',
     url: 'https://sancho1952007.github.io/',
-    title: 'Sancho Godinho',
+    title: 'Sancho Godinho - Full-Stack Developer & Startup Founder',
     description:
-      "Sancho Godinho's official website. Visit the website to learn more about me & my projects!",
+      'Sancho Godinho is a full-stack developer and founder of Postily. Explore his projects, open-source work, and technical writing.',
     images: [
       {
-        url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png?maxage=15d',
+        url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image-compressed.png?maxage=15d',
         width: 1200,
         height: 630,
-        alt: 'Sancho Godinho\'s Portfolio',
+        alt: 'Sancho Godinho — Full-Stack Developer Portfolio',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sancho Godinho',
+    title: 'Sancho Godinho — Full-Stack Developer & Startup Founder',
     description:
-      "Sancho Godinho's official website. Visit the website to learn more about me & my projects!",
-    images: ['https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png?maxage=15d'],
+      'Sancho Godinho is a full-stack developer and founder of Postily. Explore his projects, open-source work, and technical writing.',
+    images: ['https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image-compressed.png?maxage=15d'],
   },
   icons: {
     icon: 'https://gravatar.com/userimage/206490397/3148feef79a3656c62949155a11b8c2f.jpeg?size=100',
     shortcut: 'https://gravatar.com/userimage/206490397/3148feef79a3656c62949155a11b8c2f.jpeg?size=100',
   },
-  generator: 'v0.app',
 }
 
 export default function RootLayout({
