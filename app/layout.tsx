@@ -44,7 +44,7 @@ export const metadata: Metadata = {
       "Sancho Godinho's official website. Visit the website to learn more about me & my projects!",
     images: [
       {
-        url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png%3Fv%3D1?maxage=15d',
+        url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png?maxage=15d',
         width: 1200,
         height: 630,
         alt: 'Sancho Godinho\'s Portfolio',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: 'Sancho Godinho',
     description:
       "Sancho Godinho's official website. Visit the website to learn more about me & my projects!",
-    images: ['https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png%3Fv%3D1?maxage=15d'],
+    images: ['https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png?maxage=15d'],
   },
   icons: {
     icon: 'https://gravatar.com/userimage/206490397/3148feef79a3656c62949155a11b8c2f.jpeg?size=100',
