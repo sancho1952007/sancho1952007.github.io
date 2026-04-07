@@ -305,7 +305,7 @@ function ProjectCard({ project }: { project: Project }) {
           marginBottom: '16px',
           textDecoration: 'none',
         }}
-        aria-label={`${project.name} — ${project.description}`}
+        aria-label={`${project.name} - ${project.description}`}
       >
         {/* Image */}
         {!imgError ? (
