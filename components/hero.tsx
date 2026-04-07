@@ -20,7 +20,7 @@ export default function Hero() {
           className="font-sans font-light tracking-wide mb-10"
           style={{ fontSize: '15px', color: 'var(--muted-text)', letterSpacing: '0.02em' }}
         >
-          Full-Stack Developer&nbsp;&nbsp;·&nbsp;&nbsp;Founder @ Postily&nbsp;&nbsp;·&nbsp;&nbsp;Security Researcher
+          Programmer&nbsp;&nbsp;·&nbsp;&nbsp;Security Researcher&nbsp;&nbsp;·&nbsp;&nbsp;Tech Enthusiast
         </p>
 
         <div className="flex items-center gap-8">
@@ -29,14 +29,14 @@ export default function Hero() {
             className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
             style={{ color: 'var(--accent)', fontSize: '14px', minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
           >
-            View Work ↓
+            See My Work ↓
           </a>
           <a
             href="#connect"
             className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
             style={{ color: 'var(--accent)', fontSize: '14px', minHeight: '44px', display: 'inline-flex', alignItems: 'center' }}
           >
-            Get in Touch →
+            {"Let's Connect →"}
           </a>
         </div>
       </div>

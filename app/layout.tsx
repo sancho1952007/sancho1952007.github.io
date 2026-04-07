@@ -17,13 +17,13 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: 'Sancho Godinho — Full-Stack Developer',
+  title: 'Sancho Godinho — Programmer & Security Researcher',
   description:
-    'Full-Stack Developer, Founder @ Postily, and Security Researcher based in Mumbai.',
+    'Programmer, Security Researcher, and Tech Enthusiast who loves building things for the web and exploring the intersection of code and security.',
   openGraph: {
-    title: 'Sancho Godinho — Full-Stack Developer',
+    title: 'Sancho Godinho — Programmer & Security Researcher',
     description:
-      'Full-Stack Developer, Founder @ Postily, and Security Researcher based in Mumbai.',
+      'Programmer, Security Researcher, and Tech Enthusiast who loves building things for the web and exploring the intersection of code and security.',
     type: 'website',
   },
 }
