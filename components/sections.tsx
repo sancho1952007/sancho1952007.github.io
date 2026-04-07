@@ -544,7 +544,7 @@ export function Contact() {
         <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-5 flex-1">
           {/* Web3Forms access key — required for FormData submission */}
           <input type="hidden" name="access_key" value="c8c6b430-aff8-49ab-b354-920b54a50063" />
-          
+
           <div>
             <label htmlFor="contact-name" style={labelStyle}>Name</label>
             <input
@@ -592,7 +592,7 @@ export function Contact() {
 
           {formState === 'success' && (
             <p style={{ fontSize: '14px', color: 'var(--accent)' }}>
-              Message sent! I&apos;ll get back to you within 24 hours.
+              Message sent, I&apos;ll get back to you soon!
             </p>
           )}
           {formState === 'error' && (
