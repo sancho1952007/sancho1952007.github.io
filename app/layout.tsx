@@ -4,7 +4,6 @@ import localFont from 'next/font/local'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Instrument_Serif } from 'next/font/google'
 import './globals.css'
-
 const geist = Geist({
   subsets: ['latin'],
   variable: '--font-geist',
@@ -82,16 +81,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Truly blocking inline script injected before any CSS or React renders.
-            Next.js <Script strategy="beforeInteractive"> does NOT block the first
-            paint — it only runs before hydration. A raw dangerouslySetInnerHTML
-            on <head> is the only way to guarantee zero flash. */}
         <script
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{if(!window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}}catch(e){}})();`,
+            __html: `!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=sessionStorage.getItem('theme');if('system'===e||(!e)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.classList.add('dark')}else{d.classList.add('light')}}else if(e){c.add(e||'')}if(e==='light'||e==='dark'){d.style.colorScheme=e}}catch(e){}}()`,
           }}
         />
+
         {/* Rybbit Analytics */}
         <Script
           src="https://rybbit.sg-app.com/api/script.js"

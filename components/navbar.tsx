@@ -9,15 +9,35 @@ const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ]
 
-interface NavbarProps {
-  theme: 'dark' | 'light'
-  onThemeToggle: () => void
-}
-
-export default function Navbar({ theme, onThemeToggle }: NavbarProps) {
+export default function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const drawerRef = useRef<HTMLDivElement>(null)
   const hamburgerRef = useRef<HTMLButtonElement>(null)
+  const [theme, setThemeState] = useState<'dark' | 'light'>('dark')
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    const saved = sessionStorage.getItem('theme') as 'dark' | 'light' | null
+    if (saved) {
+      setThemeState(saved)
+    } else {
+      setThemeState(document.documentElement.classList.contains('dark') ? 'dark' : 'light')
+    }
+    setMounted(true)
+  }, [])
+
+  const handleThemeToggle = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark'
+    setThemeState(newTheme)
+    sessionStorage.setItem('theme', newTheme)
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark')
+      document.documentElement.classList.remove('light')
+    } else {
+      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.add('light')
+    }
+  }
 
   // Close drawer on outside click
   useEffect(() => {
@@ -101,12 +121,12 @@ export default function Navbar({ theme, onThemeToggle }: NavbarProps) {
             ))}
 
             {/* Theme toggle */}
-            <ThemeToggle theme={theme} onToggle={onThemeToggle} />
+            <ThemeToggle theme={mounted ? theme : 'dark'} onToggle={handleThemeToggle} />
           </div>
 
           {/* Mobile: theme toggle + hamburger */}
           <div className="flex md:hidden items-center gap-4">
-            <ThemeToggle theme={theme} onToggle={onThemeToggle} />
+            <ThemeToggle theme={mounted ? theme : 'dark'} onToggle={handleThemeToggle} />
             <button
               ref={hamburgerRef}
               onClick={() => setDrawerOpen((v) => !v)}
