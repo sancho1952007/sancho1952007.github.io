@@ -59,7 +59,16 @@ export function About() {
     'Contributing to open-source projects',
     'Researching web security and vulnerabilities',
     'Building practical developer tools and utilities',
-  ]
+  ];
+
+  const vulnerabilities_companies = [
+    { name: 'Amazon', website: 'https://www.amazon.com/' },
+    { name: 'LemonSqueezy', website: 'https://www.lemonsqueezy.com' },
+    { name: 'Dodo Payments', website: 'https://dodopayments.com' },
+    { name: 'Crazy Games', website: 'https://www.crazygames.com' },
+    { name: 'Smash Karts', website: 'https://tall.team/games' },
+    { name: 'Codesphere', website: 'https://codesphere.com/' },
+  ];
 
   return (
     <SectionShell id="about" label="About">
@@ -105,6 +114,37 @@ export function About() {
             ))}
           </ul>
         </div>
+
+
+        <div>
+          <p
+            style={{
+              fontSize: '11px',
+              fontFamily: 'var(--font-mono, monospace)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.12em',
+              color: 'var(--muted-text)',
+              marginBottom: '14px',
+            }}
+          >
+            Found & reported vulnerabilities in
+          </p>
+          <ul className="flex flex-col gap-2" role="list">
+            {vulnerabilities_companies.map((item) => (
+              <li
+                key={item.name}
+                className="flex items-start gap-3 font-light"
+                style={{ fontSize: '15px', color: 'var(--foreground)', lineHeight: 1.6, fontFamily: 'var(--font-geist-pixel-square)' }}
+              >
+                <span style={{ color: 'var(--accent)', marginTop: '2px' }} aria-hidden="true">→</span>
+                <a rel='noopener noreferrer' href={item.website} target='_blank'>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <p style={{ fontSize: '14px', color: 'var(--muted-text)', lineHeight: 1.6, fontFamily: 'var(--font-geist-pixel-square)' }}>
           Active open-source contributor to{' '}
           <a
@@ -237,7 +277,19 @@ const PROJECTS: Project[] = [
     name: 'Postily',
     description: 'The Next Gen Social Media Site (Under Development)',
     url: 'https://postily.social',
-    image: 'https://wsrv.nl/?url=https://postily.social/og-image.png?maxage=15d',
+    image: 'https://wsrv.nl/?url=https://postily.social/og-image.png&maxage=15d',
+  },
+  {
+    name: 'VibedIn',
+    description: 'Find like-minded X users to connect with',
+    url: 'https://vibedin.sg-app.com',
+    image: 'https://wsrv.nl/?url=https://vibedin.sg-app.com/images/og-image.png&maxage=15d',
+  },
+  {
+    name: 'Serverbay',
+    description: 'The marketplace for servers. Discover VPS, VDS and dedicated server listings from multiple individual and official sellers.',
+    url: 'https://serverbay.sg-app.com',
+    image: 'https://wsrv.nl/?url=https://serverbay.sg-app.com/logo.png&maxage=15d',
   },
   {
     name: 'Smart Notes',
@@ -315,7 +367,7 @@ function ProjectCard({ project }: { project: Project }) {
             alt={`${project.name} preview`}
             onError={() => setImgError(true)}
             className="transition-transform duration-300 group-hover:scale-[1.02]"
-            style={{ width: '100%', height: 'auto', display: 'block' }}
+            style={{ width: '100%', height: 'auto', display: 'block', backgroundColor: 'white' }}
           />
         ) : (
           <div
@@ -443,7 +495,7 @@ export function Projects() {
         ))}
       </div>
 
-      <div className="mt-8">
+      <div className="mt-8 justify-between flex">
         <a
           href="https://github.com/sancho1952007"
           target="_blank"
@@ -451,7 +503,17 @@ export function Projects() {
           className="inline-flex items-center gap-2 font-light transition-opacity duration-200 hover:opacity-60"
           style={{ fontSize: '14px', color: 'var(--accent)', textDecoration: 'none' }}
         >
-          View all on GitHub ↗
+          View more on GitHub ↗
+        </a>
+
+        <a
+          href="https://www.sololearn.com/profile/19684449"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 font-light transition-opacity duration-200 hover:opacity-60"
+          style={{ fontSize: '14px', color: 'var(--accent)', textDecoration: 'none' }}
+        >
+          View more on Sololearn ↗
         </a>
       </div>
     </SectionShell>
@@ -638,11 +700,12 @@ export function Contact() {
             <p style={{ ...labelStyle, marginBottom: '14px' }}>Or find me on</p>
             <ul className="flex flex-col gap-0" role="list">
               {[
-                { label: 'GitHub', handle: '@sancho1952007', href: 'https://github.com/sancho1952007' },
-                { label: 'Twitter', handle: '@sanchogodinho', href: 'https://x.com/sanchogodinho' },
-                { label: 'Discord', handle: 'sanchogodinho', href: 'https://discord.com/users/1053386709737414739' },
-                { label: 'LinkedIn', handle: 'sancho-godinho', href: 'https://www.linkedin.com/in/sancho-godinho/' },
-                { label: 'Email', handle: 'sancho@sg-app.com', href: 'mailto:sancho@sg-app.com' },
+                { label: 'GitHub', handle: '(@sancho1952007)', href: 'https://github.com/sancho1952007' },
+                { label: 'Twitter', handle: '(@sanchogodinho)', href: 'https://x.com/sanchogodinho' },
+                { label: 'Discord', handle: '(sanchogodinho)', href: 'https://discord.com/users/1053386709737414739' },
+                { label: 'LinkedIn', handle: '(sancho-godinho)', href: 'https://www.linkedin.com/in/sancho-godinho/' },
+                { label: 'Sololearn', handle: '(Sancho Godinho)', href: 'https://www.sololearn.com/profile/19684449' },
+                { label: 'Email', handle: '(sancho@sg-app.com)', href: 'mailto:sancho@sg-app.com' },
               ].map((link) => (
                 <li key={link.label}>
                   <a
