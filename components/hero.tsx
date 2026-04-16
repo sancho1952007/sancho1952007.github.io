@@ -26,6 +26,7 @@ export default function Hero() {
                 alt="Pixel art portrait of Sancho Godinho"
                 width={250}
                 height={250}
+                draggable={false}
                 style={{
                   width: '100%',
                   height: '100%',
