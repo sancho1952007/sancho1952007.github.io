@@ -82,8 +82,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script
-          data-cfasync="false"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: `!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=sessionStorage.getItem('theme');if('system'===e||(!e)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.classList.add('dark')}else{d.classList.add('light')}}else if(e){c.add(e||'')}if(e==='light'||e==='dark'){d.style.colorScheme=e}}catch(e){}}()`,
           }}
