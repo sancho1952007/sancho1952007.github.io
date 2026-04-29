@@ -705,6 +705,7 @@ export function Contact() {
                 { label: 'Discord', handle: '(sanchogodinho)', href: 'https://discord.com/users/1053386709737414739' },
                 { label: 'LinkedIn', handle: '(sancho-godinho)', href: 'https://www.linkedin.com/in/sancho-godinho/' },
                 { label: 'Sololearn', handle: '(Sancho Godinho)', href: 'https://www.sololearn.com/profile/19684449' },
+                { label: 'HackerOne', handle: '(sancho-godinho)', href: 'https://hackerone.com/sancho-godinho?type=user' },
                 { label: 'Email', handle: '(sancho@sg-app.com)', href: 'mailto:sancho@sg-app.com' },
               ].map((link) => (
                 <li key={link.label}>
