@@ -295,7 +295,7 @@ const PROJECTS: Project[] = [
     name: 'Serverbay',
     description: 'The marketplace for servers. Discover VPS, VDS and dedicated server listings from multiple individual and official sellers.',
     url: 'https://serverbay.sg-app.com',
-    image: 'https://wsrv.nl/?url=https://serverbay.sg-app.com/logo.png&maxage=15d',
+    image: 'https://wsrv.nl/?url=https://serverbay.sg-app.com/logo.png%3Fv=0&maxage=15d',
   },
   {
     name: 'Smart Notes',
@@ -337,7 +337,7 @@ const PROJECTS: Project[] = [
     name: 'Modern GUI',
     description: 'A beautiful window replacement for Tkinter (Python) apps.',
     url: 'https://github.com/sancho1952007/Modern-GUI-v3.0',
-    image: 'https://i.ibb.co/DzWMry8/Capture.png',
+    image: 'https://i.ibb.co/s65b76z/Preview-Image.png',
   },
   {
     name: 'iPhone 11 Clone',
