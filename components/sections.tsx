@@ -277,7 +277,7 @@ const PROJECTS: Project[] = [
     name: 'Postily',
     description: 'The Next Gen Social Media Site (Under Development)',
     url: 'https://postily.social',
-    image: 'https://wsrv.nl/?url=https://postily.social/og-image.png&maxage=15d',
+    image: 'https://i.ibb.co/tpqpK5bH/d9f8637d-567b-4c11-968a-7688dcd44d2b.png',
   },
   {
     name: 'Bunserv',
