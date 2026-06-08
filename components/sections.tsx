@@ -280,6 +280,12 @@ const PROJECTS: Project[] = [
     image: 'https://wsrv.nl/?url=https://postily.social/og-image.png&maxage=15d',
   },
   {
+    name: 'Bunserv',
+    description: 'An extremely fast & simple static file server built with Bun',
+    url: 'https://github.com/sancho1952007/bunserv',
+    image: 'https://wsrv.nl/?url=https://raw.githubusercontent.com/sancho1952007/bunserv/refs/heads/main/images/preview.png&maxage=15d',
+  },
+  {
     name: 'VibedIn',
     description: 'Find like-minded X users to connect with',
     url: 'https://vibedin.sg-app.com',
