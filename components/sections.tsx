@@ -274,6 +274,12 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
+    name: 's0',
+    description: 'The Quick & Ultimate Subdomain Finder',
+    url: 'https://github.com/sancho1952007/s0',
+    image: 'https://wsrv.nl/?url=https://raw.githubusercontent.com/sancho1952007/s0/refs/heads/main/images/preview.png&maxage=15d',
+  },
+  {
     name: 'Postily',
     description: 'The Next Gen Social Media Site (Under Development)',
     url: 'https://postily.social',
