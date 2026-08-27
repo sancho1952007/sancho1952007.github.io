@@ -741,7 +741,7 @@ export function Contact() {
             </ul>
           </div>
           <p style={{ fontSize: '13px', color: 'var(--muted-text)', lineHeight: 1.6, fontFamily: 'var(--font-geist-pixel-square)' }}>
-            I typically respond within 24 hours. In rare cases there may be a small delay.
+            I typically respond within 24 hours.
           </p>
         </div>
       </div>
