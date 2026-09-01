@@ -59,20 +59,35 @@ export default function Hero() {
               Programmer&nbsp;&nbsp;·&nbsp;&nbsp;Security Researcher&nbsp;&nbsp;·&nbsp;&nbsp;Tech Enthusiast
             </p>
 
-            <div className="flex items-center gap-8">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-8">
               <a
                 href="#projects"
                 className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
-                style={{ color: 'var(--accent)', fontSize: '14px', minHeight: '44px', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-geist-pixel-square)' }}
+                style={{ color: 'var(--accent)', fontSize: '14px', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-geist-pixel-square)' }}
               >
                 See My Work ↓
               </a>
               <a
                 href="#contact"
                 className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
-                style={{ color: 'var(--accent)', fontSize: '14px', minHeight: '44px', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-geist-pixel-square)' }}
+                style={{ color: 'var(--accent)', fontSize: '14px', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-geist-pixel-square)' }}
               >
-                {"Let's Connect →"}
+                Let's Connect →
+              </a>
+              <a
+                href="mailto:sancho@sg-app.com"
+                className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
+                style={{ color: 'var(--accent)', fontSize: '14px', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-geist-pixel-square)' }}
+              >
+                Invite to hack →
+              </a>
+              <a
+                href="https://hackerone.com/sancho-godinho?type=user"
+                target="_blank"
+                className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
+                style={{ color: 'var(--accent)', fontSize: '14px', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-geist-pixel-square)' }}
+              >
+                Invite on HackerOne →
               </a>
             </div>
           </div>

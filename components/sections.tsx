@@ -83,10 +83,9 @@ export function About() {
           }}
         >
           I&apos;m a developer passionate about making new projects and constantly learning.
-          Whether it&apos;s building practical tools like QR code generators and cloud notepads,
-          or creating fun experiments, I love bringing ideas to life through code. My work spans
-          web development, cybersecurity research, and open-source contributions, always
-          focusing on tools that are useful and accessible.
+          Whether it&apos;s building practical tools, or creating fun experiments, I love bringing ideas to life through code. My work spans across
+          software development, security research, open-source contributions and DevOPS, always
+          focusing on tools that are useful and accessible. I bring my cybersecurity expertise to my code building highly secure applications as well as deploying them securely.
         </p>
         <div>
           <p
@@ -171,7 +170,7 @@ const SKILLS: { level: string; items: string[] }[] = [
   },
   {
     level: 'Proficient',
-    items: ['React', 'Expo', 'Python', 'Bash', 'MongoDB', 'Cyber Security', 'Docker', 'UFW'],
+    items: ['React', 'Expo', 'Python', 'Bash', 'MongoDB', 'Docker', 'UFW'],
   },
 ]
 
