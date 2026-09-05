@@ -22,7 +22,7 @@ export default function Hero() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/pfp-270px.png"
+                src="/pfp-400px.png"
                 alt="Sketch portrait of Sancho Godinho"
                 width={250}
                 height={250}
