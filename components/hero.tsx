@@ -22,8 +22,8 @@ export default function Hero() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/pfp.png"
-                alt="Pixel art portrait of Sancho Godinho"
+                src="/pfp-250px.png"
+                alt="Sketch portrait of Sancho Godinho"
                 width={250}
                 height={250}
                 draggable={false}

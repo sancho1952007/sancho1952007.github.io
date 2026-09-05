@@ -98,7 +98,7 @@ export default function Navbar() {
             }}
             aria-label="Sancho Godinho - home"
           >
-            <img src="/pfp.png" width={20} />&nbsp;SG
+            Sancho Godinho
           </a>
 
           {/* Desktop nav links */}
