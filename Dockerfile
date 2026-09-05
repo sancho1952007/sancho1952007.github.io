@@ -21,6 +21,20 @@ ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN bun run build
 
+ARG CF_CACHE_PURGE_API_KEY
+ARG CF_CACHE_PURGE_ZONE_ID
+RUN if [ -n "$CF_CACHE_PURGE_API_KEY" ] && [ -n "$CF_CACHE_PURGE_ZONE_ID" ]; then \
+  echo "Purging Cloudflare cache for sancho.sg-app.com..." && \
+  CF_CACHE_PURGE_API_KEY=$CF_CACHE_PURGE_API_KEY CF_CACHE_PURGE_ZONE_ID=$CF_CACHE_PURGE_ZONE_ID bun -e " \
+    const purgeRes = await fetch('https://api.cloudflare.com/client/v4/zones/' + process.env.CF_CACHE_PURGE_ZONE_ID + '/purge_cache', { \
+      method: 'POST', \
+      headers: { 'Authorization': 'Bearer ' + process.env.CF_CACHE_PURGE_API_KEY, 'Content-Type': 'application/json' }, \
+      body: JSON.stringify({ hosts: ['sancho.sg-app.com'] }) \
+    }); \
+    if (purgeRes.ok) console.log('Cache purged successfully'); \
+    else console.error('Failed to purge cache:', await purgeRes.text()); \
+  "; \
+fi
 
 # -------------------------
 # Stage 3: Production Runner
