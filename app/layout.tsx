@@ -167,7 +167,17 @@ export default function RootLayout({
               worksFor: {
                 '@type': 'Organization',
                 name: 'Dodo Payments'
-              }
+              },
+              description: 'Full-Stack Developer and Cybersecurity Researcher focusing on Web Security, Penetration Testing, and Bug Bounties.',
+              knowsAbout: [
+                'Web Security',
+                'Cybersecurity',
+                'Bug Bounty Hunting',
+                'Penetration Testing',
+                'Full-Stack Development',
+                'TypeScript',
+                'React'
+              ]
             })
           }}
         />
