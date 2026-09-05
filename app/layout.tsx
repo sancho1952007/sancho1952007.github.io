@@ -110,8 +110,8 @@ export const metadata: Metadata = {
     site: '@sanchogodinho',
   },
   icons: {
-    icon: 'https://gravatar.com/userimage/206490397/3148feef79a3656c62949155a11b8c2f.jpeg?size=100',
-    shortcut: 'https://gravatar.com/userimage/206490397/3148feef79a3656c62949155a11b8c2f.jpeg?size=100',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
   },
   other: {
     'geo.region': 'Earth',
