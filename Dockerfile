@@ -37,21 +37,9 @@ ENV HOSTNAME=0.0.0.0
 COPY --chown=bun:bun --from=builder /app/out ./out
 COPY --chown=bun:bun --from=builder /app/server.js ./server.js
 
-# Create a script to purge cache at runtime
-RUN echo " \n\
-if (process.env.CF_CACHE_PURGE_API_KEY && process.env.CF_CACHE_PURGE_ZONE_ID) { \n\
-  console.log('Purging Cloudflare cache for sancho.sg-app.com...'); \n\
-  fetch('https://api.cloudflare.com/client/v4/zones/' + process.env.CF_CACHE_PURGE_ZONE_ID + '/purge_cache', { \n\
-    method: 'POST', \n\
-    headers: { 'Authorization': 'Bearer ' + process.env.CF_CACHE_PURGE_API_KEY, 'Content-Type': 'application/json' }, \n\
-    body: JSON.stringify({ hosts: ['sancho.sg-app.com'] }) \n\
-  }).then(async res => { \n\
-    if (res.ok) console.log('Cache purged successfully'); \n\
-    else console.error('Failed to purge cache:', await res.text()); \n\
-  }).catch(err => console.error('Error purging cache:', err)); \n\
-} \n\
-" > /app/purge.js
+# Copy the cache purge script
+COPY --chown=bun:bun purge.js ./purge.js
 
 USER bun
 EXPOSE 3000
-CMD ["sh", "-c", "bun /app/purge.js && exec bun server.js"]
+CMD ["sh", "-c", "bun purge.js && exec bun server.js"]
