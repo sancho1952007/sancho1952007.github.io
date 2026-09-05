@@ -16,6 +16,7 @@ const SECTION_LABEL_STYLE: React.CSSProperties = {
 const RULE_STYLE: React.CSSProperties = {
   borderColor: 'var(--border-rule)',
   borderTopWidth: '1px',
+  borderStyle: 'dashed',
   marginBottom: '48px',
 }
 

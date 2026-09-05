@@ -10,7 +10,7 @@ export default function Home() {
   const [showPreloader, setShowPreloader] = useState(true)
 
   return (
-    <div style={{ backgroundColor: 'var(--background)', minHeight: '100vh' }}>
+    <div style={{ minHeight: '100vh' }}>
       {showPreloader && <Preloader onComplete={() => setShowPreloader(false)} />}
       <Navbar />
       <main>

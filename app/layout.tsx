@@ -128,6 +128,8 @@ export const metadata: Metadata = {
   }
 }
 
+import TechGrid from '@/components/tech-grid'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -185,6 +187,7 @@ export default function RootLayout({
       <body
         className={`${geist.variable} ${geistMono.variable} ${geistPixelSquare.variable} ${instrumentSerif.variable} font-sans antialiased`}
       >
+        <TechGrid />
         {children}
       </body>
     </html>
