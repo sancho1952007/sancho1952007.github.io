@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://sancho1952007.github.io/sitemap.xml',
+    sitemap: 'https://sancho.sg-app.com/sitemap.xml',
   }
 }

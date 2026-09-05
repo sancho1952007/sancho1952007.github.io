@@ -56,12 +56,12 @@ export const metadata: Metadata = {
   authors: [{ name: 'Sancho Godinho' }],
   creator: 'Sancho Godinho',
   publisher: 'Sancho Godinho',
-  metadataBase: new URL('https://sancho1952007.github.io/'),
+  metadataBase: new URL('https://sancho.sg-app.com/'),
   alternates: {
     canonical: '/',
     languages: {
-      'en': 'https://sancho1952007.github.io/',
-      'x-default': 'https://sancho1952007.github.io/',
+      'en': 'https://sancho.sg-app.com/',
+      'x-default': 'https://sancho.sg-app.com/',
     }
   },
   robots: {
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     firstName: 'Sancho',
     lastName: 'Godinho',
     username: 'sancho1952007',
-    url: 'https://sancho1952007.github.io/',
+    url: 'https://sancho.sg-app.com/',
     title: 'Sancho Godinho | Full-Stack Developer & Cybersecurity Researcher',
     description:
       'Portfolio of Sancho Godinho, a Full-Stack Developer and Cybersecurity Researcher at Dodo Payments. Discover my projects, open-source contributions, and technical insights.',
@@ -123,7 +123,7 @@ export const metadata: Metadata = {
     'coverage': 'Worldwide',
     'target': 'all',
     'article:author': 'Sancho Godinho',
-    'article:publisher': 'https://sancho1952007.github.io/',
+    'article:publisher': 'https://sancho.sg-app.com/',
     'linkedin:owner': 'Sancho Godinho',
   }
 }
@@ -157,8 +157,8 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Person',
               name: 'Sancho Godinho',
-              url: 'https://sancho1952007.github.io',
-              image: 'https://sancho1952007.github.io/pfp.png',
+              url: 'https://sancho.sg-app.com',
+              image: 'https://sancho.sg-app.com/pfp.png',
               sameAs: [
                 'https://hackerone.com/sancho-godinho',
                 'https://github.com/sancho1952007'
