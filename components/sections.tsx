@@ -1,7 +1,8 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import HCaptcha from '@hcaptcha/react-hcaptcha'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const SECTION_LABEL_STYLE: React.CSSProperties = {
   fontSize: '11px',
@@ -353,21 +354,39 @@ const PROJECTS: Project[] = [
   },
 ]
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({
+  project,
+  onClick,
+  mode,
+  isSelected,
+}: {
+  project: Project
+  onClick: (rect: DOMRect) => void
+  mode: 'desktop' | 'mobile'
+  isSelected: boolean
+}) {
   const [imgError, setImgError] = React.useState(false)
 
-  return (
-    <>
-      {/* ── Desktop tile (md+): image-only with hover overlay ── */}
-      <a
-        href={project.url}
-        target="_blank"
-        className="group hidden md:block relative overflow-hidden"
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    onClick(rect)
+  }
+
+  if (mode === 'desktop') {
+    return (
+      <button
+        data-project={project.name}
+        onClick={handleClick}
+        className="group hidden md:block relative overflow-hidden w-full text-left cursor-pointer"
         style={{
           borderRadius: '8px',
           breakInside: 'avoid',
           marginBottom: '16px',
-          textDecoration: 'none',
+          border: 'none',
+          padding: 0,
+          background: 'none',
+          opacity: isSelected ? 0 : 1,
+          pointerEvents: isSelected ? 'none' : 'auto',
         }}
         aria-label={`${project.name} - ${project.description}`}
       >
@@ -428,19 +447,23 @@ function ProjectCard({ project }: { project: Project }) {
             {project.description}
           </p>
         </div>
-      </a>
+      </button>
+    )
+  }
 
-      {/* ── Mobile card (below md): image + body ── */}
-      <a
-        href={project.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group flex md:hidden flex-col overflow-hidden transition-all duration-200"
+  if (mode === 'mobile') {
+    return (
+      <button
+        data-project={project.name}
+        onClick={handleClick}
+        className="group flex md:hidden flex-col overflow-hidden transition-all duration-200 w-full text-left cursor-pointer"
         style={{
           borderRadius: '8px',
           border: '1px solid var(--border-rule)',
           backgroundColor: 'var(--row-hover)',
-          textDecoration: 'none',
+          padding: 0,
+          opacity: isSelected ? 0 : 1,
+          pointerEvents: isSelected ? 'none' : 'auto',
         }}
         aria-label={`${project.name} — ${project.description}`}
       >
@@ -482,12 +505,98 @@ function ProjectCard({ project }: { project: Project }) {
             {project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')} ↗
           </span>
         </div>
-      </a>
-    </>
-  )
+      </button>
+    )
+  }
+
+  return null
 }
 
 export function Projects() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [activeProject, setActiveProject] = useState<Project | null>(null)
+  const [originRect, setOriginRect] = useState<DOMRect | null>(null)
+  const [measuredModalHeight, setMeasuredModalHeight] = useState<number>(0)
+
+  const currentProject = selectedProject || activeProject
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const match = window.location.pathname.match(/^\/project\/(.+)$/)
+      if (match) {
+        const projectName = decodeURIComponent(match[1])
+        const proj = PROJECTS.find((p) => p.name === projectName)
+        if (proj) {
+          setSelectedProject(proj)
+          setActiveProject(proj)
+        } else {
+          setSelectedProject(null)
+        }
+      } else {
+        setSelectedProject(null)
+      }
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    handlePopState()
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState)
+    }
+  }, [])
+
+  const handleOpenProject = (project: Project, rect?: DOMRect) => {
+    if (rect) {
+      setOriginRect(rect)
+    }
+    setSelectedProject(project)
+    setActiveProject(project)
+    window.history.pushState(null, '', '/project/' + encodeURIComponent(project.name))
+  }
+
+  const handleCloseProject = () => {
+    setSelectedProject(null)
+    window.history.pushState(null, '', '/')
+  }
+
+  useEffect(() => {
+    if (activeProject) {
+      document.body.style.overflow = 'hidden'
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          handleCloseProject()
+        }
+      }
+      window.addEventListener('keydown', handleKeyDown)
+      return () => {
+        document.body.style.overflow = 'unset'
+        window.removeEventListener('keydown', handleKeyDown)
+      }
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+  }, [activeProject])
+
+  const liveRect = typeof window !== 'undefined' && activeProject
+    ? document.querySelector(`button[data-project="${activeProject.name}"]`)?.getBoundingClientRect() || originRect
+    : originRect
+
+  const vw = typeof window !== 'undefined' ? window.innerWidth : 1200
+  const vh = typeof window !== 'undefined' ? window.innerHeight : 800
+  const isDesktop = vw >= 768
+  const modalWidth = Math.min(672, vw - (isDesktop ? 64 : 32))
+
+  const initialScale = liveRect ? liveRect.width / modalWidth : 0.95
+  const imgHeight = liveRect ? modalWidth * (liveRect.height / liveRect.width) : 380
+  const effectiveModalHeight = measuredModalHeight || (imgHeight + (isDesktop ? 200 : 180))
+  const clipBottom = Math.max(0, effectiveModalHeight - imgHeight)
+
+  const deltaX = liveRect ? (liveRect.left + liveRect.width / 2) - vw / 2 : 0
+  // Position so the top of the scaled modal coincides with liveRect.top
+  const deltaY = liveRect
+    ? liveRect.top + (effectiveModalHeight * initialScale) / 2 - vh / 2
+    : 0
+
   return (
     <SectionShell id="projects" label="Projects">
       {/* Desktop: CSS columns masonry */}
@@ -496,14 +605,26 @@ export function Projects() {
         style={{ columns: 2, columnGap: '16px' }}
       >
         {PROJECTS.map((project) => (
-          <ProjectCard key={project.name} project={project} />
+          <ProjectCard
+            key={project.name}
+            project={project}
+            onClick={(rect) => handleOpenProject(project, rect)}
+            mode="desktop"
+            isSelected={activeProject?.name === project.name}
+          />
         ))}
       </div>
 
       {/* Mobile: single-column stacked cards */}
       <div className="flex flex-col gap-4 md:hidden">
         {PROJECTS.map((project) => (
-          <ProjectCard key={project.name} project={project} />
+          <ProjectCard
+            key={project.name}
+            project={project}
+            onClick={(rect) => handleOpenProject(project, rect)}
+            mode="mobile"
+            isSelected={activeProject?.name === project.name}
+          />
         ))}
       </div>
 
@@ -528,6 +649,153 @@ export function Projects() {
           View more on Sololearn ↗
         </a>
       </div>
+
+      <AnimatePresence
+        onExitComplete={() => {
+          setOriginRect(null)
+          setActiveProject(null)
+          setMeasuredModalHeight(0)
+        }}
+      >
+        {selectedProject && currentProject && (
+          <motion.div
+            key="project-modal-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: originRect ? 0.75 : 0.35, ease: 'easeInOut' }}
+            className="fixed inset-0 z-50 cursor-pointer"
+            style={{ backgroundColor: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(6px)' }}
+            onClick={handleCloseProject}
+          />
+        )}
+        {selectedProject && currentProject && (
+          <motion.div
+            key="project-modal-card-wrapper"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 1 }}
+            transition={{ duration: originRect ? 0.75 : 0.35 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none"
+            style={{ perspective: 1200 }}
+          >
+            <motion.div
+              key="project-modal-card"
+              ref={(node) => {
+                if (node && node.offsetHeight > 0 && node.offsetHeight !== measuredModalHeight) {
+                  setMeasuredModalHeight(node.offsetHeight)
+                }
+              }}
+              initial={
+                originRect
+                  ? { x: deltaX, y: deltaY, scale: initialScale, rotateY: 0, opacity: 1 }
+                  : { scale: 0.95, opacity: 0, rotateY: 0 }
+              }
+              animate={{ x: 0, y: 0, scale: 1, rotateY: 360, opacity: 1 }}
+              exit={
+                originRect
+                  ? { x: deltaX, y: deltaY, scale: initialScale, rotateY: 0, opacity: 1 }
+                  : { scale: 0.95, opacity: 0, rotateY: 0 }
+              }
+              transition={{
+                duration: originRect ? 0.75 : 0.35,
+                ease: 'easeInOut',
+              }}
+              className="relative w-full max-w-2xl max-h-[90vh] pointer-events-auto"
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                transformStyle: 'preserve-3d',
+              }}
+            >
+              {/* Front Face (Modal content, visible 0-90° and 270-360°) */}
+              <div
+                className="w-full h-full overflow-hidden rounded-xl bg-[var(--background)] border border-[var(--border-rule)] flex flex-col max-h-[90vh] shadow-2xl"
+                style={{
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden',
+                  clipPath: selectedProject
+                    ? 'inset(0px 0px 0px 0px round 12px)'
+                    : `inset(0px 0px ${clipBottom}px 0px round 8px)`,
+                  transition: 'clip-path 0.75s ease-in-out',
+                }}
+              >
+                <button
+                  onClick={handleCloseProject}
+                  className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-opacity duration-200 border-none cursor-pointer"
+                  style={{
+                    opacity: selectedProject ? 1 : 0,
+                    pointerEvents: selectedProject ? 'auto' : 'none',
+                  }}
+                  aria-label="Close"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+
+                <div className="w-full bg-[var(--border-rule)] shrink-0" style={{ maxHeight: '50vh', overflow: 'hidden' }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={currentProject.image}
+                    alt={`${currentProject.name} preview`}
+                    className="w-full h-auto object-cover"
+                    style={{ backgroundColor: 'white' }}
+                  />
+                </div>
+
+                <div className="p-6 md:p-8 flex-1 overflow-y-auto">
+                  <h3
+                    className="text-2xl md:text-3xl font-medium mb-4"
+                    style={{ color: 'var(--foreground)' }}
+                  >
+                    {currentProject.name}
+                  </h3>
+                  <p
+                    className="text-base md:text-lg mb-8 leading-relaxed font-light"
+                    style={{ color: 'var(--muted-text)' }}
+                  >
+                    {currentProject.description}
+                  </p>
+
+                  <a
+                    href={currentProject.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md transition-opacity duration-200 hover:opacity-80 font-medium"
+                    style={{ backgroundColor: 'var(--accent)', color: 'var(--background)', textDecoration: 'none' }}
+                  >
+                    Visit Project <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Back Face (visible 90-270° during 3D flip) */}
+              <div
+                className="absolute inset-0 rounded-xl overflow-hidden bg-[var(--background)] border border-[var(--border-rule)] select-none shadow-2xl"
+                style={{
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden',
+                  transform: 'rotateY(180deg)',
+                  clipPath: selectedProject
+                    ? 'inset(0px 0px 0px 0px round 12px)'
+                    : `inset(0px 0px ${clipBottom}px 0px round 8px)`,
+                  transition: 'clip-path 0.75s ease-in-out',
+                }}
+                aria-hidden="true"
+              >
+                <div
+                  className="absolute inset-0 opacity-20 bg-center bg-cover filter blur-sm"
+                  style={{ backgroundImage: `url(${currentProject.image})` }}
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8))',
+                  }}
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </SectionShell>
   )
 }
