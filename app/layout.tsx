@@ -136,11 +136,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `!function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=sessionStorage.getItem('theme');if('system'===e||(!e)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.classList.add('dark')}else{d.classList.add('light')}}else if(e){c.add(e||'')}if(e==='light'||e==='dark'){d.style.colorScheme=e}}catch(e){}}()`,
+            __html: `!function(){try{var d=document.documentElement,c=d.classList;var e=null;try{e=localStorage.getItem('theme')||sessionStorage.getItem('theme')}catch(x){}c.remove('light','dark');if(e==='light'){c.add('light');d.style.colorScheme='light'}else if(e==='dark'){c.add('dark');d.style.colorScheme='dark'}else if(e==='system'){var m=window.matchMedia('(prefers-color-scheme: dark)');var t=m.matches?'dark':'light';c.add(t);d.style.colorScheme=t}else{c.add('dark');d.style.colorScheme='dark'}}catch(e){}}()`,
           }}
         />
 

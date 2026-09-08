@@ -18,7 +18,9 @@ export default function TechGrid() {
           className="absolute top-[100px] -left-[50vw] bottom-0 w-[50vw]" 
           style={{ 
             backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, var(--border-rule) 10px, var(--border-rule) 11px)', 
-            opacity: 0.2
+            opacity: 0.2,
+            transform: 'translateZ(0)',
+            willChange: 'transform',
           }} 
         />
         
@@ -27,7 +29,9 @@ export default function TechGrid() {
           className="absolute top-[100px] right-[-50vw] bottom-0 w-[50vw]" 
           style={{ 
             backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, var(--border-rule) 10px, var(--border-rule) 11px)', 
-            opacity: 0.2
+            opacity: 0.2,
+            transform: 'translateZ(0)',
+            willChange: 'transform',
           }} 
         />
 

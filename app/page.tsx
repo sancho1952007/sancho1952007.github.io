@@ -6,8 +6,14 @@ import Hero from '@/components/hero'
 import { About, Skills, Projects, Contact, Footer } from '@/components/sections'
 import Preloader from '@/components/preloader'
 
-export default function Home() {
-  const [showPreloader, setShowPreloader] = useState(true)
+export default function Home({ skipPreloader = false }: { skipPreloader?: boolean } = {}) {
+  const [showPreloader, setShowPreloader] = useState(() => {
+    if (skipPreloader) return false
+    if (typeof window !== 'undefined' && window.location.pathname.startsWith('/project/')) {
+      return false
+    }
+    return true
+  })
 
   return (
     <div style={{ minHeight: '100vh' }}>

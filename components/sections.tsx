@@ -266,93 +266,8 @@ export function Skills() {
 
 // ─── Projects ───────────────────────────────────────────────────────────────
 
-interface Project {
-  name: string
-  description: string
-  url: string
-  image: string
-}
-
-const PROJECTS: Project[] = [
-  {
-    name: 's0',
-    description: 'The Quick & Ultimate Subdomain Finder',
-    url: 'https://github.com/sancho1952007/s0',
-    image: 'https://wsrv.nl/?url=https://raw.githubusercontent.com/sancho1952007/s0/refs/heads/main/images/preview.png&maxage=15d',
-  },
-  {
-    name: 'Postily',
-    description: 'The Next Gen Social Media Site (Under Development)',
-    url: 'https://postily.social',
-    image: 'https://i.ibb.co/tpqpK5bH/d9f8637d-567b-4c11-968a-7688dcd44d2b.png',
-  },
-  {
-    name: 'Bunserv',
-    description: 'An extremely fast & simple static file server built with Bun',
-    url: 'https://github.com/sancho1952007/bunserv',
-    image: 'https://wsrv.nl/?url=https://raw.githubusercontent.com/sancho1952007/bunserv/refs/heads/main/images/preview.png&maxage=15d',
-  },
-  {
-    name: 'VibedIn',
-    description: 'Find like-minded X users to connect with',
-    url: 'https://vibedin.sg-app.com',
-    image: 'https://wsrv.nl/?url=https://vibedin.sg-app.com/images/og-image.png&maxage=15d',
-  },
-  {
-    name: 'Serverbay',
-    description: 'The marketplace for servers. Discover VPS, VDS and dedicated server listings from multiple individual and official sellers.',
-    url: 'https://serverbay.sg-app.com',
-    image: 'https://wsrv.nl/?url=https://serverbay.sg-app.com/logo.png%3Fv=0&maxage=15d',
-  },
-  {
-    name: 'Smart Notes',
-    description: 'Free cloud notepad with live-collaborative editing and rich text support (It has been shut down now).',
-    url: 'https://smart-notes.sg-app.com',
-    image: 'https://i.ibb.co/307TKL1/Screenshot-2024-06-06-163943.png',
-  },
-  {
-    name: 'SG Apps',
-    description: 'At SG Apps, We Aim To Build Apps For The Best!',
-    url: 'https://sg-app.com',
-    image: 'https://i.ibb.co/6gp6Sqt/Smart-Select-20240219-211006-Chrome.jpg',
-  },
-  {
-    name: 'Tiles Game',
-    description: 'A simple yet fun game to play in your free time!',
-    url: 'https://sg-app.com/Tiles-Game/',
-    image: 'https://i.ibb.co/GW0J8P5/Screenshot-2024-06-06-164126.png',
-  },
-  {
-    name: 'Encli',
-    description: 'A free cross platform file encryption/decryption tool.',
-    url: 'https://github.com/sancho1952007/Encli',
-    image: 'https://i.ibb.co/rb53gx6/encli.png',
-  },
-  {
-    name: 'Clokie',
-    description: 'An amazing customizable clock to be kept on display.',
-    url: 'https://sancho1952007.github.io/Clokie/',
-    image: 'https://i.ibb.co/DzWMry8/Capture.png',
-  },
-  {
-    name: 'AOS Web',
-    description: 'An OS-like system made only with web technology.',
-    url: 'https://sancho1952007.github.io/AOS-Web/',
-    image: 'https://i.ibb.co/1G4Qwpp/AOS-Web.png',
-  },
-  {
-    name: 'Modern GUI',
-    description: 'A beautiful window replacement for Tkinter (Python) apps.',
-    url: 'https://github.com/sancho1952007/Modern-GUI-v3.0',
-    image: 'https://i.ibb.co/s65b76z/Preview-Image.png',
-  },
-  {
-    name: 'iPhone 11 Clone',
-    description: 'An iPhone 11 Pro made using only HTML & CSS.',
-    url: 'https://sancho1952007.github.io/iPhone-11-Clone/',
-    image: 'https://i.ibb.co/fxRWxzq/i-Phone-Preview.png',
-  },
-]
+import { PROJECTS, type Project } from '@/lib/projects'
+export { PROJECTS, type Project }
 
 function ProjectCard({
   project,
@@ -396,6 +311,8 @@ function ProjectCard({
           <img
             src={project.image}
             alt={`${project.name} preview`}
+            loading="lazy"
+            decoding="async"
             onError={() => setImgError(true)}
             className="transition-transform duration-300 group-hover:scale-[1.02]"
             style={{ width: '100%', height: 'auto', display: 'block', backgroundColor: 'white' }}
@@ -417,23 +334,11 @@ function ProjectCard({
           </div>
         )}
 
-        {/* Hover overlay with fading blur */}
-        <div
-          className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-          style={{
-            backdropFilter: 'blur(6px)',
-            WebkitBackdropFilter: 'blur(6px)',
-            maskImage: 'linear-gradient(to top, black 0%, black 40%, transparent 75%)',
-            WebkitMaskImage: 'linear-gradient(to top, black 0%, black 40%, transparent 75%)',
-          }}
-          aria-hidden="true"
-        />
-
         {/* Dark tint overlay with fading gradient */}
         <div
           className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
           style={{
-            background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 40%, transparent 70%)',
+            background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 45%, transparent 70%)',
           }}
           aria-hidden="true"
         />
@@ -474,6 +379,8 @@ function ProjectCard({
             <img
               src={project.image}
               alt={`${project.name} preview`}
+              loading="lazy"
+              decoding="async"
               onError={() => setImgError(true)}
               style={{ width: '100%', height: 'auto', display: 'block' }}
             />
@@ -513,10 +420,21 @@ function ProjectCard({
 }
 
 export function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
-  const [activeProject, setActiveProject] = useState<Project | null>(null)
+  const getInitialProject = (): Project | null => {
+    if (typeof window === 'undefined') return null
+    const match = window.location.pathname.match(/^\/project\/(.+)$/)
+    if (!match) return null
+    const projectName = decodeURIComponent(match[1]).trim()
+    return (
+      PROJECTS.find(
+        (p) => p.name.toLowerCase() === projectName.toLowerCase() || p.name === projectName
+      ) || null
+    )
+  }
+
+  const [selectedProject, setSelectedProject] = useState<Project | null>(getInitialProject)
+  const [activeProject, setActiveProject] = useState<Project | null>(getInitialProject)
   const [originRect, setOriginRect] = useState<DOMRect | null>(null)
-  const [measuredModalHeight, setMeasuredModalHeight] = useState<number>(0)
 
   const currentProject = selectedProject || activeProject
 
@@ -524,8 +442,10 @@ export function Projects() {
     const handlePopState = () => {
       const match = window.location.pathname.match(/^\/project\/(.+)$/)
       if (match) {
-        const projectName = decodeURIComponent(match[1])
-        const proj = PROJECTS.find((p) => p.name === projectName)
+        const projectName = decodeURIComponent(match[1]).trim()
+        const proj = PROJECTS.find(
+          (p) => p.name.toLowerCase() === projectName.toLowerCase() || p.name === projectName
+        )
         if (proj) {
           setSelectedProject(proj)
           setActiveProject(proj)
@@ -588,8 +508,7 @@ export function Projects() {
 
   const initialScale = liveRect ? liveRect.width / modalWidth : 0.95
   const imgHeight = liveRect ? modalWidth * (liveRect.height / liveRect.width) : 380
-  const effectiveModalHeight = measuredModalHeight || (imgHeight + (isDesktop ? 200 : 180))
-  const clipBottom = Math.max(0, effectiveModalHeight - imgHeight)
+  const effectiveModalHeight = imgHeight + (isDesktop ? 200 : 180)
 
   const deltaX = liveRect ? (liveRect.left + liveRect.width / 2) - vw / 2 : 0
   // Position so the top of the scaled modal coincides with liveRect.top
@@ -654,7 +573,6 @@ export function Projects() {
         onExitComplete={() => {
           setOriginRect(null)
           setActiveProject(null)
-          setMeasuredModalHeight(0)
         }}
       >
         {selectedProject && currentProject && (
@@ -665,7 +583,7 @@ export function Projects() {
             exit={{ opacity: 0 }}
             transition={{ duration: originRect ? 0.75 : 0.35, ease: 'easeInOut' }}
             className="fixed inset-0 z-50 cursor-pointer"
-            style={{ backgroundColor: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(6px)' }}
+            style={{ backgroundColor: 'rgba(0,0,0,0.85)' }}
             onClick={handleCloseProject}
           />
         )}
@@ -681,11 +599,6 @@ export function Projects() {
           >
             <motion.div
               key="project-modal-card"
-              ref={(node) => {
-                if (node && node.offsetHeight > 0 && node.offsetHeight !== measuredModalHeight) {
-                  setMeasuredModalHeight(node.offsetHeight)
-                }
-              }}
               initial={
                 originRect
                   ? { x: deltaX, y: deltaY, scale: initialScale, rotateY: 0, opacity: 1 }
@@ -713,10 +626,6 @@ export function Projects() {
                 style={{
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
-                  clipPath: selectedProject
-                    ? 'inset(0px 0px 0px 0px round 12px)'
-                    : `inset(0px 0px ${clipBottom}px 0px round 8px)`,
-                  transition: 'clip-path 0.75s ease-in-out',
                 }}
               >
                 <button
@@ -738,6 +647,7 @@ export function Projects() {
                     alt={`${currentProject.name} preview`}
                     className="w-full h-auto object-cover"
                     style={{ backgroundColor: 'white' }}
+                    decoding="async"
                   />
                 </div>
 
@@ -774,10 +684,6 @@ export function Projects() {
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
                   transform: 'rotateY(180deg)',
-                  clipPath: selectedProject
-                    ? 'inset(0px 0px 0px 0px round 12px)'
-                    : `inset(0px 0px ${clipBottom}px 0px round 8px)`,
-                  transition: 'clip-path 0.75s ease-in-out',
                 }}
                 aria-hidden="true"
               >

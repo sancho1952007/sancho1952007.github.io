@@ -17,11 +17,14 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const saved = sessionStorage.getItem('theme') as 'dark' | 'light' | null
+    let saved: 'dark' | 'light' | null = null
+    try {
+      saved = (localStorage.getItem('theme') || sessionStorage.getItem('theme')) as 'dark' | 'light' | null
+    } catch {}
     if (saved) {
       setThemeState(saved)
     } else {
-      setThemeState(document.documentElement.classList.contains('dark') ? 'dark' : 'light')
+      setThemeState(document.documentElement.classList.contains('light') ? 'light' : 'dark')
     }
     setMounted(true)
   }, [])
@@ -29,13 +32,18 @@ export default function Navbar() {
   const handleThemeToggle = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark'
     setThemeState(newTheme)
-    sessionStorage.setItem('theme', newTheme)
+    try {
+      localStorage.setItem('theme', newTheme)
+      sessionStorage.setItem('theme', newTheme)
+    } catch {}
     if (newTheme === 'dark') {
       document.documentElement.classList.add('dark')
       document.documentElement.classList.remove('light')
+      document.documentElement.style.colorScheme = 'dark'
     } else {
       document.documentElement.classList.remove('dark')
       document.documentElement.classList.add('light')
+      document.documentElement.style.colorScheme = 'light'
     }
   }
 
