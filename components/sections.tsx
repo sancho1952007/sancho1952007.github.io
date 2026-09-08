@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import HCaptcha from '@hcaptcha/react-hcaptcha'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -419,24 +419,72 @@ function ProjectCard({
   return null
 }
 
-export function Projects() {
+interface ProjectsProps {
+  initialProjectSlug?: string
+}
+
+export function Projects({ initialProjectSlug }: ProjectsProps = {}) {
   const getInitialProject = (): Project | null => {
-    if (typeof window === 'undefined') return null
-    const match = window.location.pathname.match(/^\/project\/(.+)$/)
-    if (!match) return null
-    const projectName = decodeURIComponent(match[1]).trim()
+    let slug = initialProjectSlug
+    if (!slug && typeof window !== 'undefined') {
+      const match = window.location.pathname.match(/^\/project\/(.+)$/)
+      if (match) slug = match[1]
+    }
+    if (!slug) return null
+    const decoded = decodeURIComponent(slug).trim()
     return (
       PROJECTS.find(
-        (p) => p.name.toLowerCase() === projectName.toLowerCase() || p.name === projectName
+        (p) => p.name.toLowerCase() === decoded.toLowerCase() || p.name === decoded
       ) || null
     )
   }
 
+  const isDirectVisit = useRef(
+    !!initialProjectSlug ||
+    (typeof window !== 'undefined' && !!window.location.pathname.match(/^\/project\/(.+)$/))
+  )
+
   const [selectedProject, setSelectedProject] = useState<Project | null>(getInitialProject)
   const [activeProject, setActiveProject] = useState<Project | null>(getInitialProject)
   const [originRect, setOriginRect] = useState<DOMRect | null>(null)
+  const [isClosing, setIsClosing] = useState(false)
+  const [measuredModalHeight, setMeasuredModalHeight] = useState<number>(0)
 
   const currentProject = selectedProject || activeProject
+
+  // Finds the currently visible card in either desktop or mobile layout
+  const getVisibleCardRect = (projectName: string): DOMRect | null => {
+    if (typeof window === 'undefined') return null
+    const buttons = document.querySelectorAll<HTMLButtonElement>(
+      `button[data-project="${projectName}"]`
+    )
+    for (const btn of buttons) {
+      if (btn.offsetParent !== null) {
+        const rect = btn.getBoundingClientRect()
+        if (rect.width > 0 && rect.height > 0) {
+          return rect
+        }
+      }
+    }
+    return null
+  }
+
+  const handleOpenProject = (project: Project, rect?: DOMRect) => {
+    isDirectVisit.current = false
+    setIsClosing(false)
+    if (rect) {
+      setOriginRect(rect)
+    }
+    setSelectedProject(project)
+    setActiveProject(project)
+    window.history.pushState(null, '', '/project/' + encodeURIComponent(project.name))
+  }
+
+  const handleCloseProject = () => {
+    setIsClosing(true)
+    setSelectedProject(null)
+    window.history.pushState(null, '', '/')
+  }
 
   useEffect(() => {
     const handlePopState = () => {
@@ -447,40 +495,43 @@ export function Projects() {
           (p) => p.name.toLowerCase() === projectName.toLowerCase() || p.name === projectName
         )
         if (proj) {
+          isDirectVisit.current = false
+          setIsClosing(false)
           setSelectedProject(proj)
           setActiveProject(proj)
         } else {
-          setSelectedProject(null)
+          handleCloseProject()
         }
       } else {
-        setSelectedProject(null)
+        handleCloseProject()
       }
     }
 
     window.addEventListener('popstate', handlePopState)
-    handlePopState()
 
     return () => {
       window.removeEventListener('popstate', handlePopState)
     }
   }, [])
 
-  const handleOpenProject = (project: Project, rect?: DOMRect) => {
-    if (rect) {
-      setOriginRect(rect)
-    }
-    setSelectedProject(project)
-    setActiveProject(project)
-    window.history.pushState(null, '', '/project/' + encodeURIComponent(project.name))
-  }
-
-  const handleCloseProject = () => {
-    setSelectedProject(null)
-    window.history.pushState(null, '', '/')
-  }
-
   useEffect(() => {
     if (activeProject) {
+      // If the card is not already in the viewport (e.g. on direct visit to /project/...),
+      // scroll the page so the card is centered in view behind the modal.
+      const buttons = document.querySelectorAll<HTMLButtonElement>(
+        `button[data-project="${activeProject.name}"]`
+      )
+      for (const btn of buttons) {
+        if (btn.offsetParent !== null) {
+          const rect = btn.getBoundingClientRect()
+          const inView = rect.top >= 0 && rect.bottom <= (window.innerHeight || 800)
+          if (!inView) {
+            btn.scrollIntoView({ block: 'center', inline: 'nearest' })
+          }
+          break
+        }
+      }
+
       document.body.style.overflow = 'hidden'
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === 'Escape') {
@@ -497,24 +548,28 @@ export function Projects() {
     }
   }, [activeProject])
 
-  const liveRect = typeof window !== 'undefined' && activeProject
-    ? document.querySelector(`button[data-project="${activeProject.name}"]`)?.getBoundingClientRect() || originRect
-    : originRect
+  useEffect(() => {
+    isDirectVisit.current = false
+  }, [])
+
+  const targetRect = (activeProject ? getVisibleCardRect(activeProject.name) : null) || originRect
 
   const vw = typeof window !== 'undefined' ? window.innerWidth : 1200
   const vh = typeof window !== 'undefined' ? window.innerHeight : 800
   const isDesktop = vw >= 768
   const modalWidth = Math.min(672, vw - (isDesktop ? 64 : 32))
 
-  const initialScale = liveRect ? liveRect.width / modalWidth : 0.95
-  const imgHeight = liveRect ? modalWidth * (liveRect.height / liveRect.width) : 380
-  const effectiveModalHeight = imgHeight + (isDesktop ? 200 : 180)
+  const initialScale = targetRect ? targetRect.width / modalWidth : 0.95
+  const imgHeight = targetRect ? modalWidth * (targetRect.height / targetRect.width) : 380
+  const actualModalHeight = measuredModalHeight || (imgHeight + (isDesktop ? 200 : 180))
 
-  const deltaX = liveRect ? (liveRect.left + liveRect.width / 2) - vw / 2 : 0
-  // Position so the top of the scaled modal coincides with liveRect.top
-  const deltaY = liveRect
-    ? liveRect.top + (effectiveModalHeight * initialScale) / 2 - vh / 2
+  const deltaX = targetRect ? (targetRect.left + targetRect.width / 2) - vw / 2 : 0
+  const deltaY = targetRect
+    ? targetRect.top + (actualModalHeight * initialScale) / 2 - vh / 2
     : 0
+
+  const animDuration = isClosing ? 0.55 : 0.65
+  const animEase = [0.25, 0.1, 0.25, 1] as const
 
   return (
     <SectionShell id="projects" label="Projects">
@@ -570,18 +625,21 @@ export function Projects() {
       </div>
 
       <AnimatePresence
+        initial={false}
         onExitComplete={() => {
+          setIsClosing(false)
           setOriginRect(null)
           setActiveProject(null)
+          setMeasuredModalHeight(0)
         }}
       >
         {selectedProject && currentProject && (
           <motion.div
             key="project-modal-backdrop"
-            initial={{ opacity: 0 }}
+            initial={isDirectVisit.current ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: originRect ? 0.75 : 0.35, ease: 'easeInOut' }}
+            transition={{ duration: animDuration, ease: animEase }}
             className="fixed inset-0 z-50 cursor-pointer"
             style={{ backgroundColor: 'rgba(0,0,0,0.85)' }}
             onClick={handleCloseProject}
@@ -593,26 +651,33 @@ export function Projects() {
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 1 }}
-            transition={{ duration: originRect ? 0.75 : 0.35 }}
+            transition={{ duration: animDuration }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none"
             style={{ perspective: 1200 }}
           >
             <motion.div
               key="project-modal-card"
+              ref={(node) => {
+                if (node && node.offsetHeight > 0 && node.offsetHeight !== measuredModalHeight) {
+                  setMeasuredModalHeight(node.offsetHeight)
+                }
+              }}
               initial={
-                originRect
+                isDirectVisit.current
+                  ? false
+                  : targetRect
                   ? { x: deltaX, y: deltaY, scale: initialScale, rotateY: 0, opacity: 1 }
                   : { scale: 0.95, opacity: 0, rotateY: 0 }
               }
               animate={{ x: 0, y: 0, scale: 1, rotateY: 360, opacity: 1 }}
               exit={
-                originRect
+                targetRect
                   ? { x: deltaX, y: deltaY, scale: initialScale, rotateY: 0, opacity: 1 }
                   : { scale: 0.95, opacity: 0, rotateY: 0 }
               }
               transition={{
-                duration: originRect ? 0.75 : 0.35,
-                ease: 'easeInOut',
+                duration: animDuration,
+                ease: animEase,
               }}
               className="relative w-full max-w-2xl max-h-[90vh] pointer-events-auto"
               onClick={(e) => e.stopPropagation()}

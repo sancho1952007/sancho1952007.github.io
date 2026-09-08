@@ -45,6 +45,11 @@ export async function generateMetadata({
   }
 }
 
-export default function ProjectPage() {
-  return <Home skipPreloader={true} />
+export default async function ProjectPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  return <Home skipPreloader={true} initialProjectSlug={slug} />
 }
