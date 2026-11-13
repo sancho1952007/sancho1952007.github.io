@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Send, X } from 'lucide-react'
+import { Info, Send, X } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
@@ -28,12 +28,26 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState('')
   const [awaiting, setAwaiting] = useState(false)
+  const [infoOpen, setInfoOpen] = useState(false)
+  const [canHover, setCanHover] = useState(false)
   const wsRef = useRef<WebSocket | null>(null)
   const idRef = useRef(0)
   const listRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const closeInfoTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => () => { wsRef.current?.close() }, [])
+
+  useEffect(() => {
+    const query = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const update = () => setCanHover(query.matches)
+    update()
+    query.addEventListener('change', update)
+    return () => {
+      query.removeEventListener('change', update)
+      if (closeInfoTimerRef.current) clearTimeout(closeInfoTimerRef.current)
+    }
+  }, [])
 
   useEffect(() => {
     if (!open) return
@@ -94,7 +108,24 @@ export default function ChatWidget() {
 
   function handleClose() {
     setOpen(false)
+    setInfoOpen(false)
     trackEvent('chat-closed')
+  }
+
+  function openInfo() {
+    if (closeInfoTimerRef.current) {
+      clearTimeout(closeInfoTimerRef.current)
+      closeInfoTimerRef.current = null
+    }
+    setInfoOpen(true)
+  }
+
+  function scheduleCloseInfo() {
+    if (closeInfoTimerRef.current) clearTimeout(closeInfoTimerRef.current)
+    closeInfoTimerRef.current = setTimeout(() => {
+      closeInfoTimerRef.current = null
+      setInfoOpen(false)
+    }, 150)
   }
 
   function handleSend(e: React.FormEvent) {
@@ -159,21 +190,44 @@ export default function ChatWidget() {
             }}
           >
             <div
-              className="flex items-center justify-between gap-3 border-b px-4 py-1"
+              className="relative flex items-center justify-between gap-3 border-b px-4 py-1"
               style={{ borderColor: 'var(--border-rule)', borderStyle: 'dashed' }}
             >
               <div className="flex items-center gap-3">
                 <div>
-                  <p
-                    style={{
-                      fontFamily: 'var(--font-geist-pixel-square)',
-                      fontSize: '13px',
-                      letterSpacing: '0.04em',
-                      color: 'var(--foreground)',
-                    }}
-                  >
-                    Talk to Sancho (AI)
-                  </p>
+                  <div className="flex items-center gap-1.5">
+                    <p
+                      style={{
+                        fontFamily: 'var(--font-geist-pixel-square)',
+                        fontSize: '13px',
+                        letterSpacing: '0.04em',
+                        color: 'var(--foreground)',
+                      }}
+                    >
+                      Talk to Sancho (AI)
+                    </p>
+                    <span
+                      className="inline-flex"
+                      onMouseEnter={canHover ? openInfo : undefined}
+                      onMouseLeave={canHover ? scheduleCloseInfo : undefined}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setInfoOpen((v) => !v)}
+                        className="flex items-center justify-center rounded-full transition-opacity duration-200 hover:opacity-60"
+                        style={{
+                          color: 'var(--muted-text)',
+                          minHeight: '28px',
+                          minWidth: '28px',
+                        }}
+                        aria-label="About this chat"
+                        aria-expanded={infoOpen}
+                        aria-controls="chat-info"
+                      >
+                        <Info size={13} />
+                      </button>
+                    </span>
+                  </div>
                 </div>
               </div>
               <div className="flex items-center gap-1">
@@ -203,6 +257,47 @@ export default function ChatWidget() {
                   <X size={17} />
                 </button>
               </div>
+
+              {infoOpen && (
+                <div
+                  id="chat-info"
+                  role="note"
+                  className="absolute left-3 right-3 top-full z-20 mt-1 rounded-lg border p-3"
+                  style={{
+                    backgroundColor: 'var(--background)',
+                    borderColor: 'var(--border-rule)',
+                    boxShadow: '0 12px 32px rgba(0, 0, 0, 0.28)',
+                  }}
+                  onMouseEnter={canHover ? openInfo : undefined}
+                  onMouseLeave={canHover ? scheduleCloseInfo : undefined}
+                >
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-geist-pixel-square)',
+                      fontSize: '12px',
+                      lineHeight: 1.55,
+                      color: 'var(--foreground)',
+                    }}
+                  >
+                    This is my personal AI assistant, designed to answer your questions about me so you can quickly get to know who I am, what I do, my interests, projects, and more.
+                  </p>
+                  <div
+                    style={{
+                      borderTop: '1px dashed var(--border-rule)',
+                      margin: '8px 0',
+                    }}
+                  />
+                  <p
+                    style={{
+                      fontSize: '11px',
+                      lineHeight: 1.55,
+                      color: 'var(--muted-text)',
+                    }}
+                  >
+                    Queries may be shared with me, but will not be used for training purposes.
+                  </p>
+                </div>
+              )}
             </div>
 
             <div ref={listRef} className="flex-1 overflow-y-auto px-4 py-4">
