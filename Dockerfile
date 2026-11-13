@@ -38,8 +38,8 @@ COPY --chown=bun:bun --from=builder /app/out ./out
 COPY --chown=bun:bun --from=builder /app/server.js ./server.js
 
 # Copy the cache purge script
-COPY --chown=bun:bun purge.js ./purge.js
+COPY --chown=bun:bun cache-purge.js ./cache-purge.js
 
 USER bun
 EXPOSE 3000
-CMD ["sh", "-c", "bun purge.js && exec bun server.js"]
+CMD ["sh", "-c", "bun cache-purge.js && exec bun server.js"]

@@ -17,3 +17,4 @@ node_modules
 .DS_Store
 next-env.d.ts
 tsconfig.tsbuildinfo
+.env
