@@ -89,8 +89,16 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20"
         style={{ paddingTop: '28px', paddingBottom: '28px' }}
       >
+        <div
+          aria-hidden="true"
+          className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-full max-w-6xl border-x-0 md:border-x border-dashed"
+          style={{
+            backgroundColor: 'var(--background)',
+            borderColor: 'var(--border-rule)',
+          }}
+        />
         <nav
-          className="flex items-center justify-between max-w-5xl mx-auto"
+          className="relative flex items-center justify-between max-w-5xl mx-auto"
           aria-label="Primary navigation"
         >
           {/* Logo */}
