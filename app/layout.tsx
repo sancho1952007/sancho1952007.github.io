@@ -106,8 +106,8 @@ export const metadata: Metadata = {
     description:
       'Portfolio of Sancho Godinho, a Full-Stack Developer and Cybersecurity Researcher at Dodo Payments. Discover my projects, open-source contributions, and technical insights.',
     images: ['https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png?maxage=15d'],
-    creator: '@sanchogodinho',
-    site: '@sanchogodinho',
+    creator: '@iamsgxd',
+    site: '@iamsgxd',
   },
   icons: {
     icon: '/favicon.png',

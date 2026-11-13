@@ -666,8 +666,8 @@ export function Projects({ initialProjectSlug }: ProjectsProps = {}) {
                 isDirectVisit.current
                   ? false
                   : targetRect
-                  ? { x: deltaX, y: deltaY, scale: initialScale, rotateY: 0, opacity: 1 }
-                  : { scale: 0.95, opacity: 0, rotateY: 0 }
+                    ? { x: deltaX, y: deltaY, scale: initialScale, rotateY: 0, opacity: 1 }
+                    : { scale: 0.95, opacity: 0, rotateY: 0 }
               }
               animate={{ x: 0, y: 0, scale: 1, rotateY: 360, opacity: 1 }}
               exit={
@@ -952,7 +952,6 @@ export function Contact() {
             <ul className="flex flex-col gap-0" role="list">
               {[
                 { label: 'GitHub', handle: '(@sancho1952007)', href: 'https://github.com/sancho1952007' },
-                { label: 'Twitter', handle: '(@sanchogodinho)', href: 'https://x.com/sanchogodinho' },
                 { label: 'Discord', handle: '(sanchogodinho)', href: 'https://discord.com/users/1053386709737414739' },
                 { label: 'LinkedIn', handle: '(sancho-godinho)', href: 'https://www.linkedin.com/in/sancho-godinho/' },
                 { label: 'Sololearn', handle: '(Sancho Godinho)', href: 'https://www.sololearn.com/profile/19684449' },
