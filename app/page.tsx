@@ -5,6 +5,7 @@ import Navbar from '@/components/navbar'
 import Hero from '@/components/hero'
 import { About, Skills, Projects, Contact, Footer } from '@/components/sections'
 import Preloader from '@/components/preloader'
+import ChatWidget from '@/components/chat-widget'
 
 export default function Home({
   skipPreloader = false,
@@ -34,6 +35,7 @@ export default function Home({
         <Contact />
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   )
 }
