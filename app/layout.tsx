@@ -30,7 +30,7 @@ const instrumentSerif = Instrument_Serif({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 5,
+  userScalable: false,
   themeColor: '#6366f1',
   colorScheme: 'dark light',
 }
