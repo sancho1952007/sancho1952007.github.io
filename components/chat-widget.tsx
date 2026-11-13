@@ -12,6 +12,12 @@ type Role = 'user' | 'assistant'
 type ChatMessage = { id: string; role: Role; content: string }
 type Status = 'idle' | 'connecting' | 'open' | 'closed'
 
+function trackEvent(name: string) {
+  if (typeof window === 'undefined') return
+  const umami = (window as Window & { umami?: { track: (event: string) => void } }).umami
+  umami?.track(name)
+}
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false)
   const [status, setStatus] = useState<Status>('idle')
@@ -79,6 +85,12 @@ export default function ChatWidget() {
   function handleOpen() {
     setOpen(true)
     connect()
+    trackEvent('chat-opened')
+  }
+
+  function handleClose() {
+    setOpen(false)
+    trackEvent('chat-closed')
   }
 
   function handleSend(e: React.FormEvent) {
@@ -90,6 +102,7 @@ export default function ChatWidget() {
     setMessages((prev) => [...prev, { id: `m${idRef.current++}`, role: 'user', content: text }])
     setInput('')
     setAwaiting(true)
+    trackEvent('chat-message')
   }
 
   const statusLabel =
@@ -178,7 +191,7 @@ export default function ChatWidget() {
                   </button>
                 )}
                 <button
-                  onClick={() => setOpen(false)}
+                  onClick={handleClose}
                   className="flex items-center justify-center transition-opacity duration-200 hover:opacity-60"
                   style={{ color: 'var(--muted-text)', minHeight: '44px', minWidth: '44px' }}
                   aria-label="Close chat"

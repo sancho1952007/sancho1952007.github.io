@@ -144,10 +144,10 @@ export default function RootLayout({
           }}
         />
 
-        {/* Rybbit Analytics */}
+        {/* Umami Analytics */}
         <Script
-          src="https://rybbit.sg-app.com/api/script.js"
-          data-site-id="1"
+          src="https://umami.sg-app.com/script.js"
+          data-website-id="212e7ad1-8adc-4852-ab01-45d7b0fed2d5"
           strategy="afterInteractive"
         />
 
