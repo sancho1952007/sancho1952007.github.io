@@ -12,10 +12,14 @@ type Role = 'user' | 'assistant'
 type ChatMessage = { id: string; role: Role; content: string }
 type Status = 'idle' | 'connecting' | 'open' | 'closed'
 
-function trackEvent(name: string) {
+type EventData = Record<string, string | number | boolean>
+
+function trackEvent(name: string, data?: EventData) {
   if (typeof window === 'undefined') return
-  const umami = (window as Window & { umami?: { track: (event: string) => void } }).umami
-  umami?.track(name)
+  const umami = (window as Window & {
+    umami?: { track: (event: string, data?: EventData) => void }
+  }).umami
+  umami?.track(name, data)
 }
 
 export default function ChatWidget() {
@@ -102,7 +106,7 @@ export default function ChatWidget() {
     setMessages((prev) => [...prev, { id: `m${idRef.current++}`, role: 'user', content: text }])
     setInput('')
     setAwaiting(true)
-    trackEvent('chat-message')
+    trackEvent('chat-message', { query: text.slice(0, 500) })
   }
 
   const statusLabel =
