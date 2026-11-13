@@ -148,6 +148,7 @@ export default function RootLayout({
         <Script
           src="https://umami.sg-app.com/script.js"
           data-website-id="212e7ad1-8adc-4852-ab01-45d7b0fed2d5"
+          data-domains="sancho.sg-app.com,sancho1952007.github.io"
           strategy="afterInteractive"
         />
 
