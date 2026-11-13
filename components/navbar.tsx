@@ -85,13 +85,10 @@ export default function Navbar() {
 
   return (
     <>
-      <header
-        className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20"
-        style={{ paddingTop: '28px', paddingBottom: '28px' }}
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20 py-3 md:py-7">
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-full max-w-6xl border-x-0 md:border-x border-dashed"
+          className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-full max-w-6xl border-x-0 border-b md:border-x md:border-b-0 border-dashed"
           style={{
             backgroundColor: 'var(--background)',
             borderColor: 'var(--border-rule)',
