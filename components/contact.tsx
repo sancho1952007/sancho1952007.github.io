@@ -133,7 +133,8 @@ export default function Contact() {
     }
   }
 
-  const handleCaptchaError = () => {
+  const handleCaptchaError = (event: string) => {
+    console.error('[captcha] error', event)
     setFormState('error')
     captchaRef.current?.resetCaptcha()
   }

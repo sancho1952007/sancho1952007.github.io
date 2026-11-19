@@ -88,7 +88,7 @@ export default function ProjectModal({
   const animEase = [0.25, 0.1, 0.25, 1] as const
 
   return (
-    <AnimatePresence initial={false} onExitComplete={onExitComplete}>
+    <AnimatePresence onExitComplete={onExitComplete}>
       {open && (
         <motion.div
           key="project-modal-backdrop"
