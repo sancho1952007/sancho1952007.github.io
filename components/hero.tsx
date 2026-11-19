@@ -20,20 +20,26 @@ export default function Hero() {
                 border: '1px solid var(--border-rule)',
               }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/pfp-400px.png"
-                alt="Sketch portrait of Sancho Godinho"
-                width={250}
-                height={250}
-                draggable={false}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block',
-                }}
-              />
+              <picture style={{ display: 'block', width: '100%', height: '100%' }}>
+                <source srcSet="/pfp-400px.avif" type="image/avif" />
+                <source srcSet="/pfp-400px.webp" type="image/webp" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/pfp-400px.png"
+                  alt="Sketch portrait of Sancho Godinho"
+                  width={250}
+                  height={250}
+                  draggable={false}
+                  fetchPriority="high"
+                  decoding="async"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                />
+              </picture>
             </div>
           </div>
 

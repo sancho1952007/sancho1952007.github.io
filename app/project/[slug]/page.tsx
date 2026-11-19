@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 import Home from '@/app/page'
-import { PROJECTS } from '@/lib/projects'
+import { PROJECTS, findProject } from '@/lib/projects'
 
 export function generateStaticParams() {
   const slugs = new Set<string>()
-  for (const p of PROJECTS) {
-    slugs.add(p.name)
-    slugs.add(encodeURIComponent(p.name))
+  for (const project of PROJECTS) {
+    slugs.add(project.name)
+    slugs.add(encodeURIComponent(project.name))
   }
-  return Array.from(slugs).map((slug) => ({ slug }))
+  return Array.from(slugs, (slug) => ({ slug }))
 }
 
 export async function generateMetadata({
@@ -17,10 +17,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const decoded = decodeURIComponent(slug).trim()
-  const project = PROJECTS.find(
-    (p) => p.name.toLowerCase() === decoded.toLowerCase() || p.name === decoded
-  )
+  const project = findProject(slug)
 
   if (!project) {
     return {

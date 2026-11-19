@@ -47,11 +47,13 @@ export default function Navbar() {
     }
   }
 
-  // Close drawer on outside click
+  // Drawer-only listeners: outside click, Escape and scroll locking are all
+  // attached while the drawer is open instead of running globally forever.
   useEffect(() => {
+    if (!drawerOpen) return
+
     function handleClick(e: MouseEvent) {
       if (
-        drawerOpen &&
         drawerRef.current &&
         !drawerRef.current.contains(e.target as Node) &&
         hamburgerRef.current &&
@@ -60,23 +62,18 @@ export default function Navbar() {
         setDrawerOpen(false)
       }
     }
-    document.addEventListener('mousedown', handleClick)
-    return () => document.removeEventListener('mousedown', handleClick)
-  }, [drawerOpen])
-
-  // Close drawer on Escape
-  useEffect(() => {
     function handleKey(e: KeyboardEvent) {
       if (e.key === 'Escape') setDrawerOpen(false)
     }
-    document.addEventListener('keydown', handleKey)
-    return () => document.removeEventListener('keydown', handleKey)
-  }, [])
 
-  // Prevent body scroll when drawer is open
-  useEffect(() => {
-    document.body.style.overflow = drawerOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    document.addEventListener('mousedown', handleClick)
+    document.addEventListener('keydown', handleKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('mousedown', handleClick)
+      document.removeEventListener('keydown', handleKey)
+      document.body.style.overflow = ''
+    }
   }, [drawerOpen])
 
   function handleNavClick() {

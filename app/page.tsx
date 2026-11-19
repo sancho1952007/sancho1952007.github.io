@@ -1,10 +1,9 @@
-'use client'
-
-import { useState } from 'react'
 import Navbar from '@/components/navbar'
 import Hero from '@/components/hero'
-import { About, Skills, Projects, Contact, Footer } from '@/components/sections'
-import Preloader from '@/components/preloader'
+import { About, Skills, Footer } from '@/components/sections'
+import Projects from '@/components/projects'
+import Contact from '@/components/contact'
+import PreloaderGate from '@/components/preloader-gate'
 import ChatWidget from '@/components/chat-widget'
 
 export default function Home({
@@ -14,18 +13,12 @@ export default function Home({
   skipPreloader?: boolean
   initialProjectSlug?: string
 } = {}) {
-  const [showPreloader, setShowPreloader] = useState(() => {
-    if (skipPreloader) return false
-    if (initialProjectSlug) return false
-    if (typeof window !== 'undefined' && window.location.pathname.startsWith('/project/')) {
-      return false
-    }
-    return true
-  })
-
   return (
     <div style={{ minHeight: '100vh' }}>
-      {showPreloader && <Preloader onComplete={() => setShowPreloader(false)} />}
+      <PreloaderGate
+        skipPreloader={skipPreloader}
+        initialProjectSlug={initialProjectSlug}
+      />
       <Navbar />
       <main>
         <Hero />

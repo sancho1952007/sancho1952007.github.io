@@ -85,3 +85,23 @@ export const PROJECTS: Project[] = [
     image: 'https://i.ibb.co/fxRWxzq/i-Phone-Preview.png',
   },
 ]
+
+// Lookup index built once so slug resolution is O(1) instead of a linear scan
+// repeated on every open/navigation.
+const PROJECTS_BY_SLUG = new Map(
+  PROJECTS.map((project) => [project.name.trim().toLowerCase(), project])
+)
+
+function safeDecode(value: string): string {
+  try {
+    return decodeURIComponent(value)
+  } catch {
+    return value
+  }
+}
+
+/** Resolves a raw or percent-encoded project slug to its project. */
+export function findProject(slug: string | null | undefined): Project | null {
+  if (!slug) return null
+  return PROJECTS_BY_SLUG.get(safeDecode(slug).trim().toLowerCase()) ?? null
+}

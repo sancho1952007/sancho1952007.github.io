@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import localFont from 'next/font/local'
-import { Geist, Geist_Mono } from 'next/font/google'
-import { Instrument_Serif } from 'next/font/google'
+import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google'
+import TechGrid from '@/components/tech-grid'
 import './globals.css'
 const geist = Geist({
   subsets: ['latin'],
@@ -25,6 +25,38 @@ const instrumentSerif = Instrument_Serif({
   weight: '400',
   style: ['normal', 'italic'],
   variable: '--font-instrument-serif',
+})
+
+// Executed before first paint to avoid a theme flash. Kept at module scope so
+// the string is created once at build time rather than per rendered page.
+const THEME_INIT_SCRIPT =
+  `!function(){try{var d=document.documentElement,c=d.classList;var e=null;try{e=localStorage.getItem('theme')||sessionStorage.getItem('theme')}catch(x){}c.remove('light','dark');if(e==='light'){c.add('light');d.style.colorScheme='light'}else if(e==='dark'){c.add('dark');d.style.colorScheme='dark'}else if(e==='system'){var m=window.matchMedia('(prefers-color-scheme: dark)');var t=m.matches?'dark':'light';c.add(t);d.style.colorScheme=t}else{c.add('dark');d.style.colorScheme='dark'}}catch(e){}}()`
+
+const PERSON_STRUCTURED_DATA = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Sancho Godinho',
+  url: 'https://sancho.sg-app.com',
+  image: 'https://sancho.sg-app.com/pfp-400px.png',
+  sameAs: [
+    'https://hackerone.com/sancho-godinho',
+    'https://github.com/sancho1952007'
+  ],
+  jobTitle: 'Full-stack developer & cybersecurity researcher',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Dodo Payments'
+  },
+  description: 'Full-Stack Developer and Cybersecurity Researcher focusing on Web Security, Penetration Testing, and Bug Bounties.',
+  knowsAbout: [
+    'Web Security',
+    'Cybersecurity',
+    'Bug Bounty Hunting',
+    'Penetration Testing',
+    'Full-Stack Development',
+    'TypeScript',
+    'React'
+  ]
 })
 
 export const viewport: Viewport = {
@@ -128,8 +160,6 @@ export const metadata: Metadata = {
   }
 }
 
-import TechGrid from '@/components/tech-grid'
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -139,9 +169,7 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <script
-          dangerouslySetInnerHTML={{
-            __html: `!function(){try{var d=document.documentElement,c=d.classList;var e=null;try{e=localStorage.getItem('theme')||sessionStorage.getItem('theme')}catch(x){}c.remove('light','dark');if(e==='light'){c.add('light');d.style.colorScheme='light'}else if(e==='dark'){c.add('dark');d.style.colorScheme='dark'}else if(e==='system'){var m=window.matchMedia('(prefers-color-scheme: dark)');var t=m.matches?'dark':'light';c.add(t);d.style.colorScheme=t}else{c.add('dark');d.style.colorScheme='dark'}}catch(e){}}()`,
-          }}
+          dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
         />
 
         {/* Umami Analytics */}
@@ -155,34 +183,7 @@ export default function RootLayout({
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Sancho Godinho',
-              url: 'https://sancho.sg-app.com',
-              image: 'https://sancho.sg-app.com/pfp.png',
-              sameAs: [
-                'https://hackerone.com/sancho-godinho',
-                'https://github.com/sancho1952007'
-              ],
-              jobTitle: 'Full-stack developer & cybersecurity researcher',
-              worksFor: {
-                '@type': 'Organization',
-                name: 'Dodo Payments'
-              },
-              description: 'Full-Stack Developer and Cybersecurity Researcher focusing on Web Security, Penetration Testing, and Bug Bounties.',
-              knowsAbout: [
-                'Web Security',
-                'Cybersecurity',
-                'Bug Bounty Hunting',
-                'Penetration Testing',
-                'Full-Stack Development',
-                'TypeScript',
-                'React'
-              ]
-            })
-          }}
+          dangerouslySetInnerHTML={{ __html: PERSON_STRUCTURED_DATA }}
         />
       </head>
       <body
