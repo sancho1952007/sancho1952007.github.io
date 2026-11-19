@@ -39,11 +39,10 @@ export default function ChatWidget() {
         onClick={handleOpen}
         onPointerEnter={preloadPanel}
         onFocus={preloadPanel}
-        className={`fixed bottom-6 right-6 z-[60] flex h-15 w-36 items-center justify-center rounded-full shadow-lg transition-all duration-200 ${
-          open
+        className={`fixed bottom-6 right-6 z-[60] flex h-15 w-36 items-center justify-center rounded-full shadow-lg transition-all duration-200 ${open
             ? 'pointer-events-none scale-90 opacity-0'
             : 'scale-100 opacity-100 hover:scale-105'
-        }`}
+          }`}
         style={{ backgroundColor: 'var(--accent)', color: 'var(--background)' }}
         aria-label="Talk to me — open chat"
         aria-hidden={open}
@@ -57,7 +56,7 @@ export default function ChatWidget() {
             lineHeight: 1.3,
           }}
         >
-          Talk to me
+          Talk to me (AI)
         </span>
       </button>
 
