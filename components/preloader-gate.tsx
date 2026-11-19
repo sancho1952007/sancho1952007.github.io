@@ -12,7 +12,7 @@ export default function PreloaderGate({
 }) {
   const [showPreloader, setShowPreloader] = useState(() => {
     if (skipPreloader || initialProjectSlug) return false
-    if (typeof window !== 'undefined' && window.location.pathname.startsWith('/project/')) {
+    if (typeof window !== 'undefined' && (window.location.pathname.startsWith('/project/') || window.location.search.includes('skip'))) {
       return false
     }
     return true

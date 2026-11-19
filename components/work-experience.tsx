@@ -38,7 +38,7 @@ export default function WorkExperience() {
             {/* Timeline node column */}
             <div className="flex flex-col items-center shrink-0 w-10 md:w-11">
               <div
-                className="relative w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center shrink-0 avatar-background"
+                className="relative w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center shrink-0 avatar-background mt-3 md:mt-2.5"
                 style={{
                   backgroundColor: 'var(--row-hover)',
                   border: '1px solid var(--border-rule)',
@@ -146,25 +146,16 @@ export default function WorkExperience() {
           <div className="flex gap-3.5 sm:gap-4 md:gap-6">
             {/* Timeline node column */}
             <div className="flex flex-col items-center shrink-0 w-10 md:w-11">
-              <div
-                className="relative w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center shrink-0 overflow-hidden"
-                style={{
-                  backgroundColor: 'var(--row-hover)',
-                  border: '1px solid var(--border-rule)',
-                  borderRadius: '50%',
-                }}
-              >
-                {/* eslint-disable-next-line @next/next/no- -element */}
-                <img
-                  src="/dodo-logo.webp"
-                  alt="Dodo Payments logo"
-                  width={44}
-                  height={44}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://wsrv.nl/?url=dodopayments.com/_astro/logo.4bB1POpK_Z2u8cUw.webp&w=200&h=200"
+                alt="Dodo Payments logo"
+                width={44}
+                height={44}
+                loading="lazy"
+                decoding="async"
+                className="w-10 h-10 md:w-11 md:h-11 object-contain shrink-0 mt-3 md:mt-3.5"
+              />
             </div>
 
             {/* Content card */}
