@@ -46,7 +46,7 @@ export const PROJECTS: Project[] = [
     name: 'SG Apps',
     description: 'At SG Apps, We Aim To Build Apps For The Best!',
     url: 'https://sg-app.com',
-    image: 'https://i.ibb.co/6gp6Sqt/Smart-Select-20240219-211006-Chrome.jpg',
+    image: 'https://i.ibb.co/sJbXgMvX/Screenshot-2026-11-19-at-5-34-29-PM.png',
   },
   {
     name: 'Tiles Game',

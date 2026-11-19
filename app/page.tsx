@@ -1,6 +1,6 @@
 import Navbar from '@/components/navbar'
 import Hero from '@/components/hero'
-import { About, Skills, Footer } from '@/components/sections'
+import { About, Skills, WorkExperience, Footer } from '@/components/sections'
 import Projects from '@/components/projects'
 import Contact from '@/components/contact'
 import PreloaderGate from '@/components/preloader-gate'
@@ -24,6 +24,7 @@ export default function Home({
         <Hero />
         <About />
         <Skills />
+        <WorkExperience />
         <Projects initialProjectSlug={initialProjectSlug} />
         <Contact />
       </main>

@@ -1,4 +1,5 @@
 import SectionShell, { RULE_STYLE } from './section-shell'
+export { default as WorkExperience } from './work-experience'
 
 // ─── About ──────────────────────────────────────────────────────────────────
 
