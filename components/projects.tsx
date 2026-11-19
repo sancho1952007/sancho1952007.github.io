@@ -70,7 +70,6 @@ const ProjectCard = memo(function ProjectCard({
           <img
             src={project.image}
             alt={`${project.name} preview`}
-            loading="lazy"
             decoding="async"
             onError={() => setImgError(true)}
             className="transition-transform duration-300 group-hover:scale-[1.02]"
@@ -138,7 +137,6 @@ const ProjectCard = memo(function ProjectCard({
             <img
               src={project.image}
               alt={`${project.name} preview`}
-              loading="lazy"
               decoding="async"
               onError={() => setImgError(true)}
               style={{ width: '100%', height: 'auto', display: 'block' }}
