@@ -3,7 +3,7 @@ import SectionShell, { RULE_STYLE } from './section-shell'
 // ─── About ──────────────────────────────────────────────────────────────────
 
 const FOCUSES = [
-  'Exploring payment systems and integrations',
+  'Exploring various systems and integrations',
   'Contributing to open-source projects',
   'Researching web security and vulnerabilities',
   'Building practical developer tools and utilities',
