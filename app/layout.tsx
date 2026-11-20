@@ -3,6 +3,13 @@ import Script from 'next/script'
 import localFont from 'next/font/local'
 import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google'
 import TechGrid from '@/components/tech-grid'
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_STRUCTURED_DATA,
+  SITE_TITLE,
+  SITE_URL,
+} from '@/lib/seo'
 import './globals.css'
 const geist = Geist({
   subsets: ['latin'],
@@ -32,69 +39,49 @@ const instrumentSerif = Instrument_Serif({
 const THEME_INIT_SCRIPT =
   `!function(){try{var d=document.documentElement,c=d.classList;var e=null;try{e=localStorage.getItem('theme')||sessionStorage.getItem('theme')}catch(x){}c.remove('light','dark');if(e==='light'){c.add('light');d.style.colorScheme='light'}else if(e==='dark'){c.add('dark');d.style.colorScheme='dark'}else if(e==='system'){var m=window.matchMedia('(prefers-color-scheme: dark)');var t=m.matches?'dark':'light';c.add(t);d.style.colorScheme=t}else{c.add('dark');d.style.colorScheme='dark'}}catch(e){}}()`
 
-const PERSON_STRUCTURED_DATA = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Sancho Godinho',
-  url: 'https://sancho.sg-app.com',
-  image: 'https://sancho.sg-app.com/pfp-400px.png',
-  sameAs: [
-    'https://hackerone.com/sancho-godinho',
-    'https://github.com/sancho1952007'
-  ],
-  jobTitle: 'Full-stack developer & cybersecurity researcher',
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Dodo Payments'
-  },
-  description: 'Full-Stack Developer and Cybersecurity Researcher focusing on Web Security, Penetration Testing, and Bug Bounties.',
-  knowsAbout: [
-    'Web Security',
-    'Cybersecurity',
-    'Bug Bounty Hunting',
-    'Penetration Testing',
-    'Full-Stack Development',
-    'TypeScript',
-    'React'
-  ]
-})
-
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  userScalable: false,
-  themeColor: '#6366f1',
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0f0f0e' },
+    { media: '(prefers-color-scheme: light)', color: '#f5f4f0' },
+  ],
   colorScheme: 'dark light',
 }
 
 export const metadata: Metadata = {
-  title: 'Sancho Godinho | Full-Stack Developer & Cybersecurity Researcher',
-  description:
-    'Portfolio of Sancho Godinho, a Full-Stack Developer and Cybersecurity Researcher at Dodo Payments. Discover my projects, open-source contributions, and technical insights.',
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   keywords: [
     'Sancho',
     'Sancho Godinho',
-    'Full-Stack Developer',
+    'Software Developer',
     'Cybersecurity Researcher',
-    'Hacker',
     'Software Engineer',
+    'Open Source Developer',
+    'DevOps',
     'Dodo Payments',
     'TypeScript',
     'React',
+    'Bun',
     'Web Security',
     'Bug Bounty',
+    'Mumbai',
     'Portfolio',
   ],
-  authors: [{ name: 'Sancho Godinho' }],
-  creator: 'Sancho Godinho',
-  publisher: 'Sancho Godinho',
-  metadataBase: new URL('https://sancho.sg-app.com/'),
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: '/',
     languages: {
-      'en': 'https://sancho.sg-app.com/',
-      'x-default': 'https://sancho.sg-app.com/',
-    }
+      en: SITE_URL,
+      'x-default': SITE_URL,
+    },
+    types: {
+      'text/markdown': '/markdown/index.md',
+    },
   },
   robots: {
     index: true,
@@ -115,16 +102,15 @@ export const metadata: Metadata = {
     firstName: 'Sancho',
     lastName: 'Godinho',
     username: 'sancho1952007',
-    url: 'https://sancho.sg-app.com/',
-    title: 'Sancho Godinho | Full-Stack Developer & Cybersecurity Researcher',
-    description:
-      'Portfolio of Sancho Godinho, a Full-Stack Developer and Cybersecurity Researcher at Dodo Payments. Discover my projects, open-source contributions, and technical insights.',
+    url: SITE_URL,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: [
       {
         url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png?maxage=15d&w=1200&h=630',
         width: 1200,
         height: 630,
-        alt: 'Sancho Godinho - Full-Stack Developer & Cybersecurity Researcher Portfolio',
+        alt: 'Sancho Godinho — Software Developer & Cybersecurity Researcher Portfolio',
       },
     ],
     siteName: 'Sancho Godinho Portfolio',
@@ -134,30 +120,47 @@ export const metadata: Metadata = {
   // Use full res image on X
   twitter: {
     card: 'summary_large_image',
-    title: 'Sancho Godinho | Full-Stack Developer & Cybersecurity Researcher',
-    description:
-      'Portfolio of Sancho Godinho, a Full-Stack Developer and Cybersecurity Researcher at Dodo Payments. Discover my projects, open-source contributions, and technical insights.',
-    images: ['https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png?maxage=15d'],
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png?maxage=15d',
+        alt: 'Sancho Godinho — Software Developer & Cybersecurity Researcher Portfolio',
+      },
+    ],
     creator: '@iamsgxd',
     site: '@iamsgxd',
   },
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png', sizes: '32x32' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: {
+      url: '/apple-touch-icon.png',
+      type: 'image/png',
+      sizes: '180x180',
+    },
   },
   other: {
+    // Accurate location metadata. The site states Mumbai on-site / remote.
     'geo.region': 'Earth',
     'geo.placename': 'Remote',
     'language': 'English',
-    'revisit-after': '3 days',
-    'rating': 'General',
-    'distribution': 'Global',
-    'coverage': 'Worldwide',
-    'target': 'all',
-    'article:author': 'Sancho Godinho',
-    'article:publisher': 'https://sancho.sg-app.com/',
-    'linkedin:owner': 'Sancho Godinho',
-  }
+    'revisit-after': '7 days',
+    rating: 'General',
+    distribution: 'Global',
+    coverage: 'Worldwide',
+    target: 'all',
+    HandheldFriendly: 'true',
+    MobileOptimized: 'width',
+    // Bing does not use the Next.js robots.googleBot shortcut.
+    bingbot: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
+    'article:author': SITE_NAME,
+    'article:publisher': SITE_URL,
+    'linkedin:owner': SITE_NAME,
+  },
 }
 
 export default function RootLayout({
@@ -180,10 +183,10 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
 
-        {/* JSON-LD Structured Data */}
+        {/* Site-wide identity graph (Person, WebSite, employer Organization) */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: PERSON_STRUCTURED_DATA }}
+          dangerouslySetInnerHTML={{ __html: SITE_STRUCTURED_DATA }}
         />
       </head>
       <body

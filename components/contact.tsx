@@ -12,7 +12,7 @@ type CaptchaComponent = React.ComponentType<{
   size: 'invisible'
   reCaptchaCompat: boolean
   onVerify: (token: string) => void
-  onError: () => void
+  onError: (event: string) => void
   onExpire: () => void
 }>
 

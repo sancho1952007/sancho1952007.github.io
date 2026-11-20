@@ -5,16 +5,25 @@ import Projects from '@/components/projects'
 import Contact from '@/components/contact'
 import PreloaderGate from '@/components/preloader-gate'
 import ChatWidget from '@/components/chat-widget'
+import { HOME_STRUCTURED_DATA } from '@/lib/seo'
 
 export default function Home({
   skipPreloader = false,
   initialProjectSlug,
+  structuredData = true,
 }: {
   skipPreloader?: boolean
   initialProjectSlug?: string
+  structuredData?: boolean
 } = {}) {
   return (
     <div style={{ minHeight: '100vh' }}>
+      {structuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: HOME_STRUCTURED_DATA }}
+        />
+      )}
       <PreloaderGate
         skipPreloader={skipPreloader}
         initialProjectSlug={initialProjectSlug}

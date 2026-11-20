@@ -46,7 +46,7 @@ export default function WorkExperience() {
                 }}
               >
                 <BriefcaseBusiness
-                  className="w-4 h-4 md:w-5 md:h-5 text-white relative z-[2]"
+                  className="w-4 h-4 md:w-5 md:h-5 text-foreground relative z-[2]"
                   strokeWidth={1.8}
                   aria-hidden="true"
                 />

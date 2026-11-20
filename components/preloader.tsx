@@ -60,17 +60,19 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
           const absOffset = Math.abs(offset)
 
           return (
-            <h1
+            <p
               key={lang.text}
+              aria-hidden="true"
               className="absolute text-5xl md:text-7xl font-bold tracking-tight transition-all duration-300 ease-in-out origin-center"
               style={{
+                margin: 0,
                 transform: `translateY(${offset * 150}%) translateZ(${-absOffset * 50}px) rotateX(${offset * 20}deg) scale(${Math.max(0.2, 1 - absOffset * 0.25)})`,
                 opacity: absOffset === 0 ? 1 : absOffset === 1 ? 0.4 : absOffset === 2 ? 0.15 : absOffset === 3 ? 0.05 : 0,
                 visibility: absOffset > 4 ? 'hidden' : 'visible'
               }}
             >
               {lang.text}
-            </h1>
+            </p>
           )
         })}
       </div>

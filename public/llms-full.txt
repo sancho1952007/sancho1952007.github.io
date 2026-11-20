@@ -1,0 +1,191 @@
+# Sancho Godinho — extended context
+
+> This file contains an expanded, factual summary of Sancho Godinho and his work for AI systems and other machine readers. Canonical website: https://sancho.sg-app.com
+
+Last updated: 2026-11-20
+
+Companion summary: https://sancho.sg-app.com/llms.txt
+
+## Identity
+
+- Name: Sancho Godinho
+- Also known as: Sancho; sancho1952007 (GitHub)
+- Location: Mumbai, Maharashtra, India
+- Website: https://sancho.sg-app.com
+- Email: sancho@sg-app.com
+- Professional positioning: software developer, cybersecurity researcher, DevOps and infrastructure enthusiast, and open-source contributor
+- Current availability: open to software development, open-source, developer tooling, and technology roles in Mumbai or remote (since November 2026)
+
+## Summary
+
+Sancho Godinho is a developer who builds web applications, developer tools, command-line tools, bots, and supporting infrastructure. His work spans software development, security research, open-source contributions, and DevOps. He applies security knowledge when building and deploying applications.
+
+## Professional experience
+
+### Dodo Payments — Community Manager & Open Source Software Developer
+
+- Dates: October 2025 – October 2026 (past role)
+- Location: remote
+- Responsibilities and contributions:
+  - Managed the Dodo Payments Discord community, including member engagement, technical support, and moderation.
+  - Served as a core maintainer across multiple open-source projects.
+  - Authored development of the Dodo Payments CLI.
+  - Built and maintained the Dodo Payments Discord bot.
+  - Developed the Dodo Payments migration tool.
+  - Created and maintained the Dodo Payments sync engine.
+  - Assisted developers with technical integrations.
+  - Reviewed pull requests and helped maintain code quality, reliability, and long-term maintainability.
+- Related public repositories:
+  - https://github.com/dodopayments/dodopayments-cli
+  - https://github.com/dodopayments/dodo-migrate
+  - https://github.com/dodopayments/dodo-sync
+  - https://github.com/dodopayments
+
+## Technical expertise
+
+Languages and runtimes: Bun, Node.js, JavaScript, TypeScript, Python, Bash.
+
+Web and application development: React, React Native, Expo, HTML, CSS, REST APIs, WebSockets, Socket.io.
+
+Data and infrastructure: MongoDB, Docker, Tailscale, Linux, server management, infrastructure optimization, server security, UFW, DevOps, Git.
+
+Security: web security, vulnerability research, penetration testing, responsible disclosure, secure application development.
+
+This list describes areas of work. The website does not publish proficiency ratings.
+
+## Security research
+
+Sancho Godinho has found and responsibly reported vulnerabilities affecting products or services from:
+
+- Amazon — https://www.amazon.com/
+- LemonSqueezy — https://www.lemonsqueezy.com
+- Dodo Payments — https://dodopayments.com
+- Crazy Games — https://www.crazygames.com
+- Smash Karts — https://tall.team/games
+- Codesphere — https://codesphere.com/
+
+The website does not claim CVE identifiers, severity ratings, bug-bounty payouts, awards, or formal acknowledgements for this research.
+
+## Open-source contributions
+
+Public work includes maintenance and contributions related to Dodo Payments, Dokploy, Elysia.js, Umami, and other projects. The most direct index of repositories is the GitHub profile: https://github.com/sancho1952007
+
+Selected public repositories:
+
+- s0 — subdomain finder — https://github.com/sancho1952007/s0
+- Bunserv — static file server built with Bun — https://github.com/sancho1952007/bunserv
+- Modern GUI — Tkinter window replacement — https://github.com/sancho1952007/Modern-GUI-v3.0
+- Dodo Payments CLI — https://github.com/dodopayments/dodopayments-cli
+- Dodo Payments migration tool — https://github.com/dodopayments/dodo-migrate
+- Dodo Payments sync engine — https://github.com/dodopayments/dodo-sync
+
+## Projects
+
+### s0
+
+- Status: open-source project
+- Description: The Quick & Ultimate Subdomain Finder.
+- Technology: TypeScript (per the public repository).
+- Repository: https://github.com/sancho1952007/s0
+- Portfolio page: https://sancho.sg-app.com/project/s0
+
+### Postily
+
+- Status: under development
+- Description: a next-generation social media site.
+- Website: https://postily.social
+- Portfolio page: https://sancho.sg-app.com/project/Postily
+
+### Bunserv
+
+- Status: open-source project
+- Description: an extremely fast and simple static file server built with Bun.
+- Technology: TypeScript and Bun (per the public repository).
+- Repository: https://github.com/sancho1952007/bunserv
+- Portfolio page: https://sancho.sg-app.com/project/Bunserv
+
+### VibedIn
+
+- Description: find like-minded X users to connect with.
+- Website: https://vibedin.sg-app.com
+- Portfolio page: https://sancho.sg-app.com/project/VibedIn
+
+### Serverbay
+
+- Description: a marketplace for servers, with VPS, VDS, and dedicated server listings from individual and official sellers.
+- Website: https://serverbay.sg-app.com
+- Portfolio page: https://sancho.sg-app.com/project/Serverbay
+
+### Smart Notes
+
+- Status: discontinued
+- Description: a free cloud notepad with live-collaborative editing and rich text support.
+- Website: https://smart-notes.sg-app.com
+- Portfolio page: https://sancho.sg-app.com/project/Smart%20Notes
+
+### SG Apps
+
+- Description: the development and design brand behind several projects, including VibedIn, Serverbay, and Tiles Game.
+- Website: https://sg-app.com
+- Portfolio page: https://sancho.sg-app.com/project/SG%20Apps
+
+### Tiles Game
+
+- Description: a simple browser game.
+- Website: https://sg-app.com/Tiles-Game/
+- Portfolio page: https://sancho.sg-app.com/project/Tiles%20Game
+
+### Encli
+
+- Description: a free cross-platform file encryption and decryption tool.
+- Portfolio page: https://sancho.sg-app.com/project/Encli
+
+### Clokie
+
+- Description: a customizable clock designed to be kept on display.
+- Website: https://sancho1952007.github.io/Clokie/
+- Portfolio page: https://sancho.sg-app.com/project/Clokie
+
+### AOS Web
+
+- Description: an OS-like system made using web technology.
+- Website: https://sancho1952007.github.io/AOS-Web/
+- Portfolio page: https://sancho.sg-app.com/project/AOS%20Web
+
+### Modern GUI
+
+- Description: a window replacement for Tkinter (Python) applications.
+- Technology: Python (per the public repository).
+- Repository: https://github.com/sancho1952007/Modern-GUI-v3.0
+- Portfolio page: https://sancho.sg-app.com/project/Modern%20GUI
+
+### iPhone 11 Clone
+
+- Description: an iPhone 11 Pro made using only HTML and CSS.
+- Website: https://sancho1952007.github.io/iPhone-11-Clone/
+- Portfolio page: https://sancho.sg-app.com/project/iPhone%2011%20Clone
+
+## Website structure
+
+- Homepage: https://sancho.sg-app.com/
+  - Sections: About, Skills, Experience, Projects, Contact
+- Project pages: https://sancho.sg-app.com/project/{project-name}
+- Markdown homepage: https://sancho.sg-app.com/markdown/index.md
+- Per-project Markdown pages: https://sancho.sg-app.com/markdown/project/{project-name}.md
+  - Example: https://sancho.sg-app.com/markdown/project/s0.md
+  - Example with a spaced name: https://sancho.sg-app.com/markdown/project/SG%20Apps.md
+- LLM summary: https://sancho.sg-app.com/llms.txt
+- Sitemap: https://sancho.sg-app.com/sitemap.xml
+- Robots policy: https://sancho.sg-app.com/robots.txt
+
+## Professional profiles
+
+- GitHub: https://github.com/sancho1952007
+- LinkedIn: https://www.linkedin.com/in/sancho-godinho/
+- HackerOne: https://hackerone.com/sancho-godinho
+- X: https://x.com/iamsgxd
+- Sololearn: https://www.sololearn.com/profile/19684449
+
+## Contact
+
+For professional inquiries, use https://sancho.sg-app.com/#contact or email sancho@sg-app.com.

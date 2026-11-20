@@ -11,17 +11,18 @@ import {
 } from 'react'
 import SectionShell from './section-shell'
 import { PROJECTS, findProject, type Project } from '@/lib/projects'
+import { projectPath } from '@/lib/seo'
 
 // Framer Motion and the modal markup are only needed once a visitor opens a
 // project. Keeping this in its own chunk cuts it from the homepage bundle while
 // still server-rendering on direct /project/[slug] visits.
 const ProjectModal = dynamic(() => import('./project-modal'))
 
-function getVisibleCardButton(projectName: string): HTMLButtonElement | null {
-  const buttons = document.querySelectorAll<HTMLButtonElement>('button[data-project]')
-  for (const button of buttons) {
-    if (button.dataset.project === projectName && button.offsetParent !== null) {
-      return button
+function getVisibleCardButton(projectName: string): HTMLAnchorElement | null {
+  const cards = document.querySelectorAll<HTMLAnchorElement>('a[data-project]')
+  for (const card of cards) {
+    if (card.dataset.project === projectName && card.offsetParent !== null) {
+      return card
     }
   }
   return null
@@ -42,14 +43,18 @@ const ProjectCard = memo(function ProjectCard({
 }: ProjectCardProps) {
   const [imgError, setImgError] = useState(false)
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    // Let modifier-clicks and middle-clicks open the crawlable project URL.
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return
+    e.preventDefault()
     onSelect(project, e.currentTarget.getBoundingClientRect())
   }
 
   if (mode === 'desktop') {
     return (
-      <button
+      <a
         data-project={project.name}
+        href={projectPath(project)}
         onClick={handleClick}
         className="group hidden md:block relative overflow-hidden w-full text-left cursor-pointer"
         style={{
@@ -61,6 +66,8 @@ const ProjectCard = memo(function ProjectCard({
           background: 'none',
           opacity: isSelected ? 0 : 1,
           pointerEvents: isSelected ? 'none' : 'auto',
+          color: 'inherit',
+          textDecoration: 'none',
         }}
         aria-label={`${project.name} - ${project.description}`}
       >
@@ -109,14 +116,15 @@ const ProjectCard = memo(function ProjectCard({
             {project.description}
           </p>
         </div>
-      </button>
+      </a>
     )
   }
 
   if (mode === 'mobile') {
     return (
-      <button
+      <a
         data-project={project.name}
+        href={projectPath(project)}
         onClick={handleClick}
         className="group flex md:hidden flex-col overflow-hidden transition-all duration-200 w-full text-left cursor-pointer"
         style={{
@@ -126,6 +134,8 @@ const ProjectCard = memo(function ProjectCard({
           padding: 0,
           opacity: isSelected ? 0 : 1,
           pointerEvents: isSelected ? 'none' : 'auto',
+          color: 'inherit',
+          textDecoration: 'none',
         }}
         aria-label={`${project.name} — ${project.description}`}
       >
@@ -167,7 +177,7 @@ const ProjectCard = memo(function ProjectCard({
             {project.url.replace(/^https?:\/\//, '').replace(/\/$/, '')} ↗
           </span>
         </div>
-      </button>
+      </a>
     )
   }
 
