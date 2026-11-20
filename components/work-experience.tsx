@@ -146,7 +146,6 @@ export default function WorkExperience() {
           <div className="flex gap-3.5 sm:gap-4 md:gap-6">
             {/* Timeline node column */}
             <div className="flex flex-col items-center shrink-0 w-10 md:w-11">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://wsrv.nl/?url=dodopayments.com/_astro/logo.4bB1POpK_Z2u8cUw.webp&w=200&h=200"
                 alt="Dodo Payments logo"

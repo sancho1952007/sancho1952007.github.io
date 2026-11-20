@@ -66,7 +66,6 @@ const ProjectCard = memo(function ProjectCard({
       >
         {/* Image */}
         {!imgError ? (
-          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={project.image}
             alt={`${project.name} preview`}
@@ -133,7 +132,6 @@ const ProjectCard = memo(function ProjectCard({
         {/* Image — natural height, no fixed aspect ratio */}
         <div className="relative w-full overflow-hidden" style={{ backgroundColor: 'var(--border-rule)' }}>
           {!imgError ? (
-            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={project.image}
               alt={`${project.name} preview`}

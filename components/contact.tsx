@@ -249,7 +249,7 @@ export default function Contact() {
                   <a
                     href={link.href}
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                     className="group inline-flex items-center gap-1 py-0 font-light transition-opacity duration-200 hover:opacity-60"
                     style={{ fontSize: '15px', color: 'var(--foreground)', textDecoration: 'none', minHeight: '30px', fontFamily: 'var(--font-geist-pixel-square)' }}
                   >

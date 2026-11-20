@@ -158,7 +158,6 @@ export default function ProjectModal({
               </button>
 
               <div className="w-full bg-[var(--border-rule)] shrink-0" style={{ maxHeight: '50vh', overflow: 'hidden' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={project.image}
                   alt={`${project.name} preview`}

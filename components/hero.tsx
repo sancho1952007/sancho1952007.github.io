@@ -23,7 +23,6 @@ export default function Hero() {
               <picture style={{ display: 'block', width: '100%', height: '100%' }}>
                 <source srcSet="/pfp-400px.avif" type="image/avif" />
                 <source srcSet="/pfp-400px.webp" type="image/webp" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/pfp-400px.png"
                   alt="Sketch portrait of Sancho Godinho"
@@ -45,7 +44,7 @@ export default function Hero() {
 
           {/* Text */}
           <div className="flex flex-col">
-            <p className="text-muted-text hidden lg:block">Hi, I'm</p>
+            <p className="text-muted-text hidden lg:block">Hi, I&apos;m</p>
             <h1
               className="text-balance leading-none mb-5"
               style={{
@@ -78,7 +77,7 @@ export default function Hero() {
                 className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
                 style={{ color: 'var(--accent)', fontSize: '14px', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-geist-pixel-square)' }}
               >
-                Let's Connect →
+                Let&apos;s Connect →
               </a>
               <a
                 href="mailto:sancho@sg-app.com"
@@ -90,6 +89,7 @@ export default function Hero() {
               <a
                 href="https://hackerone.com/sancho-godinho?type=user"
                 target="_blank"
+                rel="noreferrer noopener"
                 className="text-sm font-light transition-opacity duration-200 hover:opacity-70"
                 style={{ color: 'var(--accent)', fontSize: '14px', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-geist-pixel-square)' }}
               >
