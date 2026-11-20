@@ -1,0 +1,45 @@
+# Allow all crawlers by default
+User-agent: *
+Allow: /
+
+# OpenAI - training
+User-agent: GPTBot
+Allow: /
+
+# OpenAI - ChatGPT Search
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI - user-requested browsing
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic - model training
+User-agent: ClaudeBot
+Allow: /
+
+# Anthropic - search
+User-agent: Claude-SearchBot
+Allow: /
+
+# Anthropic - user-requested browsing
+User-agent: Claude-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Google - Gemini training and grounding
+User-agent: Google-Extended
+Allow: /
+
+# Meta - AI training
+User-agent: meta-externalagent
+Allow: /
+
+# Sitemap
+Sitemap: https://sancho.sg-app.com/sitemap.xml
+
+# AI-readable website guide
+# https://sancho.sg-app.com/llms.txt
