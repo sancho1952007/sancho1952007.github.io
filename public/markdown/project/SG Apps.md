@@ -1,6 +1,6 @@
 # SG Apps
 
-> At SG Apps, We Aim To Build Apps For The Best!
+> Portfolio and hub for my custom-built applications.
 
 **Project by Sancho Godinho.**
 

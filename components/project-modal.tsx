@@ -181,6 +181,41 @@ export default function ProjectModal({
                   {project.description}
                 </p>
 
+                {project.techStack?.length ? (
+                  <div className="mb-8">
+                    <p
+                      style={{
+                        fontSize: '11px',
+                        fontFamily: 'var(--font-mono, monospace)',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.12em',
+                        color: 'var(--muted-text)',
+                        marginBottom: '10px',
+                      }}
+                    >
+                      Tech stack
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.techStack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="font-light"
+                          style={{
+                            fontSize: '12px',
+                            color: 'var(--foreground)',
+                            border: '1px solid var(--border-rule)',
+                            borderRadius: '4px',
+                            padding: '3px 9px',
+                            lineHeight: 1.6,
+                          }}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+
                 <a
                   href={project.url}
                   target="_blank"

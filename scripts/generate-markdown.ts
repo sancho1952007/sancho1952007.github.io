@@ -37,6 +37,9 @@ async function main() {
       `- External link: ${project.url}`,
     ]
 
+    if (project.techStack?.length) {
+      lines.push(`- Tech stack: ${project.techStack.join(', ')}`)
+    }
     if (project.status) {
       lines.push(`- Status: ${project.status}`)
     }

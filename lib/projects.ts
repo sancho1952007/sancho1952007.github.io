@@ -13,87 +13,97 @@ export interface Project {
   status?: string
   /** Schema.org genre for non-application creative works. */
   genre?: string
+  /** Technologies used by the project, as stated by the project author. */
+  techStack?: string[]
 }
 
 export const PROJECTS: Project[] = [
   {
     name: 's0',
-    description: 'The Quick & Ultimate Subdomain Finder',
+    description: 'Fast CLI subdomain finder built with Bun.',
     url: 'https://github.com/sancho1952007/s0',
     image: 'https://wsrv.nl/?url=https://raw.githubusercontent.com/sancho1952007/s0/refs/heads/main/images/preview.png&maxage=15d',
     schemaType: 'SoftwareApplication',
     applicationCategory: 'SecurityApplication',
+    techStack: ['Bun', 'MongoDB', 'Redis', 'Expo'],
   },
   {
     name: 'Postily',
-    description: 'The Next Gen Social Media Site (Under Development)',
+    description: 'Creator-focused next-generation social media platform (under development).',
     url: 'https://postily.social',
     image: 'https://i.ibb.co/tpqpK5bH/d9f8637d-567b-4c11-968a-7688dcd44d2b.png',
     schemaType: 'WebApplication',
     applicationCategory: 'SocialNetworkingApplication',
     operatingSystem: 'Any',
     status: 'Under development',
+    techStack: ['Bun', 'MongoDB', 'Redis', 'Expo', 'Elysia'],
   },
   {
     name: 'Bunserv',
-    description: 'An extremely fast & simple static file server built with Bun',
+    description: 'High-performance, minimalist static file server CLI built with Bun.',
     url: 'https://github.com/sancho1952007/bunserv',
     image: 'https://wsrv.nl/?url=https://raw.githubusercontent.com/sancho1952007/bunserv/refs/heads/main/images/preview.png&maxage=15d',
     schemaType: 'SoftwareApplication',
     applicationCategory: 'DeveloperApplication',
+    techStack: ['Bun', 'CLI'],
   },
   {
     name: 'VibedIn',
-    description: 'Find like-minded X users to connect with',
+    description: 'Connect with like-minded users on X based on shared interests.',
     url: 'https://vibedin.sg-app.com',
     image: 'https://wsrv.nl/?url=https://vibedin.sg-app.com/images/og-image.png&maxage=15d',
     schemaType: 'WebApplication',
     applicationCategory: 'SocialNetworkingApplication',
     operatingSystem: 'Any',
+    techStack: ['Bun', 'MongoDB', 'Webhooks', 'X API'],
   },
   {
     name: 'Serverbay',
-    description: 'The marketplace for servers. Discover VPS, VDS and dedicated server listings from multiple individual and official sellers.',
+    description: 'Marketplace for VPS, VDS, and dedicated servers across individual and commercial sellers.',
     url: 'https://serverbay.sg-app.com',
     image: 'https://wsrv.nl/?url=https://serverbay.sg-app.com/logo.png%3Fv=0&maxage=15d',
     schemaType: 'WebApplication',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Any',
+    techStack: ['Bun', 'MongoDB', 'Next.js'],
   },
   {
     name: 'Smart Notes',
-    description: 'Free cloud notepad with live-collaborative editing and rich text support (It has been shut down now).',
+    description: 'Real-time collaborative cloud notepad with rich text support (shut down).',
     url: 'https://smart-notes.sg-app.com',
     image: 'https://i.ibb.co/307TKL1/Screenshot-2024-06-06-163943.png',
     schemaType: 'WebApplication',
     applicationCategory: 'ProductivityApplication',
     operatingSystem: 'Any',
     status: 'Discontinued',
+    techStack: ['Node.js', 'MongoDB', 'WebSockets'],
   },
   {
     name: 'SG Apps',
-    description: 'At SG Apps, We Aim To Build Apps For The Best!',
+    description: 'Portfolio and hub for my custom-built applications.',
     url: 'https://sg-app.com',
     image: 'https://i.ibb.co/sJbXgMvX/Screenshot-2026-11-19-at-5-34-29-PM.png',
     schemaType: 'CreativeWork',
-    genre: 'Website',
+    genre: 'Website'
   },
   {
     name: 'Tiles Game',
-    description: 'A simple yet fun game to play in your free time!',
+    description: 'Lightweight, casual browser game.',
     url: 'https://sg-app.com/Tiles-Game/',
     image: 'https://i.ibb.co/GW0J8P5/Screenshot-2024-06-06-164126.png',
     schemaType: 'WebApplication',
     applicationCategory: 'GameApplication',
     operatingSystem: 'Any',
+    techStack: ['HTML', 'CSS', 'JS'],
   },
   {
     name: 'Encli',
-    description: 'A free cross platform file encryption/decryption tool.',
+    description: 'Cross-platform CLI file encryption and decryption utility.',
     url: 'https://github.com/sancho1952007/Encli',
     image: 'https://i.ibb.co/rb53gx6/encli.png',
     schemaType: 'SoftwareApplication',
     applicationCategory: 'UtilitiesApplication',
+    techStack: ['Node.js', 'CLI'],
   },
   {
     name: 'Clokie',
@@ -103,6 +113,7 @@ export const PROJECTS: Project[] = [
     schemaType: 'WebApplication',
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Any',
+    techStack: ['HTML', 'CSS', 'JS'],
   },
   {
     name: 'AOS Web',
@@ -112,6 +123,7 @@ export const PROJECTS: Project[] = [
     schemaType: 'WebApplication',
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Any',
+    techStack: ['HTML', 'CSS', 'JS'],
   },
   {
     name: 'Modern GUI',
@@ -120,6 +132,7 @@ export const PROJECTS: Project[] = [
     image: 'https://i.ibb.co/s65b76z/Preview-Image.png',
     schemaType: 'SoftwareApplication',
     applicationCategory: 'DeveloperApplication',
+    techStack: ['Python', 'Tkinter'],
   },
   {
     name: 'iPhone 11 Clone',
@@ -128,6 +141,7 @@ export const PROJECTS: Project[] = [
     image: 'https://i.ibb.co/fxRWxzq/i-Phone-Preview.png',
     schemaType: 'CreativeWork',
     genre: 'Front-end demo',
+    techStack: ['HTML', 'CSS'],
   },
 ]
 

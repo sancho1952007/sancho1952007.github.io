@@ -228,6 +228,9 @@ function buildProjectNode(project: Project): Record<string, unknown> {
   if (project.genre) {
     node.genre = project.genre
   }
+  if (project.techStack?.length) {
+    node.keywords = project.techStack.join(', ')
+  }
 
   return node
 }

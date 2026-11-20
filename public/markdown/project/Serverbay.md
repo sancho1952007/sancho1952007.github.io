@@ -1,12 +1,13 @@
 # Serverbay
 
-> The marketplace for servers. Discover VPS, VDS and dedicated server listings from multiple individual and official sellers.
+> Marketplace for VPS, VDS, and dedicated servers across individual and commercial sellers.
 
 **Project by Sancho Godinho.**
 
 - Project page: https://sancho.sg-app.com/project/Serverbay
 - Markdown version: https://sancho.sg-app.com/markdown/project/Serverbay.md
 - External link: https://serverbay.sg-app.com
+- Tech stack: Bun, MongoDB, Next.js
 - Category: BusinessApplication
 
 ## About Sancho Godinho

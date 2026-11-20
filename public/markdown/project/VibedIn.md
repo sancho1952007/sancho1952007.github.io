@@ -1,12 +1,13 @@
 # VibedIn
 
-> Find like-minded X users to connect with
+> Connect with like-minded users on X based on shared interests.
 
 **Project by Sancho Godinho.**
 
 - Project page: https://sancho.sg-app.com/project/VibedIn
 - Markdown version: https://sancho.sg-app.com/markdown/project/VibedIn.md
 - External link: https://vibedin.sg-app.com
+- Tech stack: Bun, MongoDB, Webhooks, X API
 - Category: SocialNetworkingApplication
 
 ## About Sancho Godinho

@@ -1,12 +1,13 @@
 # Encli
 
-> A free cross platform file encryption/decryption tool.
+> Cross-platform CLI file encryption and decryption utility.
 
 **Project by Sancho Godinho.**
 
 - Project page: https://sancho.sg-app.com/project/Encli
 - Markdown version: https://sancho.sg-app.com/markdown/project/Encli.md
 - External link: https://github.com/sancho1952007/Encli
+- Tech stack: Node.js, CLI
 - Category: UtilitiesApplication
 
 ## About Sancho Godinho

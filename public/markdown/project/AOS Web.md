@@ -7,6 +7,7 @@
 - Project page: https://sancho.sg-app.com/project/AOS%20Web
 - Markdown version: https://sancho.sg-app.com/markdown/project/AOS%20Web.md
 - External link: https://sancho1952007.github.io/AOS-Web/
+- Tech stack: HTML, CSS, JS
 - Category: UtilitiesApplication
 
 ## About Sancho Godinho

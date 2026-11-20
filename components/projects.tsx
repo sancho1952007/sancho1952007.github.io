@@ -115,6 +115,11 @@ const ProjectCard = memo(function ProjectCard({
           <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.7)', lineHeight: 1.4 }}>
             {project.description}
           </p>
+          {project.techStack?.length ? (
+            <p className="font-mono" style={{ fontSize: '10px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.4, marginTop: '4px', letterSpacing: '0.04em' }}>
+              {project.techStack.join(' · ')}
+            </p>
+          ) : null}
         </div>
       </a>
     )
@@ -169,6 +174,11 @@ const ProjectCard = memo(function ProjectCard({
           <p className="font-light" style={{ fontSize: '13px', color: 'var(--muted-text)', lineHeight: 1.55 }}>
             {project.description}
           </p>
+          {project.techStack?.length ? (
+            <span className="font-mono" style={{ fontSize: '10px', color: 'var(--muted-text)', lineHeight: 1.5, letterSpacing: '0.04em', marginTop: '4px' }}>
+              {project.techStack.join(' · ')}
+            </span>
+          ) : null}
           <span
             className="mt-2 inline-flex items-center gap-1 font-light transition-opacity duration-200 group-hover:opacity-60"
             style={{ fontSize: '12px', color: 'var(--accent)' }}

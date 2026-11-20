@@ -53,19 +53,19 @@ Key responsibilities and contributions:
 
 ## Projects
 
-- [s0](https://sancho.sg-app.com/project/s0) — The Quick & Ultimate Subdomain Finder. https://github.com/sancho1952007/s0
-- [Postily](https://sancho.sg-app.com/project/Postily) — The Next Gen Social Media Site. Under development. https://postily.social
-- [Bunserv](https://sancho.sg-app.com/project/Bunserv) — An extremely fast and simple static file server built with Bun. https://github.com/sancho1952007/bunserv
-- [VibedIn](https://sancho.sg-app.com/project/VibedIn) — Find like-minded X users to connect with. https://vibedin.sg-app.com
-- [Serverbay](https://sancho.sg-app.com/project/Serverbay) — Marketplace for VPS, VDS, and dedicated server listings. https://serverbay.sg-app.com
-- [Smart Notes](https://sancho.sg-app.com/project/Smart%20Notes) — Free cloud notepad with live-collaborative editing and rich text support. Discontinued.
-- [SG Apps](https://sancho.sg-app.com/project/SG%20Apps) — Development and design brand. https://sg-app.com
-- [Tiles Game](https://sancho.sg-app.com/project/Tiles%20Game) — A simple browser game. https://sg-app.com/Tiles-Game/
-- [Encli](https://sancho.sg-app.com/project/Encli) — A free cross-platform file encryption/decryption tool.
-- [Clokie](https://sancho.sg-app.com/project/Clokie) — A customizable clock for display. https://sancho1952007.github.io/Clokie/
-- [AOS Web](https://sancho.sg-app.com/project/AOS%20Web) — An OS-like system made with web technology. https://sancho1952007.github.io/AOS-Web/
-- [Modern GUI](https://sancho.sg-app.com/project/Modern%20GUI) — A window replacement for Tkinter (Python) apps. https://github.com/sancho1952007/Modern-GUI-v3.0
-- [iPhone 11 Clone](https://sancho.sg-app.com/project/iPhone%2011%20Clone) — An iPhone 11 Pro made using only HTML and CSS. https://sancho1952007.github.io/iPhone-11-Clone/
+- [s0](https://sancho.sg-app.com/project/s0) — Fast CLI subdomain finder built with Bun. Tech: Bun, MongoDB, Redis, Expo. https://github.com/sancho1952007/s0
+- [Postily](https://sancho.sg-app.com/project/Postily) — Creator-focused next-generation social media platform. Under development. Tech: Bun, MongoDB, Redis, Expo, Elysia. https://postily.social
+- [Bunserv](https://sancho.sg-app.com/project/Bunserv) — High-performance, minimalist static file server CLI built with Bun. Tech: Bun, CLI. https://github.com/sancho1952007/bunserv
+- [VibedIn](https://sancho.sg-app.com/project/VibedIn) — Connect with like-minded users on X based on shared interests. Tech: Bun, MongoDB, Webhooks, X API. https://vibedin.sg-app.com
+- [Serverbay](https://sancho.sg-app.com/project/Serverbay) — Marketplace for VPS, VDS, and dedicated servers across individual and commercial sellers. Tech: Bun, MongoDB, Next.js. https://serverbay.sg-app.com
+- [Smart Notes](https://sancho.sg-app.com/project/Smart%20Notes) — Real-time collaborative cloud notepad with rich text support. Shut down. Tech: Node.js, MongoDB, WebSockets.
+- [SG Apps](https://sancho.sg-app.com/project/SG%20Apps) — Portfolio and hub for custom-built applications. https://sg-app.com
+- [Tiles Game](https://sancho.sg-app.com/project/Tiles%20Game) — Lightweight, casual browser game. Tech: HTML, CSS, JS. https://sg-app.com/Tiles-Game/
+- [Encli](https://sancho.sg-app.com/project/Encli) — Cross-platform CLI file encryption and decryption utility. Tech: Node.js, CLI. https://github.com/sancho1952007/Encli
+- [Clokie](https://sancho.sg-app.com/project/Clokie) — A customizable clock for display. Tech: HTML, CSS, JS. https://sancho1952007.github.io/Clokie/
+- [AOS Web](https://sancho.sg-app.com/project/AOS%20Web) — An OS-like system made with web technology. Tech: HTML, CSS, JS. https://sancho1952007.github.io/AOS-Web/
+- [Modern GUI](https://sancho.sg-app.com/project/Modern%20GUI) — A window replacement for Tkinter (Python) apps. Tech: Python, Tkinter. https://github.com/sancho1952007/Modern-GUI-v3.0
+- [iPhone 11 Clone](https://sancho.sg-app.com/project/iPhone%2011%20Clone) — An iPhone 11 Pro made using only HTML and CSS. Tech: HTML, CSS. https://sancho1952007.github.io/iPhone-11-Clone/
 
 ## Contact
 

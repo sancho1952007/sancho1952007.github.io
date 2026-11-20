@@ -4,37 +4,41 @@
 
 Last updated: 2026-11-20
 
-## About
-
-Sancho Godinho builds web applications, developer tools, CLIs, bots, and infrastructure. His work combines software development with security research. He has found and responsibly reported vulnerabilities affecting organizations including Amazon, LemonSqueezy, Dodo Payments, Crazy Games, Smash Karts, and Codesphere. He is currently open to software development, open-source, developer tooling, and technology roles in Mumbai or remote.
+Sancho Godinho builds web applications, developer tools, CLIs, bots, and infrastructure. His work combines software development with security research and responsible disclosure. He is currently open to software development, open-source, developer tooling, and technology roles in Mumbai or remote.
 
 ## Professional experience
 
-- **Community Manager & Open Source Software Developer**, Dodo Payments (October 2025 – October 2026, remote; past role). Managed the Dodo Payments Discord community, provided technical support, and was a core maintainer of the Dodo Payments CLI, Discord bot, migration tool, and sync engine. Assisted developers with technical integrations and contributed to open-source maintenance.
+- **Community Manager & Open Source Software Developer**, Dodo Payments (October 2025 – October 2026, part-time, remote; past role). Managed the Dodo Payments Discord community and was a core maintainer of the Dodo Payments CLI, Discord bot, migration tool, and sync engine.
+- **Open to work** (November 2026 – present): on-site roles in Mumbai or remote roles in software development, open source, developer tooling, and technology-focused teams.
 
-## Technical expertise
+## Technical skills
 
-Bun, Node.js, JavaScript, TypeScript, React, React Native, Expo, Python, Bash, MongoDB, Docker, Socket.io, Tailscale, Linux, server management, infrastructure optimization, server security, UFW, REST APIs, WebSockets, Git, and DevOps. Web security, vulnerability research, penetration testing, and responsible disclosure.
+The website groups skills as:
+
+- **Expert:** Bun, Node.js, Socket.io, HTML, CSS, JavaScript, Tailscale, server management, infrastructure optimization, server security.
+- **Proficient:** React, Expo, Python, Bash, MongoDB, Docker, UFW.
+- **Practices:** RESTful API design, WebSocket communication, security best practices, Git and version control, responsive web design, performance optimization.
+- **Also listed in the site's structured data:** TypeScript, React Native, Linux, DevOps, web security, vulnerability research, and responsible disclosure.
 
 ## Projects
 
-- [s0](https://sancho.sg-app.com/project/s0): The Quick & Ultimate Subdomain Finder. Open-source TypeScript security tool: https://github.com/sancho1952007/s0
-- [Postily](https://sancho.sg-app.com/project/Postily): The Next Gen Social Media Site. Under development: https://postily.social
-- [Bunserv](https://sancho.sg-app.com/project/Bunserv): An extremely fast and simple static file server built with Bun: https://github.com/sancho1952007/bunserv
-- [VibedIn](https://sancho.sg-app.com/project/VibedIn): Find like-minded X users to connect with: https://vibedin.sg-app.com
-- [Serverbay](https://sancho.sg-app.com/project/Serverbay): Marketplace for VPS, VDS, and dedicated server listings: https://serverbay.sg-app.com
-- [Smart Notes](https://sancho.sg-app.com/project/Smart%20Notes): Free cloud notepad with live-collaborative editing and rich text support. Discontinued: https://smart-notes.sg-app.com
-- [SG Apps](https://sancho.sg-app.com/project/SG%20Apps): Development and design brand behind several projects: https://sg-app.com
-- [Tiles Game](https://sancho.sg-app.com/project/Tiles%20Game): A simple browser game: https://sg-app.com/Tiles-Game/
-- [Encli](https://sancho.sg-app.com/project/Encli): A free cross-platform file encryption/decryption tool.
-- [Clokie](https://sancho.sg-app.com/project/Clokie): A customizable clock for display: https://sancho1952007.github.io/Clokie/
-- [AOS Web](https://sancho.sg-app.com/project/AOS%20Web): An OS-like system made with web technology: https://sancho1952007.github.io/AOS-Web/
-- [Modern GUI](https://sancho.sg-app.com/project/Modern%20GUI): A window replacement for Tkinter (Python) apps: https://github.com/sancho1952007/Modern-GUI-v3.0
-- [iPhone 11 Clone](https://sancho.sg-app.com/project/iPhone%2011%20Clone): An iPhone 11 Pro made using only HTML and CSS: https://sancho1952007.github.io/iPhone-11-Clone/
+- [s0](https://sancho.sg-app.com/project/s0) — Fast CLI subdomain finder built with Bun. Tech stack: Bun, MongoDB, Redis, Expo. Source: https://github.com/sancho1952007/s0
+- [Postily](https://sancho.sg-app.com/project/Postily) — Creator-focused next-generation social media platform (under development). Tech stack: Bun, MongoDB, Redis, Expo, Elysia. Website: https://postily.social
+- [Bunserv](https://sancho.sg-app.com/project/Bunserv) — High-performance, minimalist static file server CLI built with Bun. Tech stack: Bun, CLI. Source: https://github.com/sancho1952007/bunserv
+- [VibedIn](https://sancho.sg-app.com/project/VibedIn) — Connect with like-minded users on X based on shared interests. Tech stack: Bun, MongoDB, Webhooks, X API. Website: https://vibedin.sg-app.com
+- [Serverbay](https://sancho.sg-app.com/project/Serverbay) — Marketplace for VPS, VDS, and dedicated servers across individual and commercial sellers. Tech stack: Bun, MongoDB, Next.js. Website: https://serverbay.sg-app.com
+- [Smart Notes](https://sancho.sg-app.com/project/Smart%20Notes) — Real-time collaborative cloud notepad with rich text support. Shut down. Tech stack: Node.js, MongoDB, WebSockets.
+- [SG Apps](https://sancho.sg-app.com/project/SG%20Apps) — Portfolio and hub for custom-built applications. Website: https://sg-app.com
+- [Tiles Game](https://sancho.sg-app.com/project/Tiles%20Game) — Lightweight, casual browser game. Tech stack: HTML, CSS, JS. Website: https://sg-app.com/Tiles-Game/
+- [Encli](https://sancho.sg-app.com/project/Encli) — Cross-platform CLI file encryption and decryption utility. Tech stack: Node.js, CLI. Source: https://github.com/sancho1952007/Encli
+- [Clokie](https://sancho.sg-app.com/project/Clokie) — Customizable clock for display. Tech stack: HTML, CSS, JS. Website: https://sancho1952007.github.io/Clokie/
+- [AOS Web](https://sancho.sg-app.com/project/AOS%20Web) — OS-like system made with web technology. Tech stack: HTML, CSS, JS. Website: https://sancho1952007.github.io/AOS-Web/
+- [Modern GUI](https://sancho.sg-app.com/project/Modern%20GUI) — Window replacement for Tkinter (Python) apps. Tech stack: Python, Tkinter. Source: https://github.com/sancho1952007/Modern-GUI-v3.0
+- [iPhone 11 Clone](https://sancho.sg-app.com/project/iPhone%2011%20Clone) — iPhone 11 Pro made using only HTML and CSS. Tech stack: HTML, CSS. Website: https://sancho1952007.github.io/iPhone-11-Clone/
 
 ## Open-source contributions
 
-Sancho Godinho is an active open-source contributor. He was a core maintainer at Dodo Payments for the CLI, Discord bot, migration tool, and sync engine, and has contributed to projects including Dokploy, Elysia.js, and Umami. The most complete index is his GitHub profile: https://github.com/sancho1952007
+Sancho Godinho is an active open-source contributor. He was a core maintainer at Dodo Payments for the CLI, Discord bot, migration tool, and sync engine, and has contributed to projects including Dokploy, Elysia.js, and other projects. The most complete index is his GitHub profile: https://github.com/sancho1952007
 
 Selected public repositories:
 
@@ -47,7 +51,7 @@ Selected public repositories:
 
 ## Security research
 
-Sancho Godinho performs responsible vulnerability research and reporting. Organizations whose products he has reported vulnerabilities in include Amazon, LemonSqueezy, Dodo Payments, Crazy Games, Smash Karts, and Codesphere. No CVE identifiers, severity ratings, bounties, or formal acknowledgements are claimed on this site.
+Sancho Godinho performs responsible vulnerability research and reporting. Organizations whose products he has reported vulnerabilities in include Amazon, LemonSqueezy, Dodo Payments, Crazy Games, Smash Karts, and Codesphere. No CVE identifiers, severity ratings, bounties, awards, or formal acknowledgements are claimed on this site.
 
 ## Website pages
 
@@ -58,6 +62,7 @@ Sancho Godinho performs responsible vulnerability research and reporting. Organi
 - Markdown version of each project page: https://sancho.sg-app.com/markdown/project/{project-name}.md (for example https://sancho.sg-app.com/markdown/project/s0.md; spaced names are URL-encoded, for example https://sancho.sg-app.com/markdown/project/SG%20Apps.md)
 - [Extended LLM context](https://sancho.sg-app.com/llms-full.txt)
 - [Sitemap](https://sancho.sg-app.com/sitemap.xml)
+- [Robots policy](https://sancho.sg-app.com/robots.txt) — public content is readable by search, AI retrieval, and training crawlers.
 
 ## Professional profiles
 
@@ -66,7 +71,9 @@ Sancho Godinho performs responsible vulnerability research and reporting. Organi
 - HackerOne: https://hackerone.com/sancho-godinho
 - X: https://x.com/iamsgxd
 - Sololearn: https://www.sololearn.com/profile/19684449
+- Discord: sanchogodinho (https://discord.com/users/1053386709737414739)
 
 ## Contact
 
 Email: sancho@sg-app.com
+Contact form: https://sancho.sg-app.com/#contact

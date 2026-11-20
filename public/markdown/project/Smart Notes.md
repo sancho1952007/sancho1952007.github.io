@@ -1,12 +1,13 @@
 # Smart Notes
 
-> Free cloud notepad with live-collaborative editing and rich text support (It has been shut down now).
+> Real-time collaborative cloud notepad with rich text support (shut down).
 
 **Project by Sancho Godinho.**
 
 - Project page: https://sancho.sg-app.com/project/Smart%20Notes
 - Markdown version: https://sancho.sg-app.com/markdown/project/Smart%20Notes.md
 - External link: https://smart-notes.sg-app.com
+- Tech stack: Node.js, MongoDB, WebSockets
 - Status: Discontinued
 - Category: ProductivityApplication
 

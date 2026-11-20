@@ -24,8 +24,7 @@ Sancho Godinho is a developer who builds web applications, developer tools, comm
 
 ### Dodo Payments — Community Manager & Open Source Software Developer
 
-- Dates: October 2025 – October 2026 (past role)
-- Location: remote
+- Dates: October 2025 – October 2026 (part-time, remote; past role)
 - Responsibilities and contributions:
   - Managed the Dodo Payments Discord community, including member engagement, technical support, and moderation.
   - Served as a core maintainer across multiple open-source projects.
@@ -41,17 +40,21 @@ Sancho Godinho is a developer who builds web applications, developer tools, comm
   - https://github.com/dodopayments/dodo-sync
   - https://github.com/dodopayments
 
-## Technical expertise
+### Open to work
 
-Languages and runtimes: Bun, Node.js, JavaScript, TypeScript, Python, Bash.
+- Dates: November 2026 – present
+- Location: Mumbai (on-site) or remote
+- Focus: software development, open-source projects, developer tooling, and technology-focused teams.
 
-Web and application development: React, React Native, Expo, HTML, CSS, REST APIs, WebSockets, Socket.io.
+## Technical skills
 
-Data and infrastructure: MongoDB, Docker, Tailscale, Linux, server management, infrastructure optimization, server security, UFW, DevOps, Git.
+The website groups skills as:
 
-Security: web security, vulnerability research, penetration testing, responsible disclosure, secure application development.
+- Expert: Bun, Node.js, Socket.io, HTML, CSS, JavaScript, Tailscale, server management, infrastructure optimization, server security.
+- Proficient: React, Expo, Python, Bash, MongoDB, Docker, UFW.
+- Practices: RESTful API design, WebSocket communication, security best practices, Git and version control, responsive web design, performance optimization.
 
-This list describes areas of work. The website does not publish proficiency ratings.
+The site's structured data also lists TypeScript, React Native, Linux, DevOps, web security, vulnerability research, and responsible disclosure.
 
 ## Security research
 
@@ -68,7 +71,7 @@ The website does not claim CVE identifiers, severity ratings, bug-bounty payouts
 
 ## Open-source contributions
 
-Public work includes maintenance and contributions related to Dodo Payments, Dokploy, Elysia.js, Umami, and other projects. The most direct index of repositories is the GitHub profile: https://github.com/sancho1952007
+Public work includes maintenance and contributions related to Dodo Payments, Dokploy, Elysia.js, and other projects. The most direct index of repositories is the GitHub profile: https://github.com/sancho1952007
 
 Selected public repositories:
 
@@ -83,85 +86,95 @@ Selected public repositories:
 
 ### s0
 
-- Status: open-source project
-- Description: The Quick & Ultimate Subdomain Finder.
-- Technology: TypeScript (per the public repository).
+- Status: open source
+- Description: Fast CLI subdomain finder built with Bun.
+- Tech stack: Bun, MongoDB, Redis, Expo.
 - Repository: https://github.com/sancho1952007/s0
 - Portfolio page: https://sancho.sg-app.com/project/s0
 
 ### Postily
 
 - Status: under development
-- Description: a next-generation social media site.
+- Description: creator-focused next-generation social media platform.
+- Tech stack: Bun, MongoDB, Redis, Expo, Elysia.
 - Website: https://postily.social
 - Portfolio page: https://sancho.sg-app.com/project/Postily
 
 ### Bunserv
 
-- Status: open-source project
-- Description: an extremely fast and simple static file server built with Bun.
-- Technology: TypeScript and Bun (per the public repository).
+- Status: open source
+- Description: high-performance, minimalist static file server CLI built with Bun.
+- Tech stack: Bun, CLI.
 - Repository: https://github.com/sancho1952007/bunserv
 - Portfolio page: https://sancho.sg-app.com/project/Bunserv
 
 ### VibedIn
 
-- Description: find like-minded X users to connect with.
+- Description: connect with like-minded users on X based on shared interests.
+- Tech stack: Bun, MongoDB, Webhooks, X API.
 - Website: https://vibedin.sg-app.com
 - Portfolio page: https://sancho.sg-app.com/project/VibedIn
 
 ### Serverbay
 
-- Description: a marketplace for servers, with VPS, VDS, and dedicated server listings from individual and official sellers.
+- Description: marketplace for VPS, VDS, and dedicated servers across individual and commercial sellers.
+- Tech stack: Bun, MongoDB, Next.js.
 - Website: https://serverbay.sg-app.com
 - Portfolio page: https://sancho.sg-app.com/project/Serverbay
 
 ### Smart Notes
 
-- Status: discontinued
-- Description: a free cloud notepad with live-collaborative editing and rich text support.
-- Website: https://smart-notes.sg-app.com
+- Status: discontinued (shut down)
+- Description: real-time collaborative cloud notepad with rich text support.
+- Tech stack: Node.js, MongoDB, WebSockets.
+- Website: no live website (the service has been shut down).
 - Portfolio page: https://sancho.sg-app.com/project/Smart%20Notes
 
 ### SG Apps
 
-- Description: the development and design brand behind several projects, including VibedIn, Serverbay, and Tiles Game.
+- Description: portfolio and hub for custom-built applications.
 - Website: https://sg-app.com
 - Portfolio page: https://sancho.sg-app.com/project/SG%20Apps
 
 ### Tiles Game
 
-- Description: a simple browser game.
+- Description: lightweight, casual browser game.
+- Tech stack: HTML, CSS, JS.
 - Website: https://sg-app.com/Tiles-Game/
 - Portfolio page: https://sancho.sg-app.com/project/Tiles%20Game
 
 ### Encli
 
-- Description: a free cross-platform file encryption and decryption tool.
+- Description: cross-platform CLI file encryption and decryption utility.
+- Tech stack: Node.js, CLI.
+- Repository: https://github.com/sancho1952007/Encli
 - Portfolio page: https://sancho.sg-app.com/project/Encli
 
 ### Clokie
 
-- Description: a customizable clock designed to be kept on display.
+- Description: customizable clock designed to be kept on display.
+- Tech stack: HTML, CSS, JS.
 - Website: https://sancho1952007.github.io/Clokie/
 - Portfolio page: https://sancho.sg-app.com/project/Clokie
 
 ### AOS Web
 
 - Description: an OS-like system made using web technology.
+- Tech stack: HTML, CSS, JS.
 - Website: https://sancho1952007.github.io/AOS-Web/
 - Portfolio page: https://sancho.sg-app.com/project/AOS%20Web
 
 ### Modern GUI
 
 - Description: a window replacement for Tkinter (Python) applications.
-- Technology: Python (per the public repository).
+- Tech stack: Python, Tkinter.
 - Repository: https://github.com/sancho1952007/Modern-GUI-v3.0
 - Portfolio page: https://sancho.sg-app.com/project/Modern%20GUI
 
 ### iPhone 11 Clone
 
 - Description: an iPhone 11 Pro made using only HTML and CSS.
+- Tech stack: HTML, CSS.
 - Website: https://sancho1952007.github.io/iPhone-11-Clone/
 - Portfolio page: https://sancho.sg-app.com/project/iPhone%2011%20Clone
 
@@ -170,13 +183,19 @@ Selected public repositories:
 - Homepage: https://sancho.sg-app.com/
   - Sections: About, Skills, Experience, Projects, Contact
 - Project pages: https://sancho.sg-app.com/project/{project-name}
+  - Individual pages exist for every project listed above.
 - Markdown homepage: https://sancho.sg-app.com/markdown/index.md
 - Per-project Markdown pages: https://sancho.sg-app.com/markdown/project/{project-name}.md
   - Example: https://sancho.sg-app.com/markdown/project/s0.md
   - Example with a spaced name: https://sancho.sg-app.com/markdown/project/SG%20Apps.md
 - LLM summary: https://sancho.sg-app.com/llms.txt
+- Extended LLM context: https://sancho.sg-app.com/llms-full.txt
 - Sitemap: https://sancho.sg-app.com/sitemap.xml
 - Robots policy: https://sancho.sg-app.com/robots.txt
+
+## Machine access
+
+The site's robots policy allows search crawlers, AI search and retrieval agents, and model-training crawlers to read the public site. The site also publishes Markdown versions of the homepage and every project page.
 
 ## Professional profiles
 
@@ -185,7 +204,8 @@ Selected public repositories:
 - HackerOne: https://hackerone.com/sancho-godinho
 - X: https://x.com/iamsgxd
 - Sololearn: https://www.sololearn.com/profile/19684449
+- Discord: sanchogodinho (https://discord.com/users/1053386709737414739)
 
 ## Contact
 
-For professional inquiries, use https://sancho.sg-app.com/#contact or email sancho@sg-app.com.
+For professional inquiries, use https://sancho.sg-app.com/#contact or email sancho@sg-app.com. The site states a typical response time of within 24 hours.

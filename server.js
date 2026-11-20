@@ -103,6 +103,12 @@ Bun.serve({
             )
         }
 
+        // Clean Markdown entry point. The .md file is also served statically to
+        // every GET; this just makes the extensionless URL work as well.
+        if (pathname === '/markdown' || pathname === '/markdown/') {
+            return Response.redirect(`${url.origin}/markdown/index.md`, 302)
+        }
+
         const found = await findStaticFile(pathname)
         if (found) {
             return staticResponse(found.file, found.pathname)

@@ -1,12 +1,13 @@
 # Postily
 
-> The Next Gen Social Media Site (Under Development)
+> Creator-focused next-generation social media platform (under development).
 
 **Project by Sancho Godinho.**
 
 - Project page: https://sancho.sg-app.com/project/Postily
 - Markdown version: https://sancho.sg-app.com/markdown/project/Postily.md
 - External link: https://postily.social
+- Tech stack: Bun, MongoDB, Redis, Expo, Elysia
 - Status: Under development
 - Category: SocialNetworkingApplication
 

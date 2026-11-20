@@ -7,6 +7,7 @@
 - Project page: https://sancho.sg-app.com/project/Clokie
 - Markdown version: https://sancho.sg-app.com/markdown/project/Clokie.md
 - External link: https://sancho1952007.github.io/Clokie/
+- Tech stack: HTML, CSS, JS
 - Category: UtilitiesApplication
 
 ## About Sancho Godinho

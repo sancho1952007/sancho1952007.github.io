@@ -7,6 +7,7 @@
 - Project page: https://sancho.sg-app.com/project/iPhone%2011%20Clone
 - Markdown version: https://sancho.sg-app.com/markdown/project/iPhone%2011%20Clone.md
 - External link: https://sancho1952007.github.io/iPhone-11-Clone/
+- Tech stack: HTML, CSS
 - Type: Front-end demo
 
 ## About Sancho Godinho
