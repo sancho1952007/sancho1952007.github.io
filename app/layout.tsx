@@ -37,7 +37,7 @@ const instrumentSerif = Instrument_Serif({
 // Executed before first paint to avoid a theme flash. Kept at module scope so
 // the string is created once at build time rather than per rendered page.
 const THEME_INIT_SCRIPT =
-  `!function(){try{var d=document.documentElement,c=d.classList;var e=null;try{e=localStorage.getItem('theme')||sessionStorage.getItem('theme')}catch(x){}c.remove('light','dark');if(e==='light'){c.add('light');d.style.colorScheme='light'}else if(e==='dark'){c.add('dark');d.style.colorScheme='dark'}else if(e==='system'){var m=window.matchMedia('(prefers-color-scheme: dark)');var t=m.matches?'dark':'light';c.add(t);d.style.colorScheme=t}else{c.add('dark');d.style.colorScheme='dark'}}catch(e){}}()`
+  `!function(){try{var d=document.documentElement,c=d.classList;var e=null;try{e=localStorage.getItem('theme')||sessionStorage.getItem('theme')}catch(x){}c.remove('light','dark');if(e==='light'){c.add('light');d.style.colorScheme='light'}else if(e==='dark'){c.add('dark');d.style.colorScheme='dark'}else if(e==='system'){var m=window.matchMedia('(prefers-color-scheme: dark)');var t=m.matches?'dark':'light';c.add(t);d.style.colorScheme=t}else{c.add('dark');d.style.colorScheme='dark'}if(location.search.indexOf('skip')!==-1)c.add('skip-preloader')}catch(e){}}()`
 
 export const viewport: Viewport = {
   width: 'device-width',

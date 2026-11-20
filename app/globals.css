@@ -263,3 +263,8 @@
   }
 }
 
+/* ?skip=1 hides the preloader before hydration, avoiding a one-frame flash. */
+.skip-preloader .preloader {
+  display: none;
+}
+
