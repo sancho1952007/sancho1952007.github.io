@@ -1,13 +1,17 @@
+// SITE_LAST_MODIFIED is generated from the latest git commit date by
+// scripts/generate-build-info.ts (run via predev/prebuild). It is a full
+// ISO 8601 datetime with a timezone offset, as required for JSON-LD
+// dateModified.
+import { SITE_LAST_MODIFIED } from './build-info'
 import { PROJECTS, type Project } from './projects'
+
+export { SITE_LAST_MODIFIED }
 
 export const SITE_URL = 'https://sancho.sg-app.com'
 export const SITE_NAME = 'Sancho Godinho'
 export const SITE_TITLE = 'Sancho Godinho | Software Developer & Cybersecurity Researcher'
 export const SITE_DESCRIPTION =
   'Sancho Godinho is a software developer, cybersecurity researcher, and open-source contributor in Mumbai. Explore projects, open-source work, and security research.'
-/** Stable content date so sitemap/JSON-LD freshness does not churn per build. */
-export const SITE_LAST_MODIFIED = '2026-11-20'
-
 export const PERSON_ID = `${SITE_URL}/#person`
 export const WEBSITE_ID = `${SITE_URL}/#website`
 export const PROFILE_PAGE_ID = `${SITE_URL}/#profilepage`

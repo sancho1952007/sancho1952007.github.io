@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "bun scripts/generate-build-info.ts",
     "dev": "next dev",
-    "prebuild": "bun scripts/generate-markdown.ts",
+    "prebuild": "bun scripts/generate-build-info.ts && bun scripts/generate-markdown.ts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint ."

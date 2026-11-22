@@ -8,6 +8,9 @@ __v0_jsx-dev-runtime.ts
 next.user-config.*
 out/
 
+# Generated at build time from git metadata
+lib/build-info.ts
+
 # Environment variables
 .env*.local
 
