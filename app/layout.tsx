@@ -107,7 +107,7 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png?maxage=15d&w=1200&h=630',
+        url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image-v2.png?maxage=15d&w=1200&h=630',
         width: 1200,
         height: 630,
         alt: 'Sancho Godinho — Software Developer & Cybersecurity Researcher Portfolio',
@@ -124,7 +124,7 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image.png?maxage=15d',
+        url: 'https://wsrv.nl/?url=https://sancho-s3.sg-app.com/sancho-og-image-v2.png?maxage=15d',
         alt: 'Sancho Godinho — Software Developer & Cybersecurity Researcher Portfolio',
       },
     ],
