@@ -1,6 +1,7 @@
 export default function Hero() {
   return (
     <section
+      id="hero"
       className="flex flex-col justify-center min-h-screen px-6 md:px-12 lg:px-20"
       aria-label="Hero"
     >
